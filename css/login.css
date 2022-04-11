@@ -1,0 +1,36 @@
+body {
+    width: 550px;
+    height: 350px;
+    display: flex;
+    background-color: #000957;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../images/header.svg');
+    background-position: 50% -40px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: auto;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 30px 30px;
+    grid-gap: 10px;
+    align-content: center; 
+    padding-top: 50px;
+}
+
+#key {
+    grid-column: 1 / 2;
+    text-align: center;
+    width: 200px;
+    outline: none;
+}
+
+#bind {
+    grid-column: 2 / 3;
+}
+
+#reset {
+    grid-column: 3 / 4;
+}

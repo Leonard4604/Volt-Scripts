@@ -1,0 +1,37 @@
+{
+    "manifest_version": 3,
+
+    "name": "Volt Scripts",
+    "description": "Volt Scripts new ui",
+    "version": "1.0.0",
+    "icons": {
+        "16": "./images/logo.png",
+        "32": "./images/logo.png",
+        "64": "./images/logo.png",
+        "128": "./images/logo.png"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action":
+    {
+        "default_icon": "./images/logo.png",
+        "default_popup": "./html/login.html",
+        "default_title": "Volt Scripts"
+    },
+    "host_permissions": [
+        "*://*.google.com/",
+        "<all_urls>"
+    ],
+    "permissions": [
+        "tabs",
+        "storage",
+        "cookies",
+        "contextMenus",
+        "webRequest",
+        "declarativeNetRequest",
+        "unlimitedStorage",
+        "activeTab",
+        "system.storage"
+    ]
+}
