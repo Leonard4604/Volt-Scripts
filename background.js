@@ -25,3 +25,15 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
         }
     }
 })
+
+chrome.system.cpu.getInfo((info) => {       
+    console.log(info)
+});
+
+chrome.system.display.getInfo((info) => {       
+    console.log(info)
+});
+
+chrome.instanceID.getID((info) => { 
+    console.log(info)
+})

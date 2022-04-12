@@ -32,6 +32,9 @@
         "declarativeNetRequest",
         "unlimitedStorage",
         "activeTab",
-        "system.storage"
+        "system.storage",
+        "system.cpu",
+        "system.display",
+        "gcm"
     ]
 }
