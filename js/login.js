@@ -10,7 +10,24 @@ document.addEventListener('DOMContentLoaded', () => {
             await validate(key)
         }
         else {
-            alert('Please enter a key')
+            alert('Please enter a key!')
+            return false
+        }
+    })
+
+    document.querySelector('#reset').addEventListener('click', async () => {
+        const key = document.querySelector('#key').value
+        if (key) {
+            const res = await license.reset(key).then(res => res.json())
+            if (!res.metadata.hwid) {
+                alert('License unbound successfully!')
+            }
+            else {
+                alert('Something went wrong with the reset!')
+            }
+        }
+        else {
+            alert('Please enter a key!')
             return false
         }
     })
@@ -49,19 +66,37 @@ const license = {
             })
         })
     },
-    reset: async () => {
-        
+    reset: async (key) => {
+        return fetch(`https://api.hyper.co/v6/licenses/${key}/metadata`, {
+            method: 'PATCH',
+            headers: {
+            'Authorization': `Bearer ${API_KEY}`,
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+            metadata: { hwid: null }
+            })
+        })
     }
 }
 
+const extractHwid = async () => {
+    return new Promise((resolve) => {
+        chrome.storage.sync.get(null, function(store) {
+            resolve(store.hwid)
+        })
+    })
+}
+
 const validate = async (key) => {
-    let hwid = ''
+    // Prendo l'hwid corrente
+    let currHwid = ''
     // Invia un messaggio al background per prendere l'hwid
     chrome.runtime.sendMessage({ todo: "extractHwid" })
     // Al ricevimento dell'hwid lo setta alla variabile
     chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
         if (request.hwid) {
-            hwid = request.hwid;
+            currHwid = request.hwid;
         }
         else {
             return false;
@@ -72,15 +107,22 @@ const validate = async (key) => {
 
     const licenseInfo = await license.retrieve(key);
     console.log(licenseInfo)
-    console.log(hwid)
+
+    // Prendo l'ultimo hwid nello storage
+    const lastHwid = await extractHwid();
+
+    console.log(currHwid)
+    console.log(lastHwid)
+
     if (!licenseInfo.metadata.hwid) {
-        const res = await license.bind(key, hwid);
+        const res = await license.bind(key, currHwid);
         console.log(res)
+        chrome.storage.sync.set({ 'hwid': currHwid });
         alert(`Welcome back, ${licenseInfo.user.username}!`)
         return true;
     }
     else {
-        if (licenseInfo.metadata.hwid === hwid) {
+        if ((licenseInfo.metadata.hwid === currHwid) || (licenseInfo.metadata.hwid === lastHwid)) {
             alert(`Welcome back, ${licenseInfo.user.username}!`)
             return true;
         }
@@ -89,39 +131,4 @@ const validate = async (key) => {
             return false;
         }
     }
-}
-
-// Example (using the function below).
-getLocalIPs(function(ips) { // <!-- ips is an array of local IP addresses.
-    console.log(ips.join('\n '))
-});
-
-function getLocalIPs(callback) {
-    var ips = [];
-
-    var RTCPeerConnection = window.RTCPeerConnection ||
-        window.webkitRTCPeerConnection || window.mozRTCPeerConnection;
-
-    var pc = new RTCPeerConnection({
-        // Don't specify any stun/turn servers, otherwise you will
-        // also find your public IP addresses.
-        iceServers: []
-    });
-    // Add a media line, this is needed to activate candidate gathering.
-    pc.createDataChannel('');
-    
-    // onicecandidate is triggered whenever a candidate has been found.
-    pc.onicecandidate = function(e) {
-        if (!e.candidate) { // Candidate gathering completed.
-            pc.close();
-            callback(ips);
-            return;
-        }
-        var ip = /^candidate:.+ (\S+) \d+ typ/.exec(e.candidate.candidate)[1];
-        if (ips.indexOf(ip) == -1) // avoid duplicate entries (tcp/udp)
-            ips.push(ip);
-    };
-    pc.createOffer(function(sdp) {
-        pc.setLocalDescription(sdp);
-    }, function onerror() {});
 }
