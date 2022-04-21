@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Please enter a key!')
             return false
         }
+
+        version()
     })
 
     document.querySelector('#reset').addEventListener('click', async () => {
@@ -131,4 +133,19 @@ const validate = async (key) => {
             return false;
         }
     }
+}
+
+const version = () => {
+    chrome.runtime.sendMessage({ todo: "getVersion" })
+
+    chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+        if (request.version) {
+            console.log(request.version)
+        }
+        else {
+            return false;
+        }
+        sendResponse({status: 'received'})
+        return true;
+    })
 }

@@ -13,9 +13,24 @@ const getHwid = async (request, sender, sendResponse) => {
 }
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-    if (request.todo == 'extractHwid') {
+    if (request.todo === 'extractHwid') {
         try {
             getHwid(request, sender, sendResponse)
+            sendResponse({status: 'received'})
+            return true;
+        }
+        catch {
+            sendResponse({status: 'not received'})
+            return false;
+        }
+    }
+})
+
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+    if (request.todo === 'getVersion') {
+        try {
+            const manifestData = chrome.runtime.getManifest();
+            chrome.runtime.sendMessage({ version: manifestData.version })
             sendResponse({status: 'received'})
             return true;
         }

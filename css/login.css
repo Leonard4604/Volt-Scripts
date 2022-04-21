@@ -12,25 +12,29 @@ body {
     background-size: auto;
 }
 
-.container {
+.container {  
     display: grid;
     grid-template-columns: 1fr 30px 30px;
-    grid-gap: 10px;
+    grid-template-rows: 1fr;
+    gap: 0px 10px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "key bind reset";
     align-content: center; 
     padding-top: 50px;
 }
-
-#key {
-    grid-column: 1 / 2;
+  
+#key { 
+    grid-area: key; 
     text-align: center;
     width: 200px;
     outline: none;
 }
 
-#bind {
-    grid-column: 2 / 3;
+#bind { 
+    grid-area: bind; 
 }
 
-#reset {
-    grid-column: 3 / 4;
+#reset { 
+    grid-area: reset; 
 }
