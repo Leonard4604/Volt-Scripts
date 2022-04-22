@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/home.css" />
+    <script src="../js/home.js"></script>
+</head>
+<body>
+    <!-- loader -->
+    <div class="loader"> 
+        <svg width="16px" height="12px">
+          <polyline id="back" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+          <polyline id="front" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+        </svg>
+    </div>
+
+    <!-- flexbox container -->
+    <div class="container">
+        <!-- sidebar -->
+        <div class="sidebar">
+            <input type="image" class="button" id="home" src="../images/home.svg">
+            <input type="image" class="button" id="profile" src="../images/profile.svg">
+            <input type="image" class="button" id="proxy" src="../images/proxy.svg">
+            <input type="image" class="button" id="backup" src="../images/backup.svg">
+            <input type="image" class="button" id="info" src="../images/info.svg">
+
+            <input type="image" class="button" id="log-out" src="../images/log-out.svg">
+        </div>
+        <!-- content -->
+        <div class="content">
+
+        </div>
+        <div class="glass hidden"></div>
+    </div>
+</body>
+</html>

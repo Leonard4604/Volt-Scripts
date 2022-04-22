@@ -16,7 +16,7 @@
     "action":
     {
         "default_icon": "./images/logo.png",
-        "default_popup": "./html/login.html",
+        "default_popup": "./html/home.html",
         "default_title": "Volt Scripts"
     },
     "host_permissions": [
