@@ -1,16 +1,22 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const key = await extractKey()
+    const key = await extractKey();
 
     const isValid = await validate(key).then((isValid) => {
-        document.querySelector(".loader").style.visibility = "hidden";
+        document.querySelector(".loader").remove()
         document.querySelector(".glass").classList.add("hide");
         return isValid;
     })
+
+    // Rimuove il glass effect quando finisce la transizione
+    const glass = document.querySelector('.glass');
+
+    glass.addEventListener('transitionend', () => {
+        glass.remove();
+    });
     
-    console.log(isValid)
     if (!isValid) {
-        window.location.href = '../html/login.html'
-        return false
+        window.location.href = '../html/login.html';
+        return false;
     }
 })
 
@@ -25,7 +31,6 @@ const license = {
             }).then(res => res.json());
             return license;
         } catch {
-            alert('License not found')
             return false;
         }
     },
@@ -89,13 +94,9 @@ const validate = async (key) => {
     })
 
     const licenseInfo = await license.retrieve(key);
-    console.log(licenseInfo)
 
     // Prendo l'ultimo hwid nello storage
     const lastHwid = await extractHwid();
-
-    console.log(currHwid)
-    console.log(lastHwid)
 
     if (!licenseInfo) {
         return false
@@ -103,7 +104,6 @@ const validate = async (key) => {
     if (licenseInfo) {
         if (!licenseInfo.metadata.hwid) {
             const res = await license.bind(key, currHwid);
-            console.log(res)
             chrome.storage.sync.set({ 'hwid': currHwid });
             
             return true;

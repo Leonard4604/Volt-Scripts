@@ -116,13 +116,9 @@ const validate = async (key) => {
     })
 
     const licenseInfo = await license.retrieve(key);
-    console.log(licenseInfo)
 
     // Prendo l'ultimo hwid nello storage
     const lastHwid = await extractHwid();
-
-    console.log(currHwid)
-    console.log(lastHwid)
 
     if (!licenseInfo) {
         return false
@@ -130,7 +126,6 @@ const validate = async (key) => {
     if (licenseInfo) {
         if (!licenseInfo.metadata.hwid) {
             const res = await license.bind(key, currHwid);
-            console.log(res)
             chrome.storage.sync.set({ 'hwid': currHwid });
             chrome.storage.sync.set({ 'active': true });
             alert(`Welcome back, ${licenseInfo.user.username}!`)
