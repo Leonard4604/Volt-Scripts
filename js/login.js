@@ -7,7 +7,15 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('#bind').addEventListener('click', async () => {
         const key = document.querySelector('#key').value
         if (key) {
-            await validate(key)
+            const isValid = await validate(key).then((isValid) => {
+                return isValid;
+            })
+
+            if (isValid) {
+                window.location.href = '../html/home.html'
+                return true
+            }
+            return false
         }
         else {
             alert('Please enter a key!')
@@ -116,23 +124,33 @@ const validate = async (key) => {
     console.log(currHwid)
     console.log(lastHwid)
 
-    if (!licenseInfo.metadata.hwid) {
-        const res = await license.bind(key, currHwid);
-        console.log(res)
-        chrome.storage.sync.set({ 'hwid': currHwid });
-        alert(`Welcome back, ${licenseInfo.user.username}!`)
-        return true;
+    if (!licenseInfo) {
+        return false
     }
-    else {
-        if ((licenseInfo.metadata.hwid === currHwid) || (licenseInfo.metadata.hwid === lastHwid)) {
+    if (licenseInfo) {
+        if (!licenseInfo.metadata.hwid) {
+            const res = await license.bind(key, currHwid);
+            console.log(res)
+            chrome.storage.sync.set({ 'hwid': currHwid });
+            chrome.storage.sync.set({ 'active': true });
             alert(`Welcome back, ${licenseInfo.user.username}!`)
             return true;
         }
-        else {
-            alert('This license is in use on another computer!')
-            return false;
+        if (licenseInfo.metadata.hwid) {
+            if ((licenseInfo.metadata.hwid === currHwid) || (licenseInfo.metadata.hwid === lastHwid)) {
+                alert(`Welcome back, ${licenseInfo.user.username}!`)
+                chrome.storage.sync.set({ 'active': true });
+                return true;
+            }
+            else {
+                alert('This license is in use on another computer!')
+                chrome.storage.sync.set({ 'active': false });
+                return false;
+            }
         }
+        return false
     }
+    return false
 }
 
 const version = () => {

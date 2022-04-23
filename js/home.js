@@ -1,10 +1,17 @@
 document.addEventListener('DOMContentLoaded', async () => {
     const key = await extractKey()
 
-    await validate(key).then(() => {
+    const isValid = await validate(key).then((isValid) => {
         document.querySelector(".loader").style.visibility = "hidden";
         document.querySelector(".glass").classList.add("hide");
+        return isValid;
     })
+    
+    console.log(isValid)
+    if (!isValid) {
+        window.location.href = '../html/login.html'
+        return false
+    }
 })
 
 const API_KEY = 'pk_RBvQYAkZymGXCnOIXFF6rQFbpY9Y9i9u'
@@ -90,23 +97,30 @@ const validate = async (key) => {
     console.log(currHwid)
     console.log(lastHwid)
 
-    if (!licenseInfo.metadata.hwid) {
-        const res = await license.bind(key, currHwid);
-        console.log(res)
-        chrome.storage.sync.set({ 'hwid': currHwid });
-        
-        return true;
+    if (!licenseInfo) {
+        return false
     }
-    else {
-        if ((licenseInfo.metadata.hwid === currHwid) || (licenseInfo.metadata.hwid === lastHwid)) {
-            chrome.storage.sync.set({ 'active': true });
+    if (licenseInfo) {
+        if (!licenseInfo.metadata.hwid) {
+            const res = await license.bind(key, currHwid);
+            console.log(res)
+            chrome.storage.sync.set({ 'hwid': currHwid });
+            
             return true;
         }
-        else {
-            chrome.storage.sync.set({ 'active': false });
-            return false;
+        if (licenseInfo.metadata.hwid) {
+            if ((licenseInfo.metadata.hwid === currHwid) || (licenseInfo.metadata.hwid === lastHwid)) {
+                chrome.storage.sync.set({ 'active': true });
+                return true;
+            }
+            else {
+                chrome.storage.sync.set({ 'active': false });
+                return false;
+            }
         }
+        return false
     }
+    return false
 }
 
 const version = () => {
