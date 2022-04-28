@@ -18,6 +18,29 @@ document.addEventListener('DOMContentLoaded', async () => {
         window.location.href = '../html/login.html';
         return false;
     }
+
+    const btn = document.querySelector("#btn");
+    const sidebar = document.querySelector(".sidebar");
+
+    btn.onclick = function(){
+        sidebar.classList.toggle("active");
+    }
+
+    // const dash = document.querySelector('.sidebar ul li a');
+    // dash.addEventListener("click", () => {
+    //     dash.style.color = "var(--black-color)";
+    //     dash.style.backgroundColor = "var(--white-color)"
+    // });
+
+    const logout = document.querySelector('#logout');
+    logout.addEventListener('click', () => {
+        license.reset(key)
+        chrome.storage.sync.set({ 
+            'active': false,
+            'key': null 
+        });
+        window.location.href = '../html/login.html'
+    })
 })
 
 const API_KEY = 'pk_RBvQYAkZymGXCnOIXFF6rQFbpY9Y9i9u'
@@ -97,8 +120,8 @@ const validate = async (key) => {
 
     // Prendo l'ultimo hwid nello storage
     const lastHwid = await extractHwid();
-
-    if (!licenseInfo) {
+    console.log(licenseInfo)
+    if ((!licenseInfo) || (licenseInfo.status === "canceled")) {
         return false
     }
     if (licenseInfo) {

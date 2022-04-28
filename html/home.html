@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/home.css" />
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <script src="../js/home.js"></script>
 </head>
 <body>
@@ -16,23 +17,61 @@
         </svg>
     </div>
 
-    <!-- flexbox container -->
-    <div class="container">
-        <!-- sidebar -->
-        <div class="sidebar">
-            <input type="image" class="button" id="home" src="../images/home.svg">
-            <input type="image" class="button" id="profile" src="../images/profile.svg">
-            <input type="image" class="button" id="proxy" src="../images/proxy.svg">
-            <input type="image" class="button" id="backup" src="../images/backup.svg">
-            <input type="image" class="button" id="info" src="../images/info.svg">
-
-            <input type="image" class="button" id="log-out" src="../images/log-out.svg">
+    <!-- sidebar -->
+    <div class="sidebar">
+        <div class="logo_content">
+            <i class='bx bx-menu' id="btn"></i>
         </div>
-        <!-- content -->
+        <ul class="nav_list">
+            <li>
+                <a href="#">
+                    <i class='bx bxs-dashboard'></i>
+                    <span class="links_name">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-user'></i>
+                    <span class="links_name">Profiles</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-globe' ></i>
+                    <span class="links_name">Proxy</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-chart' ></i>
+                    <span class="links_name">Analytics</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-save' ></i>
+                    <span class="links_name">Backup</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-cog' ></i>
+                    <span class="links_name">Settings</span>
+                </a>
+            </li>
+        </ul>
         <div class="content">
-
+            <div class="user">
+                <div class="user_details">
+                </div>
+            <i class='bx bx-log-out' id="logout"></i>
         </div>
-        <div class="glass hidden"></div>
+        </div>
     </div>
+    <!-- content -->
+    <div class="home_content">
+
+    </div>
+    <div class="glass hidden"></div>
 </body>
 </html>

@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     document.querySelector('#bind').addEventListener('click', async () => {
-        const key = document.querySelector('#key').value
+        const key = document.querySelector('#key').value.replaceAll(' ', '')
         if (key) {
             const isValid = await validate(key).then((isValid) => {
                 return isValid;
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     document.querySelector('#reset').addEventListener('click', async () => {
-        const key = document.querySelector('#key').value
+        const key = document.querySelector('#key').value.replaceAll(' ', '')
         if (key) {
             const res = await license.reset(key).then(res => res.json())
             if (!res.metadata.hwid) {
@@ -58,9 +58,9 @@ const license = {
                     'Authorization': `Bearer ${API_KEY}`
                 }
             }).then(res => res.json());
+            console.log(license)
             return license;
         } catch {
-            alert('License not found')
             return false;
         }
     },
@@ -116,11 +116,12 @@ const validate = async (key) => {
     })
 
     const licenseInfo = await license.retrieve(key);
-
+    console.log(licenseInfo)
     // Prendo l'ultimo hwid nello storage
     const lastHwid = await extractHwid();
 
-    if (!licenseInfo) {
+    if ((!licenseInfo) || (licenseInfo.status === "canceled")) {
+        alert('License not found')
         return false
     }
     if (licenseInfo) {
