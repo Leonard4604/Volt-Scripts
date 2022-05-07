@@ -26,11 +26,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         sidebar.classList.toggle("active");
     }
 
-    // const dash = document.querySelector('.sidebar ul li a');
-    // dash.addEventListener("click", () => {
-    //     dash.style.color = "var(--black-color)";
-    //     dash.style.backgroundColor = "var(--white-color)"
-    // });
+    const dash = document.querySelector('.sidebar ul li a');
+    dash.style.color = "var(--black-color)";
+    dash.style.backgroundColor = "var(--white-color)"
 
     const logout = document.querySelector('#logout');
     logout.addEventListener('click', () => {
