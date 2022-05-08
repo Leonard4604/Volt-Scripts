@@ -27,8 +27,54 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     const dash = document.querySelector('.sidebar ul li a');
-    dash.style.color = "var(--black-color)";
+    dash.style.color = "var(--blue-color)";
     dash.style.backgroundColor = "var(--white-color)"
+
+    // Modules settings
+    const zalandoSettings = document.querySelector('#zalando > #settings > .button > button > #button');
+    zalandoSettings.addEventListener('click', () => {
+        show('.zalando', '.container')
+    })
+
+    const luisaviaromaSettings = document.querySelector('#luisaviaroma > #settings > .button > button > #button');
+    luisaviaromaSettings.addEventListener('click', () => {
+        show('.luisaviaroma', '.container')
+    })
+
+    const cisalfaSettings = document.querySelector('#cisalfa > #settings > .button > button > #button');
+    cisalfaSettings.addEventListener('click', () => {
+        show('.cisalfa', '.container')
+    })
+
+    const snipesSettings = document.querySelector('#snipes > #settings > .button > button > #button');
+    snipesSettings.addEventListener('click', () => {
+        show('.snipes', '.container')
+    })
+
+    const soleboxSettings = document.querySelector('#solebox > #settings > .button > button > #button');
+    soleboxSettings.addEventListener('click', () => {
+        show('.solebox', '.container')
+    })
+
+    const awlabHereSettings = document.querySelector('#awlab-here > #settings > .button > button > #button');
+    awlabHereSettings.addEventListener('click', () => {
+        show('.awlab-here', '.container')
+    })
+
+    const supremeSettings = document.querySelector('#supreme > #settings > .button > button > #button');
+    supremeSettings.addEventListener('click', () => {
+        show('.supreme', '.container')
+    })
+
+    const snsNakedSettings = document.querySelector('#sns-naked > #settings > .button > button > #button');
+    snsNakedSettings.addEventListener('click', () => {
+        show('.sns-naked', '.container')
+    })
+
+    const kith = document.querySelector('#kith > #settings > .button > button > #button');
+    kith.addEventListener('click', () => {
+        show('.kith', '.container')
+    })
 
     const logout = document.querySelector('#logout');
     logout.addEventListener('click', () => {
@@ -157,4 +203,10 @@ const version = () => {
         sendResponse({status: 'received'})
         return true;
     })
+}
+
+const show = (shown, hidden) => {
+    document.querySelector(shown).style.display='block';
+    document.querySelector(hidden).style.display='none';
+    return false;
 }
