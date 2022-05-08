@@ -281,7 +281,7 @@ button {
 .container {  
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 109px 109px 109px 109px;
+    grid-template-rows: 108.5px 108.5px 108.5px 108.5px;
     grid-auto-rows: 1fr;
     gap: 10px 10px;
     grid-auto-flow: row;
@@ -361,7 +361,7 @@ button {
     background: var(--white-color);
     width: 100%;
     height: 100%;
-    border-radius: 6px;
+    border-radius: 4px;
 }
 
 /* luisaviaroma */
@@ -428,7 +428,7 @@ button {
     background: var(--white-color);
     width: 100%;
     height: 100%;
-    border-radius: 6px;
+    border-radius: 4px;
 }
 
 /* cisalfa */
@@ -495,7 +495,7 @@ button {
     background: var(--white-color);
     width: 100%;
     height: 100%;
-    border-radius: 6px;
+    border-radius: 4px;
 }
 
 /* snipes */
@@ -562,7 +562,7 @@ button {
     background: var(--white-color);
     width: 100%;
     height: 100%;
-    border-radius: 6px;
+    border-radius: 4px;
 }
 
 /* solebox */
@@ -629,7 +629,7 @@ button {
     background: var(--white-color);
     width: 100%;
     height: 100%;
-    border-radius: 6px;
+    border-radius: 4px;
 }
 
 /* awlab-here */
@@ -712,7 +712,7 @@ button {
     background: var(--white-color);
     width: 100%;
     height: 100%;
-    border-radius: 6px;
+    border-radius: 4px;
 }
 
 /* supreme */
@@ -779,7 +779,7 @@ button {
     background: var(--white-color);
     width: 100%;
     height: 100%;
-    border-radius: 6px;
+    border-radius: 4px;
 }
 
 /* sns-naked */
@@ -866,7 +866,7 @@ button {
     background: var(--white-color);
     width: 100%;
     height: 100%;
-    border-radius: 6px;
+    border-radius: 4px;
 }
 
 /* kith */
@@ -933,7 +933,7 @@ button {
     background: var(--white-color);
     width: 100%;
     height: 100%;
-    border-radius: 6px;
+    border-radius: 4px;
 }
 
 #test { 

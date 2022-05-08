@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         sidebar.classList.toggle("active");
     }
 
-    const dash = document.querySelector('.sidebar ul li a');
+    const dash = document.querySelector('.sidebar ul li a#dashboard');
     dash.style.color = "var(--blue-color)";
     dash.style.backgroundColor = "var(--white-color)"
 
@@ -74,6 +74,37 @@ document.addEventListener('DOMContentLoaded', async () => {
     const kith = document.querySelector('#kith > #settings > .button > button > #button');
     kith.addEventListener('click', () => {
         show('.kith', '.container')
+    })
+    
+    // Ritorno dalla pagina del singolo modulo alla dashboard
+    dash.addEventListener('click', () => {
+        if (document.querySelector('.zalando').style.display === 'block') {
+            showGrid('.container', '.zalando')
+        }
+        if (document.querySelector('.luisaviaroma').style.display === 'block') {
+            showGrid('.container', '.luisaviaroma')
+        }
+        if (document.querySelector('.cisalfa').style.display === 'block') {
+            showGrid('.container', '.cisalfa')
+        }
+        if (document.querySelector('.snipes').style.display === 'block') {
+            showGrid('.container', '.snipes')
+        }
+        if (document.querySelector('.solebox').style.display === 'block') {
+            showGrid('.container', '.solebox')
+        }
+        if (document.querySelector('.awlab-here').style.display === 'block') {
+            showGrid('.container', '.awlab-here')
+        }
+        if (document.querySelector('.supreme').style.display === 'block') {
+            showGrid('.container', '.supreme')
+        }
+        if (document.querySelector('.sns-naked').style.display === 'block') {
+            showGrid('.container', '.sns-naked')
+        }
+        if (document.querySelector('.kith').style.display === 'block') {
+            showGrid('.container', '.kith')
+        }
     })
 
     const logout = document.querySelector('#logout');
@@ -207,6 +238,12 @@ const version = () => {
 
 const show = (shown, hidden) => {
     document.querySelector(shown).style.display='block';
+    document.querySelector(hidden).style.display='none';
+    return false;
+}
+
+const showGrid = (shown, hidden) => {
+    document.querySelector(shown).style.display='grid';
     document.querySelector(hidden).style.display='none';
     return false;
 }
