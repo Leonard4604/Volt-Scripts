@@ -356,7 +356,7 @@ button {
     cursor: pointer;
 }
 
-.zalando {
+.dashboard#zalando {
     display: none;
     background: var(--white-color);
     width: 100%;
@@ -423,7 +423,7 @@ button {
     cursor: pointer;
 }
 
-.luisaviaroma {
+.dashboard#luisaviaroma {
     display: none;
     background: var(--white-color);
     width: 100%;
@@ -490,7 +490,7 @@ button {
     cursor: pointer;
 }
 
-.cisalfa {
+.dashboard#cisalfa {
     display: none;
     background: var(--white-color);
     width: 100%;
@@ -557,7 +557,7 @@ button {
     cursor: pointer;
 }
 
-.snipes {
+.dashboard#snipes {
     display: none;
     background: var(--white-color);
     width: 100%;
@@ -624,7 +624,7 @@ button {
     cursor: pointer;
 }
 
-.solebox {
+.dashboard#solebox {
     display: none;
     background: var(--white-color);
     width: 100%;
@@ -707,7 +707,7 @@ button {
     cursor: pointer;
 }
 
-.awlab-here {
+.dashboard#awlab-here {
     display: none;
     background: var(--white-color);
     width: 100%;
@@ -774,7 +774,7 @@ button {
     cursor: pointer;
 }
 
-.supreme {
+.dashboard#supreme {
     display: none;
     background: var(--white-color);
     width: 100%;
@@ -861,7 +861,7 @@ button {
     cursor: pointer;
 }
 
-.sns-naked {
+.dashboard#sns-naked {
     display: none;
     background: var(--white-color);
     width: 100%;
@@ -928,7 +928,7 @@ button {
     cursor: pointer;
 }
 
-.kith {
+.dashboard#kith {
     display: none;
     background: var(--white-color);
     width: 100%;
@@ -939,7 +939,39 @@ button {
 #test { 
     grid-area: test; 
 }
-  
+
+/* other pages */
+.profiles {
+    display: none;
+    background: var(--white-color);
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+}
+
+.proxy {
+    display: none;
+    background: var(--white-color);
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+}
+
+.analytics {
+    display: none;
+    background: var(--white-color);
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+}
+
+.settings {
+    display: none;
+    background: var(--white-color);
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+}
 
 /* scrollbar */
 ::-webkit-scrollbar {
