@@ -20,6 +20,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         return false;
     }
 
+    // Aggiorna la versione nella dashboard
+    version()
+
     // Gestion sidebar
     const btn = document.querySelector("#btn");
     const sidebar = document.querySelector(".sidebar");
@@ -662,12 +665,15 @@ const validate = async (key) => {
         if (!licenseInfo.metadata.hwid) {
             const res = await license.bind(key, currHwid);
             chrome.storage.sync.set({ 'hwid': currHwid });
-            
+            document.querySelector('div.content > div > div > img').src = licenseInfo.user.avatar;
+            document.querySelector('div.content > div > div > div > div.name').textContent = `${licenseInfo.user.discord.username}#${licenseInfo.user.discord.discriminator}`;
             return true;
         }
         if (licenseInfo.metadata.hwid) {
             if ((licenseInfo.metadata.hwid === currHwid) || (licenseInfo.metadata.hwid === lastHwid)) {
                 chrome.storage.sync.set({ 'active': true });
+                document.querySelector('div.content > div > div > img').src = licenseInfo.user.avatar;
+                document.querySelector('div.content > div > div > div > div.name').textContent = `${licenseInfo.user.discord.username}#${licenseInfo.user.discord.discriminator}`;
                 return true;
             }
             else {
@@ -685,7 +691,7 @@ const version = () => {
 
     chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
         if (request.version) {
-            console.log(request.version)
+            document.querySelector('div.content > div > div > div > div.version').textContent = request.version;
         }
         else {
             return false;
