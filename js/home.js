@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         glass.remove();
     });
     
+    // Se la licenza non è valida riporta al login
     if (!isValid) {
         window.location.href = '../html/login.html';
         return false;
@@ -194,29 +195,25 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         if (getStyle('.profiles', 'display') === 'grid') {
             show('.container', '.profiles')
-            profiles.style.color = "var(--white-color)";
-            profiles.style.backgroundColor = "var(--blue-color)"
+            profiles.removeAttribute('style');
             dash.style.color = "var(--blue-color)";
             dash.style.backgroundColor = "var(--white-color)"
         }
         if (getStyle('.proxy', 'display') === 'grid') {
             show('.container', '.proxy')
-            proxy.style.color = "var(--white-color)";
-            proxy.style.backgroundColor = "var(--blue-color)"
+            proxy.removeAttribute('style');
             dash.style.color = "var(--blue-color)";
             dash.style.backgroundColor = "var(--white-color)"
         }
         if (getStyle('.analytics', 'display') === 'grid') {
             show('.container', '.analytics')
-            analytics.style.color = "var(--white-color)";
-            analytics.style.backgroundColor = "var(--blue-color)"
+            analytics.removeAttribute('style');
             dash.style.color = "var(--blue-color)";
             dash.style.backgroundColor = "var(--white-color)"
         }
         if (getStyle('.settings', 'display') === 'grid') {
             show('.container', '.settings')
-            settings.style.color = "var(--white-color)";
-            settings.style.backgroundColor = "var(--blue-color)"
+            settings.removeAttribute('style');
             dash.style.color = "var(--blue-color)";
             dash.style.backgroundColor = "var(--white-color)"
         }
@@ -229,29 +226,25 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         if (getStyle('.container', 'display') === 'grid') {
             show('.profiles', '.container')
-            dash.style.color = "var(--white-color)";
-            dash.style.backgroundColor = "var(--blue-color)"
+            dash.removeAttribute('style');
             profiles.style.color = "var(--blue-color)";
             profiles.style.backgroundColor = "var(--white-color)"
         }
         if (getStyle('.proxy', 'display') === 'grid') {
             show('.profiles', '.proxy')
-            proxy.style.color = "var(--white-color)";
-            proxy.style.backgroundColor = "var(--blue-color)"
+            proxy.removeAttribute('style');
             profiles.style.color = "var(--blue-color)";
             profiles.style.backgroundColor = "var(--white-color)"
         }
         if (getStyle('.analytics', 'display') === 'grid') {
             show('.profiles', '.analytics')
-            analytics.style.color = "var(--white-color)";
-            analytics.style.backgroundColor = "var(--blue-color)"
+            analytics.removeAttribute('style');
             profiles.style.color = "var(--blue-color)";
             profiles.style.backgroundColor = "var(--white-color)"
         }
         if (getStyle('.settings', 'display') === 'grid') {
             show('.profiles', '.settings')
-            settings.style.color = "var(--white-color)";
-            settings.style.backgroundColor = "var(--blue-color)"
+            settings.removeAttribute('style');
             profiles.style.color = "var(--blue-color)";
             profiles.style.backgroundColor = "var(--white-color)"
         }
@@ -264,29 +257,25 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         if (getStyle('.container', 'display') === 'grid') {
             show('.proxy', '.container')
-            dash.style.color = "var(--white-color)";
-            dash.style.backgroundColor = "var(--blue-color)"
+            dash.removeAttribute('style');
             proxy.style.color = "var(--blue-color)";
             proxy.style.backgroundColor = "var(--white-color)"
         }
         if (getStyle('.profiles', 'display') === 'grid') {
             show('.proxy', '.profiles')
-            profiles.style.color = "var(--white-color)";
-            profiles.style.backgroundColor = "var(--blue-color)"
+            profiles.removeAttribute('style');
             proxy.style.color = "var(--blue-color)";
             proxy.style.backgroundColor = "var(--white-color)"
         }
         if (getStyle('.analytics', 'display') === 'grid') {
             show('.proxy', '.analytics')
-            analytics.style.color = "var(--white-color)";
-            analytics.style.backgroundColor = "var(--blue-color)"
+            analytics.removeAttribute('style');
             proxy.style.color = "var(--blue-color)";
             proxy.style.backgroundColor = "var(--white-color)"
         }
         if (getStyle('.settings', 'display') === 'grid') {
             show('.proxy', '.settings')
-            settings.style.color = "var(--white-color)";
-            settings.style.backgroundColor = "var(--blue-color)"
+            settings.removeAttribute('style');
             proxy.style.color = "var(--blue-color)";
             proxy.style.backgroundColor = "var(--white-color)"
         }
@@ -299,29 +288,25 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         if (getStyle('.container', 'display') === 'grid') {
             show('.analytics', '.container')
-            dash.style.color = "var(--white-color)";
-            dash.style.backgroundColor = "var(--blue-color)"
+            dash.removeAttribute('style');
             analytics.style.color = "var(--blue-color)";
             analytics.style.backgroundColor = "var(--white-color)"
         }
         if (getStyle('.profiles', 'display') === 'grid') {
             show('.analytics', '.profiles')
-            profiles.style.color = "var(--white-color)";
-            profiles.style.backgroundColor = "var(--blue-color)"
+            profiles.removeAttribute('style');
             analytics.style.color = "var(--blue-color)";
             analytics.style.backgroundColor = "var(--white-color)"
         }
         if (getStyle('.proxy', 'display') === 'grid') {
             show('.analytics', '.proxy')
-            proxy.style.color = "var(--white-color)";
-            proxy.style.backgroundColor = "var(--blue-color)"
+            proxy.removeAttribute('style');
             analytics.style.color = "var(--blue-color)";
             analytics.style.backgroundColor = "var(--white-color)"
         }
         if (getStyle('.settings', 'display') === 'grid') {
             show('.analytics', '.settings')
-            settings.style.color = "var(--white-color)";
-            settings.style.backgroundColor = "var(--blue-color)"
+            settings.removeAttribute('style');
             analytics.style.color = "var(--blue-color)";
             analytics.style.backgroundColor = "var(--white-color)"
         }
@@ -334,29 +319,25 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         if (getStyle('.container', 'display') === 'grid') {
             show('.settings', '.container')
-            dash.style.color = "var(--white-color)";
-            dash.style.backgroundColor = "var(--blue-color)"
+            dash.removeAttribute('style');
             settings.style.color = "var(--blue-color)";
             settings.style.backgroundColor = "var(--white-color)"
         }
         if (getStyle('.profiles', 'display') === 'grid') {
             show('.settings', '.profiles')
-            profiles.style.color = "var(--white-color)";
-            profiles.style.backgroundColor = "var(--blue-color)"
+            profiles.removeAttribute('style');
             settings.style.color = "var(--blue-color)";
             settings.style.backgroundColor = "var(--white-color)"
         }
         if (getStyle('.proxy', 'display') === 'grid') {
             show('.settings', '.proxy')
-            proxy.style.color = "var(--white-color)";
-            proxy.style.backgroundColor = "var(--blue-color)"
+            proxy.removeAttribute('style');
             settings.style.color = "var(--blue-color)";
             settings.style.backgroundColor = "var(--white-color)"
         }
         if (getStyle('.analytics', 'display') === 'grid') {
             show('.settings', '.analytics')
-            analytics.style.color = "var(--white-color)";
-            analytics.style.backgroundColor = "var(--blue-color)"
+            analytics.removeAttribute('style');
             settings.style.color = "var(--blue-color)";
             settings.style.backgroundColor = "var(--white-color)"
         }
