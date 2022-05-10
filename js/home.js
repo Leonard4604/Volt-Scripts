@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         return false;
     }
 
+    // Gestion sidebar
     const btn = document.querySelector("#btn");
     const sidebar = document.querySelector(".sidebar");
 
@@ -27,6 +28,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         sidebar.classList.toggle("active");
     }
 
+    // !NAVIGAZIONE!
     // Gestione pagine settings dei singoli moduli
     const zalandoSettings = document.querySelector('#zalando > #settings > .button > button > #button');
     zalandoSettings.addEventListener('click', () => {
@@ -224,6 +226,61 @@ document.addEventListener('DOMContentLoaded', async () => {
             'lastVisited': 'profiles'
         });
 
+        if (getStyle('.dashboard#zalando', 'display') === 'grid') {
+            show('.profiles', '.dashboard#zalando')
+            dash.removeAttribute('style');
+            profiles.style.color = "var(--blue-color)";
+            profiles.style.backgroundColor = "var(--white-color)"
+        }
+        if (getStyle('.dashboard#luisaviaroma', 'display') === 'grid') {
+            show('.profiles', '.dashboard#luisaviaroma')
+            dash.removeAttribute('style');
+            profiles.style.color = "var(--blue-color)";
+            profiles.style.backgroundColor = "var(--white-color)"
+        }
+        if (getStyle('.dashboard#cisalfa', 'display') === 'grid') {
+            show('.profiles', '.dashboard#cisalfa')
+            dash.removeAttribute('style');
+            profiles.style.color = "var(--blue-color)";
+            profiles.style.backgroundColor = "var(--white-color)"
+        }
+        if (getStyle('.dashboard#snipes', 'display') === 'grid') {
+            show('.profiles', '.dashboard#snipes')
+            dash.removeAttribute('style');
+            profiles.style.color = "var(--blue-color)";
+            profiles.style.backgroundColor = "var(--white-color)"
+        }
+        if (getStyle('.dashboard#solebox', 'display') === 'grid') {
+            show('.profiles', '.dashboard#solebox')
+            dash.removeAttribute('style');
+            profiles.style.color = "var(--blue-color)";
+            profiles.style.backgroundColor = "var(--white-color)"
+        }
+        if (getStyle('.dashboard#awlab-here', 'display') === 'grid') {
+            show('.profiles', '.dashboard#awlab-here')
+            dash.removeAttribute('style');
+            profiles.style.color = "var(--blue-color)";
+            profiles.style.backgroundColor = "var(--white-color)"
+        }
+        if (getStyle('.dashboard#supreme', 'display') === 'grid') {
+            show('.profiles', '.dashboard#supreme')
+            dash.removeAttribute('style');
+            profiles.style.color = "var(--blue-color)";
+            profiles.style.backgroundColor = "var(--white-color)"
+        }
+        if (getStyle('.dashboard#sns-naked', 'display') === 'grid') {
+            show('.profiles', '.dashboard#sns-naked')
+            dash.removeAttribute('style');
+            profiles.style.color = "var(--blue-color)";
+            profiles.style.backgroundColor = "var(--white-color)"
+        }
+        if (getStyle('.dashboard#kith', 'display') === 'grid') {
+            show('.profiles', '.dashboard#kith')
+            dash.removeAttribute('style');
+            profiles.style.color = "var(--blue-color)";
+            profiles.style.backgroundColor = "var(--white-color)"
+        }
+
         if (getStyle('.container', 'display') === 'grid') {
             show('.profiles', '.container')
             dash.removeAttribute('style');
@@ -254,6 +311,61 @@ document.addEventListener('DOMContentLoaded', async () => {
         chrome.storage.sync.set({
             'lastVisited': 'proxy'
         });
+
+        if (getStyle('.dashboard#zalando', 'display') === 'grid') {
+            show('.proxy', '.dashboard#zalando')
+            dash.removeAttribute('style');
+            proxy.style.color = "var(--blue-color)";
+            proxy.style.backgroundColor = "var(--white-color)"
+        }
+        if (getStyle('.dashboard#luisaviaroma', 'display') === 'grid') {
+            show('.proxy', '.dashboard#luisaviaroma')
+            dash.removeAttribute('style');
+            proxy.style.color = "var(--blue-color)";
+            proxy.style.backgroundColor = "var(--white-color)"
+        }
+        if (getStyle('.dashboard#cisalfa', 'display') === 'grid') {
+            show('.proxy', '.dashboard#cisalfa')
+            dash.removeAttribute('style');
+            proxy.style.color = "var(--blue-color)";
+            proxy.style.backgroundColor = "var(--white-color)"
+        }
+        if (getStyle('.dashboard#snipes', 'display') === 'grid') {
+            show('.proxy', '.dashboard#snipes')
+            dash.removeAttribute('style');
+            proxy.style.color = "var(--blue-color)";
+            proxy.style.backgroundColor = "var(--white-color)"
+        }
+        if (getStyle('.dashboard#solebox', 'display') === 'grid') {
+            show('.proxy', '.dashboard#solebox')
+            dash.removeAttribute('style');
+            proxy.style.color = "var(--blue-color)";
+            proxy.style.backgroundColor = "var(--white-color)"
+        }
+        if (getStyle('.dashboard#awlab-here', 'display') === 'grid') {
+            show('.proxy', '.dashboard#awlab-here')
+            dash.removeAttribute('style');
+            proxy.style.color = "var(--blue-color)";
+            proxy.style.backgroundColor = "var(--white-color)"
+        }
+        if (getStyle('.dashboard#supreme', 'display') === 'grid') {
+            show('.proxy', '.dashboard#supreme')
+            dash.removeAttribute('style');
+            proxy.style.color = "var(--blue-color)";
+            proxy.style.backgroundColor = "var(--white-color)"
+        }
+        if (getStyle('.dashboard#sns-naked', 'display') === 'grid') {
+            show('.proxy', '.dashboard#sns-naked')
+            dash.removeAttribute('style');
+            proxy.style.color = "var(--blue-color)";
+            proxy.style.backgroundColor = "var(--white-color)"
+        }
+        if (getStyle('.dashboard#kith', 'display') === 'grid') {
+            show('.proxy', '.dashboard#kith')
+            dash.removeAttribute('style');
+            proxy.style.color = "var(--blue-color)";
+            proxy.style.backgroundColor = "var(--white-color)"
+        }
 
         if (getStyle('.container', 'display') === 'grid') {
             show('.proxy', '.container')
@@ -286,6 +398,61 @@ document.addEventListener('DOMContentLoaded', async () => {
             'lastVisited': 'analytics'
         });
 
+        if (getStyle('.dashboard#zalando', 'display') === 'grid') {
+            show('.analytics', '.dashboard#zalando')
+            dash.removeAttribute('style');
+            analytics.style.color = "var(--blue-color)";
+            analytics.style.backgroundColor = "var(--white-color)"
+        }
+        if (getStyle('.dashboard#luisaviaroma', 'display') === 'grid') {
+            show('.analytics', '.dashboard#luisaviaroma')
+            dash.removeAttribute('style');
+            analytics.style.color = "var(--blue-color)";
+            analytics.style.backgroundColor = "var(--white-color)"
+        }
+        if (getStyle('.dashboard#cisalfa', 'display') === 'grid') {
+            show('.analytics', '.dashboard#cisalfa')
+            dash.removeAttribute('style');
+            analytics.style.color = "var(--blue-color)";
+            analytics.style.backgroundColor = "var(--white-color)"
+        }
+        if (getStyle('.dashboard#snipes', 'display') === 'grid') {
+            show('.analytics', '.dashboard#snipes')
+            dash.removeAttribute('style');
+            analytics.style.color = "var(--blue-color)";
+            analytics.style.backgroundColor = "var(--white-color)"
+        }
+        if (getStyle('.dashboard#solebox', 'display') === 'grid') {
+            show('.analytics', '.dashboard#solebox')
+            dash.removeAttribute('style');
+            analytics.style.color = "var(--blue-color)";
+            analytics.style.backgroundColor = "var(--white-color)"
+        }
+        if (getStyle('.dashboard#awlab-here', 'display') === 'grid') {
+            show('.analytics', '.dashboard#awlab-here')
+            dash.removeAttribute('style');
+            analytics.style.color = "var(--blue-color)";
+            analytics.style.backgroundColor = "var(--white-color)"
+        }
+        if (getStyle('.dashboard#supreme', 'display') === 'grid') {
+            show('.analytics', '.dashboard#supreme')
+            dash.removeAttribute('style');
+            analytics.style.color = "var(--blue-color)";
+            analytics.style.backgroundColor = "var(--white-color)"
+        }
+        if (getStyle('.dashboard#sns-naked', 'display') === 'grid') {
+            show('.analytics', '.dashboard#sns-naked')
+            dash.removeAttribute('style');
+            analytics.style.color = "var(--blue-color)";
+            analytics.style.backgroundColor = "var(--white-color)"
+        }
+        if (getStyle('.dashboard#kith', 'display') === 'grid') {
+            show('.analytics', '.dashboard#kith')
+            dash.removeAttribute('style');
+            analytics.style.color = "var(--blue-color)";
+            analytics.style.backgroundColor = "var(--white-color)"
+        }
+
         if (getStyle('.container', 'display') === 'grid') {
             show('.analytics', '.container')
             dash.removeAttribute('style');
@@ -317,6 +484,61 @@ document.addEventListener('DOMContentLoaded', async () => {
             'lastVisited': 'settings'
         });
 
+        if (getStyle('.dashboard#zalando', 'display') === 'grid') {
+            show('.settings', '.dashboard#zalando')
+            dash.removeAttribute('style');
+            settings.style.color = "var(--blue-color)";
+            settings.style.backgroundColor = "var(--white-color)"
+        }
+        if (getStyle('.dashboard#luisaviaroma', 'display') === 'grid') {
+            show('.settings', '.dashboard#luisaviaroma')
+            dash.removeAttribute('style');
+            settings.style.color = "var(--blue-color)";
+            settings.style.backgroundColor = "var(--white-color)"
+        }
+        if (getStyle('.dashboard#cisalfa', 'display') === 'grid') {
+            show('.settings', '.dashboard#cisalfa')
+            dash.removeAttribute('style');
+            settings.style.color = "var(--blue-color)";
+            settings.style.backgroundColor = "var(--white-color)"
+        }
+        if (getStyle('.dashboard#snipes', 'display') === 'grid') {
+            show('.settings', '.dashboard#snipes')
+            dash.removeAttribute('style');
+            settings.style.color = "var(--blue-color)";
+            settings.style.backgroundColor = "var(--white-color)"
+        }
+        if (getStyle('.dashboard#solebox', 'display') === 'grid') {
+            show('.settings', '.dashboard#solebox')
+            dash.removeAttribute('style');
+            settings.style.color = "var(--blue-color)";
+            settings.style.backgroundColor = "var(--white-color)"
+        }
+        if (getStyle('.dashboard#awlab-here', 'display') === 'grid') {
+            show('.settings', '.dashboard#awlab-here')
+            dash.removeAttribute('style');
+            settings.style.color = "var(--blue-color)";
+            settings.style.backgroundColor = "var(--white-color)"
+        }
+        if (getStyle('.dashboard#supreme', 'display') === 'grid') {
+            show('.settings', '.dashboard#supreme')
+            dash.removeAttribute('style');
+            settings.style.color = "var(--blue-color)";
+            settings.style.backgroundColor = "var(--white-color)"
+        }
+        if (getStyle('.dashboard#sns-naked', 'display') === 'grid') {
+            show('.settings', '.dashboard#sns-naked')
+            dash.removeAttribute('style');
+            settings.style.color = "var(--blue-color)";
+            settings.style.backgroundColor = "var(--white-color)"
+        }
+        if (getStyle('.dashboard#kith', 'display') === 'grid') {
+            show('.settings', '.dashboard#kith')
+            dash.removeAttribute('style');
+            settings.style.color = "var(--blue-color)";
+            settings.style.backgroundColor = "var(--white-color)"
+        }
+
         if (getStyle('.container', 'display') === 'grid') {
             show('.settings', '.container')
             dash.removeAttribute('style');
@@ -342,6 +564,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             settings.style.backgroundColor = "var(--white-color)"
         }
     })
+    // !FINE NAVIGAZIONE!
 
     const logout = document.querySelector('#logout');
     logout.addEventListener('click', () => {
