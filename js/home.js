@@ -580,13 +580,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     })
 })
 
-const API_KEY = 'pk_RBvQYAkZymGXCnOIXFF6rQFbpY9Y9i9u'
 const license = {
-    retrieve: async (key) => {
+    API_KEY: 'pk_RBvQYAkZymGXCnOIXFF6rQFbpY9Y9i9u',
+    retrieve: async function(key) {
         try {
             const license = await fetch(`https://api.hyper.co/v6/licenses/${key}`, {
                 headers: {
-                    'Authorization': `Bearer ${API_KEY}`
+                    'Authorization': `Bearer ${this.API_KEY}`
                 }
             }).then(res => res.json());
             return license;
@@ -594,11 +594,11 @@ const license = {
             return false;
         }
     },
-    bind: async (key, hwid) => {
+    bind: async function(key, hwid) {
         return fetch(`https://api.hyper.co/v6/licenses/${key}/metadata`, {
             method: 'PATCH',
             headers: {
-            'Authorization': `Bearer ${API_KEY}`,
+            'Authorization': `Bearer ${this.API_KEY}`,
             'Content-Type': 'application/json'
             },
             body: JSON.stringify({
@@ -606,11 +606,11 @@ const license = {
             })
         })
     },
-    reset: async (key) => {
+    reset: async function(key) {
         return fetch(`https://api.hyper.co/v6/licenses/${key}/metadata`, {
             method: 'PATCH',
             headers: {
-            'Authorization': `Bearer ${API_KEY}`,
+            'Authorization': `Bearer ${this.API_KEY}`,
             'Content-Type': 'application/json'
             },
             body: JSON.stringify({
@@ -620,7 +620,7 @@ const license = {
     }
 }
 
-const extractHwid = async () => {
+async function extractHwid() {
     return new Promise((resolve) => {
         chrome.storage.sync.get(null, function(store) {
             resolve(store.hwid)
@@ -628,7 +628,7 @@ const extractHwid = async () => {
     })
 }
 
-const extractKey = async () => {
+async function extractKey() {
     return new Promise((resolve) => {
         chrome.storage.sync.get(null, function(store) {
             resolve(store.key)
@@ -636,7 +636,7 @@ const extractKey = async () => {
     })
 }
 
-const validate = async (key) => {
+async function validate(key) {
     // Prendo l'hwid corrente
     let currHwid = ''
     // Invia un messaggio al background per prendere l'hwid
@@ -686,7 +686,7 @@ const validate = async (key) => {
     return false
 }
 
-const version = () => {
+function version() {
     chrome.runtime.sendMessage({ todo: "getVersion" })
 
     chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
@@ -701,21 +701,55 @@ const version = () => {
     })
 }
 
-const show = (shown, hidden) => {
+function show(shown, hidden) {
     document.querySelector(shown).style.display='grid';
     document.querySelector(hidden).style.display='none';
     return false;
 }
 
-const getStyle = (selector, name) => {
+function getStyle(selector, name) {
     var element = document.querySelector(selector);
     return element.currentStyle ? element.currentStyle[name] : window.getComputedStyle ? window.getComputedStyle(element, null).getPropertyValue(name) : null;
 }
 
-const extractLastVisited = async () => {
+async function extractLastVisited() {
     return new Promise((resolve) => {
         chrome.storage.sync.get(null, function(store) {
             resolve(store.lastVisited)
         })
     })
+}
+
+function makeSpendingChart() {
+    const dates = ['09/05/2022', '10/05/2022', '11/05/2022']
+    const totals = [100, 200, 300]
+    const ctx = document.getElementById('spendingChart');
+    const data = {
+        labels: dates,
+        datasets: [{
+            label: 'Spent',
+            lineTension: 0.3,
+            data: totals,
+            fill: true,
+            borderColor: '#000957',
+            backgroundColor: 'rgba(0, 9, 87, 0.8)',
+            borderWidth: 2,
+        }]
+      };
+    const myChart = new Chart(ctx, {
+        type: 'line',
+        data: data,
+        options: {
+            scales: {
+                x: {
+
+                },
+                y: {
+                    beginAtZero: true,
+                    type: 'linear',
+                    grace: '10%'
+                }
+            }
+        }
+    });
 }

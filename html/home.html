@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/home.css" />
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <script src="../js/home.js"></script>
+    <script src="../js/chart.min.js"></script>
 </head>
 <body>
     <!-- loader -->
@@ -266,13 +267,88 @@
         </div>
         <!-- other pages -->
         <div class="profiles">
-
+            <div class="address">
+                <div class="title">
+                    Address
+                </div>
+                <div class="first_name">
+                    <input type="text" id="first_name" placeholder="First Name" autocomplete="off">
+                </div>
+                <div class="last_name">
+                    <input type="text" id="last_name" placeholder="Last Name" autocomplete="off">
+                </div>
+                <div class="email">
+                    <input type="text" id="email" placeholder="Email" autocomplete="off">
+                </div>
+                <div class="phone">
+                    <input type="text" id="phone" placeholder="Phone" autocomplete="off">
+                </div>
+                <div class="field">
+                    <input type="text" id="field" placeholder="Address" autocomplete="off">
+                </div>
+                <div class="zip">
+                    <input type="text" id="zip" placeholder="Zip Code" autocomplete="off">
+                </div>
+                <div class="city">
+                    <input type="text" id="city" placeholder="City" autocomplete="off">
+                </div>
+            </div>
+            <div class="credit_card">
+                <div class="title">
+                    Credit Card
+                </div>
+                <div class="name">
+                    <input type="text" id="name" placeholder="Name" autocomplete="off">
+                </div>
+                <div class="number">
+                    <input type="text" id="number" placeholder="Number" autocomplete="off">
+                </div>
+                <div class="expiry">
+                    <input type="text" id="expiry" placeholder="Expiry Date ex. xx/xx" autocomplete="off">
+                </div>
+                <div class="cvv">
+                    <input type="text" id="cvv" placeholder="CVV" autocomplete="off">
+                </div>
+            </div>
+            <div class="profiles_settings">
+                <div class="title">
+                    Settings
+                </div>
+                <div class="select" id="profile_selection">
+                    <select id="profile_selection" required>
+                        <option disabled="disabled" selected="selected" value="">Select Profile</option>
+                        <option>Profile 1</option>
+                    </select>
+                </div>
+                <div class="add_profile">
+                    <div class="button">
+                        <button type="submit">
+                            <i class='bx bxs-user-plus' id="button"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="label">
+                    <input type="text" id="label" placeholder="Profile Label" autocomplete="off">
+                </div>
+                <div class="save">
+                    <a href="#" id="save">
+                        <i class='bx bx-save' id="save"></i>
+                        <span>Save</span>
+                    </a>
+                </div>
+                <div class="delete">
+                    <a href="#" id="delete">
+                        <i class='bx bx-folder-minus' id="delete"></i>
+                        <span>Delete</span>
+                    </a>
+                </div>
+            </div>
         </div>
         <div class="proxy">
 
         </div>
         <div class="analytics">
-
+            <canvas id="spendingChart" width="200" height="100"></canvas>
         </div>
         <div class="settings">
 
