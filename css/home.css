@@ -1009,7 +1009,7 @@ input {
     grid-area: address; 
     display: grid; 
     grid-template-columns: 1fr 1fr; 
-    grid-template-rows: 18px 1fr 1fr 1fr 1fr; 
+    grid-template-rows: 14px 1fr 1fr 1fr 1fr; 
     gap: 10px 10px; 
     grid-template-areas: 
         "title title"
@@ -1059,7 +1059,7 @@ input {
     grid-area: credit_card; 
     display: grid; 
     grid-template-columns: 1fr; 
-    grid-template-rows: 18px 1fr 1fr 1fr 1fr; 
+    grid-template-rows: 14px 1fr 1fr 1fr 1fr; 
     gap: 10px 10px; 
     grid-template-areas: 
         "title"
@@ -1097,7 +1097,7 @@ input {
     grid-area: settings; 
     display: grid; 
     grid-template-columns: 1fr 1fr; 
-    grid-template-rows: 18px 1fr 1fr 1fr 40px; 
+    grid-template-rows: 14px 1fr 1fr 1fr 40px; 
     gap: 10px 10px; 
     grid-template-areas: 
         "title title"
@@ -1170,8 +1170,23 @@ select {
     height: 30px;
     border-radius: 4px;
     display: flex;
-    align-items: center;
     justify-content: center;
+}
+
+.save .option {
+    font-size: 13px;
+    line-height: 18px;
+    vertical-align: middle;
+}
+
+.save span {
+    padding-bottom: 0px;
+    display: inline-block;
+}
+
+.save #save {
+    font-size: 18px;
+    vertical-align: middle;
 }
 
 .save > a {
@@ -1190,6 +1205,22 @@ select {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.delete .option {
+    font-size: 13px;
+    line-height: 18px;
+    vertical-align: middle;
+}
+
+.delete span {
+    padding-bottom: 0px;
+    display: inline-block;
+}
+
+.delete #delete {
+    font-size: 18px;
+    vertical-align: middle;
 }
 
 .delete > a {
