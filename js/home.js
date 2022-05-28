@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Aggiorna la versione nella dashboard
     version()
 
-    // Gestion sidebar
+    // Gestione sidebar
     const btn = document.querySelector("#btn");
     const sidebar = document.querySelector(".sidebar");
 
