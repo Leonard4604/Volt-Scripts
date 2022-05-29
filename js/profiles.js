@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.querySelector('#phone').value = ''
         document.querySelector('#field').value = ''
         document.querySelector('#zip').value = ''
+        document.querySelector('#province').value = ''
         document.querySelector('#city').value = ''
         document.querySelector('#name').value = ''
         document.querySelector('#number').value = ''
@@ -46,6 +47,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     phone: document.querySelector('#phone').value,
                     field: document.querySelector('#field').value,
                     zip: document.querySelector('#zip').value,
+                    province: document.querySelector('#province').value,
                     city: document.querySelector('#city').value
                 },
                 creditCard: {
@@ -74,6 +76,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 document.querySelector('#phone').value = profiles[item].address.phone || ''
                 document.querySelector('#field').value = profiles[item].address.field || ''
                 document.querySelector('#zip').value = profiles[item].address.zip || ''
+                document.querySelector('#province').value = profiles[item].address.province || ''
                 document.querySelector('#city').value = profiles[item].address.city || ''
                 document.querySelector('#name').value = profiles[item].creditCard.name || ''
                 document.querySelector('#number').value = profiles[item].creditCard.number || ''
@@ -95,6 +98,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 profiles[item].address.phone = document.querySelector('#phone').value
                 profiles[item].address.field = document.querySelector('#field').value  
                 profiles[item].address.zip = document.querySelector('#zip').value
+                profiles[item].address.province = document.querySelector('#province').value
                 profiles[item].address.city = document.querySelector('#city').value
                 profiles[item].creditCard.name = document.querySelector('#name').value 
                 profiles[item].creditCard.number = document.querySelector('#number').value

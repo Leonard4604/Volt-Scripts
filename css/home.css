@@ -1017,7 +1017,7 @@ input {
         "email email"
         "phone ."
         "field field"
-        "zip city";  
+        "info city";  
     padding: 0px 6px;
 }
 
@@ -1054,8 +1054,23 @@ input {
     grid-area: field;
 }
 
-.zip { 
+.info { 
+    grid-area: info;
+    display: grid; 
+    grid-template-columns: 0.5fr 1fr; 
+    grid-template-rows: 1fr; 
+    gap: 10px 10px; 
+    grid-template-areas: 
+        "zip province";  
+    padding: 0px 0px;
+}
+
+.zip {
     grid-area: zip;
+}
+
+.province {
+    grid-area: province;
 }
 
 .city {
