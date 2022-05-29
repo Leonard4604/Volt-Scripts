@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const saveBtn = document.querySelector('#save');
     
     addProfile.addEventListener('click', async function() {
+        // Pulisco tutti i campi
         document.querySelector('#label').value = ''
         document.querySelector('#first_name').value = ''
         document.querySelector('#last_name').value = ''
@@ -26,6 +27,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.querySelector('#expiry').value = ''
         document.querySelector('#cvv').value = ''
 
+        // Seleziono l'ultima opzione
+        const select_elem = document.querySelector('#profile_selection > select')
+        select_elem.add(new Option(''))
+
+        select_elem.options[0].removeAttribute('selected');
+        select_elem.options[select_elem.options.length - 1].setAttribute('selected', 'selected');
+        
+        // Listener per il click del save button dopo che si è premuto add profile, salva il profilo in uno nuovo
         saveBtn.addEventListener('click', async () => {
             const profiles = JSON.parse(await extract.profiles());
             const toSave = {
@@ -53,29 +62,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         })
     });
 
-    profilesList.addEventListener('click', async function() {
-        // const select_elem = document.querySelector('#profile_selection > select')
-        // select_elem.querySelectorAll('option').forEach((object, index) =>    // create dropdown items
-        // {
-        //     if (index !== 0) {
-        //         object.remove();
-        //     }
-        // })
-        // setTimeout(() => {
-        //     chrome.storage.sync.get(null, function (store) {
-        //         const profiles = JSON.parse(store.profiles)
-        //         profiles.forEach((object) =>    // create dropdown items
-        //         {
-        //             select_elem.add(new Option(object.label))
-        //         })
-        //     })
-        // }, 100)
-    });
-
-
+    // Listener per il cambio nella selection
     profilesList.addEventListener('change', async function() {
         let profiles = JSON.parse(await extract.profiles());
-        console.log(profilesList.value)
         for (item in profiles) {
             if (profilesList.value === profiles[item].label) {
                 document.querySelector('#label').value = profiles[item].label
@@ -94,7 +83,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     });
 
-
+    // Listener per il click del save button, sovrascrive i profili già esistenti
     saveBtn.addEventListener('click', async () => {
         const profiles = JSON.parse(await extract.profiles());
         for (item in profiles) {
@@ -116,6 +105,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 });
             }
         }
+        // Refresho la pagina per aggiornare il dropdown
+        window.location.reload()
     })
 
     const deleteBtn = document.querySelector('#delete');
@@ -130,6 +121,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 });
             }
         }
+        // Refresho la pagina per aggiornare il dropdown
+        window.location.reload()
     })
 })
 

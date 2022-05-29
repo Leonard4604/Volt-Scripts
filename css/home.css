@@ -1097,13 +1097,12 @@ input {
     grid-area: settings; 
     display: grid; 
     grid-template-columns: 1fr 1fr; 
-    grid-template-rows: 14px 1fr 1fr 1fr 40px; 
+    grid-template-rows: 14px 1fr 1fr 40px; 
     gap: 10px 10px; 
     grid-template-areas: 
         "title title"
         "profile_selection profile_selection"
-        "add_profile add_profile"
-        "label label"
+        "add_profile label"
         "save delete"; 
     padding: 0px 6px;
     margin: 0;
