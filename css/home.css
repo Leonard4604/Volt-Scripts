@@ -1015,7 +1015,7 @@ input {
         "title title"
         "first_name last_name"
         "email email"
-        "phone ."
+        "phone country"
         "field field"
         "info city";  
     padding: 0px 6px;
@@ -1048,6 +1048,10 @@ input {
 
 .phone { 
     grid-area: phone; 
+}
+
+.country { 
+    grid-area: country; 
 }
 
 .field { 
