@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.querySelector('#last_name').value = ''
         document.querySelector('#email').value = ''
         document.querySelector('#phone').value = ''
+        document.querySelector('#country').value = ''
         document.querySelector('#field').value = ''
         document.querySelector('#zip').value = ''
         document.querySelector('#province').value = ''
@@ -46,6 +47,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     lastName: document.querySelector('#last_name').value,
                     email: document.querySelector('#email').value,
                     phone: document.querySelector('#phone').value,
+                    country: document.querySelector('#country').value,
                     field: document.querySelector('#field').value,
                     zip: document.querySelector('#zip').value,
                     province: document.querySelector('#province').value,
@@ -77,6 +79,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                         lastName: profiles[item].address.lastName,
                         email: profiles[item].address.email,
                         phone: profiles[item].address.phone,
+                        country: profiles[item].address.country,
                         field: profiles[item].address.field,
                         zip: profiles[item].address.zip,
                         province: profiles[item].address.province,
@@ -109,6 +112,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 document.querySelector('#last_name').value = profiles[item].address.lastName || ''
                 document.querySelector('#email').value = profiles[item].address.email || ''
                 document.querySelector('#phone').value = profiles[item].address.phone || ''
+                document.querySelector('#country').value = profiles[item].address.country || ''
                 document.querySelector('#field').value = profiles[item].address.field || ''
                 document.querySelector('#zip').value = profiles[item].address.zip || ''
                 document.querySelector('#province').value = profiles[item].address.province || ''
@@ -131,6 +135,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 profiles[item].address.lastName = document.querySelector('#last_name').value
                 profiles[item].address.email = document.querySelector('#email').value
                 profiles[item].address.phone = document.querySelector('#phone').value
+                profiles[item].address.country = document.querySelector('#country').value
                 profiles[item].address.field = document.querySelector('#field').value  
                 profiles[item].address.zip = document.querySelector('#zip').value
                 profiles[item].address.province = document.querySelector('#province').value
