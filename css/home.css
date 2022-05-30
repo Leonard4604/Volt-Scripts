@@ -1131,7 +1131,7 @@ input {
     grid-template-areas: 
         "title title"
         "profile_selection profile_selection"
-        "add_profile label"
+        "utility label"
         "save delete"; 
     padding: 0px 6px;
     margin: 0;
@@ -1184,11 +1184,33 @@ select {
     pointer-events: none;
 }
 
+.utility {
+    grid-area: utility;
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr; 
+    gap: 10px 10px; 
+    grid-template-areas: 
+        "add_profile copy_profile"; 
+    padding: 0px 0px;
+    margin: 0;
+}
+
 .add_profile {
     grid-area: add_profile;
 }
 
-.profiles > .profiles_settings > .add_profile > .button > button > #button { 
+.copy_profile {
+    grid-area: copy_profile;
+}
+
+.profiles > .profiles_settings > .utility > .add_profile > .button > button > #button { 
+    padding: 0px 0px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.profiles > .profiles_settings > .utility > .copy_profile > .button > button > #button { 
     padding: 0px 0px;
     font-size: 22px;
     cursor: pointer;

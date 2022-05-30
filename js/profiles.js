@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     })
 
     const addProfile = document.querySelector('.add_profile > .button > button > #button')
+    const copyProfile = document.querySelector('.copy_profile > .button > button > #button')
     const profilesList = document.querySelector('#profile_selection > select')
     const saveBtn = document.querySelector('#save');
     
@@ -59,9 +60,43 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
             profiles.push(toSave)
             chrome.storage.sync.set({
-                'profiles': JSON.stringify(profiles)
+                'profiles': JSON.stringify(profiles, null, 3)
             });
         })
+    });
+
+    // Listener per il click del copy button
+    copyProfile.addEventListener('click', async function() {
+        let profiles = JSON.parse(await extract.profiles());
+        for (item in profiles) {
+            if (profilesList.value === profiles[item].label) {
+                const toSave = {
+                    label: `${profiles[item].label} - Copy`,
+                    address: {
+                        firstName: profiles[item].address.firstName,
+                        lastName: profiles[item].address.lastName,
+                        email: profiles[item].address.email,
+                        phone: profiles[item].address.phone,
+                        field: profiles[item].address.field,
+                        zip: profiles[item].address.zip,
+                        province: profiles[item].address.province,
+                        city: profiles[item].address.city
+                    },
+                    creditCard: {
+                        name: profiles[item].creditCard.name,
+                        number: profiles[item].creditCard.number,
+                        expiry: profiles[item].creditCard.expiry,
+                        cvv: profiles[item].creditCard.cvv
+                    }
+                }
+                profiles.push(toSave)
+                chrome.storage.sync.set({
+                    'profiles': JSON.stringify(profiles, null, 3)
+                });
+            }
+        }
+        // Refresho la pagina per aggiornare il dropdown
+        window.location.reload()
     });
 
     // Listener per il cambio nella selection
@@ -105,7 +140,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 profiles[item].creditCard.expiry = document.querySelector('#expiry').value
                 profiles[item].creditCard.cvv = document.querySelector('#cvv').value
                 chrome.storage.sync.set({
-                    'profiles': JSON.stringify(profiles)
+                    'profiles': JSON.stringify(profiles, null, 3)
                 });
             }
         }
@@ -121,7 +156,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (profileToDelete === profiles[item].label) {
                 profiles.splice(item, 1);
                 chrome.storage.sync.set({
-                    'profiles': JSON.stringify(profiles)
+                    'profiles': JSON.stringify(profiles, null, 3)
                 });
             }
         }
