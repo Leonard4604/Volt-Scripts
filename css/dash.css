@@ -1,0 +1,662 @@
+/* dashboard items */
+.container {  
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 108.5px 108.5px 108.5px 108.5px;
+    grid-auto-rows: 1fr;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "zalando luisaviaroma cisalfa"
+      "snipes solebox awlab-here"
+      "supreme sns-naked kith"
+      "test test test";
+}
+  
+.item {
+    background: var(--white-color);
+    border-radius: 4px;
+}
+
+/* zalando */
+#zalando { 
+    grid-area: zalando; 
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-auto-rows: 1fr;
+    gap: 2px 2px;
+    grid-auto-flow: row;
+    align-content: center;
+    grid-template-areas:
+        "logo"
+        "info"
+        "settings";  
+    padding: 2px;
+}
+
+#zalando > #logo { 
+    grid-area: logo; 
+    background-image: url(../images/modules/zalando.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+      
+#zalando > #info { 
+    grid-area: info; 
+}
+
+#zalando > #settings { 
+    grid-area: settings; 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      "switch button"; 
+}
+
+#zalando > #settings > .switch { 
+    grid-area: switch;
+    display: flex; 
+    align-items: center;
+    justify-content: flex-start;
+    padding: 6px 6px;
+}
+
+#zalando > #settings > .button { 
+    grid-area: button;
+    display: flex; 
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#zalando > #settings > .button > button > #button { 
+    padding: 6px 6px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.dashboard#zalando {
+    display: none;
+    background: var(--white-color);
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+}
+
+/* luisaviaroma */
+#luisaviaroma { 
+    grid-area: luisaviaroma; 
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-auto-rows: 1fr;
+    gap: 2px 2px;
+    grid-auto-flow: row;
+    align-content: center;
+    grid-template-areas:
+        "logo"
+        "info"
+        "settings";  
+    padding: 2px;
+}
+
+#luisaviaroma > #logo { 
+    grid-area: logo; 
+    background-image: url(../images/modules/lvr.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+      
+#luisaviaroma > #info { 
+    grid-area: info; 
+}
+
+#luisaviaroma > #settings { 
+    grid-area: settings; 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      "switch button"; 
+}
+
+#luisaviaroma > #settings > .switch { 
+    grid-area: switch;
+    display: flex; 
+    align-items: center;
+    justify-content: flex-start;
+    padding: 6px 6px;
+}
+
+#luisaviaroma > #settings > .button { 
+    grid-area: button;
+    display: flex; 
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#luisaviaroma > #settings > .button > button > #button { 
+    padding: 6px 6px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.dashboard#luisaviaroma {
+    display: none;
+    background: var(--white-color);
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+}
+
+/* cisalfa */
+#cisalfa { 
+    grid-area: cisalfa; 
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-auto-rows: 1fr;
+    gap: 2px 2px;
+    grid-auto-flow: row;
+    align-content: center;
+    grid-template-areas:
+        "logo"
+        "info"
+        "settings";  
+    padding: 2px;
+}
+
+#cisalfa > #logo { 
+    grid-area: logo; 
+    background-image: url(../images/modules/cisalfa.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+      
+#cisalfa > #info { 
+    grid-area: info; 
+}
+
+#cisalfa > #settings { 
+    grid-area: settings; 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      "switch button"; 
+}
+
+#cisalfa > #settings > .switch { 
+    grid-area: switch;
+    display: flex; 
+    align-items: center;
+    justify-content: flex-start;
+    padding: 6px 6px;
+}
+
+#cisalfa > #settings > .button { 
+    grid-area: button;
+    display: flex; 
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#cisalfa > #settings > .button > button > #button { 
+    padding: 6px 6px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.dashboard#cisalfa {
+    display: none;
+    background: var(--white-color);
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+}
+
+/* snipes */
+#snipes { 
+    grid-area: snipes; 
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-auto-rows: 1fr;
+    gap: 2px 2px;
+    grid-auto-flow: row;
+    align-content: center;
+    grid-template-areas:
+        "logo"
+        "info"
+        "settings";  
+    padding: 2px;
+}
+
+#snipes > #logo { 
+    grid-area: logo; 
+    background-image: url(../images/modules/snipes.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+      
+#snipes > #info { 
+    grid-area: info; 
+}
+
+#snipes > #settings { 
+    grid-area: settings; 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      "switch button"; 
+}
+
+#snipes > #settings > .switch { 
+    grid-area: switch;
+    display: flex; 
+    align-items: center;
+    justify-content: flex-start;
+    padding: 6px 6px;
+}
+
+#snipes > #settings > .button { 
+    grid-area: button;
+    display: flex; 
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#snipes > #settings > .button > button > #button { 
+    padding: 6px 6px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.dashboard#snipes {
+    display: none;
+    background: var(--white-color);
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+}
+
+/* solebox */
+#solebox { 
+    grid-area: solebox;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-auto-rows: 1fr;
+    gap: 2px 2px;
+    grid-auto-flow: row;
+    align-content: center;
+    grid-template-areas:
+        "logo"
+        "info"
+        "settings";  
+    padding: 2px; 
+}
+
+#solebox > #logo { 
+    grid-area: logo; 
+    background-image: url(../images/modules/solebox.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+      
+#solebox > #info { 
+    grid-area: info; 
+}
+
+#solebox > #settings { 
+    grid-area: settings; 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      "switch button"; 
+}
+
+#solebox > #settings > .switch { 
+    grid-area: switch;
+    display: flex; 
+    align-items: center;
+    justify-content: flex-start;
+    padding: 6px 6px;
+}
+
+#solebox > #settings > .button { 
+    grid-area: button;
+    display: flex; 
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#solebox > #settings > .button > button > #button { 
+    padding: 6px 6px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.dashboard#solebox {
+    display: none;
+    background: var(--white-color);
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+}
+
+/* awlab-here */
+#awlab-here { 
+    grid-area: awlab-here; 
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-auto-rows: 1fr;
+    gap: 2px 2px;
+    grid-auto-flow: row;
+    align-content: center;
+    grid-template-areas:
+        "logo"
+        "info"
+        "settings";  
+    padding: 2px; 
+}
+
+#awlab-here > #logo { 
+    grid-area: logo; 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      "awlab here"; 
+}
+      
+#awlab { 
+    grid-area: awlab; 
+    background-image: url(../images/modules/awlab.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+#here { 
+    grid-area: here; 
+    background-image: url(../images/modules/here.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#awlab-here > #info { 
+    grid-area: info; 
+}
+
+#awlab-here > #settings { 
+    grid-area: settings; 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      "switch button"; 
+}
+
+#awlab-here > #settings > .switch { 
+    grid-area: switch;
+    display: flex; 
+    align-items: center;
+    justify-content: flex-start;
+    padding: 6px 6px;
+}
+
+#awlab-here > #settings > .button { 
+    grid-area: button;
+    display: flex; 
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#awlab-here > #settings > .button > button > #button { 
+    padding: 6px 6px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.dashboard#awlab-here {
+    display: none;
+    background: var(--white-color);
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+}
+
+/* supreme */
+#supreme { 
+    grid-area: supreme; 
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-auto-rows: 1fr;
+    gap: 2px 2px;
+    grid-auto-flow: row;
+    align-content: center;
+    grid-template-areas:
+        "logo"
+        "info"
+        "settings";  
+    padding: 2px; 
+}
+
+#supreme > #logo { 
+    grid-area: logo; 
+    background-image: url(../images/modules/supreme.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+      
+#supreme > #info { 
+    grid-area: info; 
+}
+
+#supreme > #settings { 
+    grid-area: settings; 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      "switch button"; 
+}
+
+#supreme > #settings > .switch { 
+    grid-area: switch;
+    display: flex; 
+    align-items: center;
+    justify-content: flex-start;
+    padding: 6px 6px;
+}
+
+#supreme > #settings > .button { 
+    grid-area: button;
+    display: flex; 
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#supreme > #settings > .button > button > #button { 
+    padding: 6px 6px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.dashboard#supreme {
+    display: none;
+    background: var(--white-color);
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+}
+
+/* sns-naked */
+#sns-naked { 
+    grid-area: sns-naked; 
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-auto-rows: 1fr;
+    gap: 2px 2px;
+    grid-auto-flow: row;
+    align-content: center;
+    grid-template-areas:
+        "logo"
+        "info"
+        "settings";  
+    padding: 2px; 
+}
+
+#sns-naked > #logo { 
+    grid-area: logo; 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      "sns naked"; 
+}
+      
+#sns { 
+    grid-area: sns; 
+    background-image: url(../images/modules/sns.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+#naked { 
+    grid-area: naked; 
+    background-image: url(../images/modules/naked.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#sns-naked > #info { 
+    grid-area: info; 
+}
+
+#sns-naked > #settings { 
+    grid-area: settings; 
+}
+
+#sns-naked > #settings { 
+    grid-area: settings; 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      "switch button"; 
+}
+
+#sns-naked > #settings > .switch { 
+    grid-area: switch;
+    display: flex; 
+    align-items: center;
+    justify-content: flex-start;
+    padding: 6px 6px;
+}
+
+#sns-naked > #settings > .button { 
+    grid-area: button;
+    display: flex; 
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#sns-naked > #settings > .button > button > #button { 
+    padding: 6px 6px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.dashboard#sns-naked {
+    display: none;
+    background: var(--white-color);
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+}
+
+/* kith */
+#kith { 
+    grid-area: kith; 
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-auto-rows: 1fr;
+    gap: 2px 2px;
+    grid-auto-flow: row;
+    align-content: center;
+    grid-template-areas:
+        "logo"
+        "info"
+        "settings";  
+    padding: 2px; 
+}
+
+#kith > #logo { 
+    grid-area: logo; 
+    background-image: url(../images/modules/kith.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+      
+#kith > #info { 
+    grid-area: info; 
+}
+
+#kith > #settings { 
+    grid-area: settings; 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      "switch button"; 
+}
+
+#kith > #settings > .switch { 
+    grid-area: switch;
+    display: flex; 
+    align-items: center;
+    justify-content: flex-start;
+    padding: 6px 6px;
+}
+
+#kith > #settings > .button { 
+    grid-area: button;
+    display: flex; 
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#kith > #settings > .button > button > #button { 
+    padding: 6px 6px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.dashboard#kith {
+    display: none;
+    background: var(--white-color);
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+}
+
+#test { 
+    grid-area: test; 
+}

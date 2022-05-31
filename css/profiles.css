@@ -1,0 +1,274 @@
+/* Profiles */
+.profiles {
+    display: none;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-auto-rows: 1fr;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    align-content: center;
+    grid-template-areas:
+      "address address"
+      "credit_card settings";
+    background: var(--white-color);
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+}
+
+  
+.address { 
+    grid-area: address; 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 14px 1fr 1fr 1fr 1fr; 
+    gap: 10px 10px; 
+    grid-template-areas: 
+        "title title"
+        "first_name last_name"
+        "email email"
+        "phone country"
+        "field field"
+        "info city";  
+    padding: 0px 6px;
+}
+
+.address > .title {
+    grid-area: title; 
+    font-size: 12px;
+    font-weight: bold;
+    -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+            -moz-user-select: none; /* Old versions of Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+                user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+}
+
+.first_name { 
+    grid-area: first_name; 
+}
+
+.last_name { 
+    grid-area: last_name; 
+}
+
+.email { 
+    grid-area: email; 
+}
+
+.phone { 
+    grid-area: phone; 
+}
+
+.country { 
+    grid-area: country; 
+}
+
+.field { 
+    grid-area: field;
+}
+
+.info { 
+    grid-area: info;
+    display: grid; 
+    grid-template-columns: 0.5fr 1fr; 
+    grid-template-rows: 1fr; 
+    gap: 10px 10px; 
+    grid-template-areas: 
+        "zip province";  
+    padding: 0px 0px;
+}
+
+.zip {
+    grid-area: zip;
+}
+
+.province {
+    grid-area: province;
+}
+
+.city {
+    grid-area: city;
+}
+
+.credit_card { 
+    grid-area: credit_card; 
+    display: grid; 
+    grid-template-columns: 1fr; 
+    grid-template-rows: 14px 1fr 1fr 1fr 1fr; 
+    gap: 10px 10px; 
+    grid-template-areas: 
+        "title"
+        "name"
+        "number"
+        "expiry"
+        "cvv"; 
+    padding: 0px 6px;
+}
+
+.credit_card > .title {
+    grid-area: title; 
+    font-size: 12px;
+    padding: 0px 0px;
+    font-weight: bold;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                supported by Chrome, Edge, Opera and Firefox */
+}
+
+.name { 
+    grid-area: name; 
+}
+
+.number { 
+    grid-area: number; 
+}
+
+.expiry { 
+    grid-area: expiry; 
+}
+
+.cvv { 
+    grid-area: cvv; 
+}
+
+.profiles_settings { 
+    grid-area: settings; 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 14px 1fr 1fr 40px; 
+    gap: 10px 10px; 
+    grid-template-areas: 
+        "title title"
+        "profile_selection profile_selection"
+        "utility label"
+        "save delete"; 
+    padding: 0px 6px;
+    margin: 0;
+}
+
+.profiles_settings > .title {
+    grid-area: title; 
+    font-size: 12px;
+    padding: 0px 0px;
+    font-weight: bold;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                supported by Chrome, Edge, Opera and Firefox */
+}
+
+#profile_selection {
+    grid-area: profile_selection;
+}
+
+.utility {
+    grid-area: utility;
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr; 
+    gap: 10px 10px; 
+    grid-template-areas: 
+        "add_profile copy_profile"; 
+    padding: 0px 0px;
+    margin: 0;
+}
+
+.add_profile {
+    grid-area: add_profile;
+}
+
+.copy_profile {
+    grid-area: copy_profile;
+}
+
+.profiles > .profiles_settings > .utility > .add_profile > .button > button > #button { 
+    padding: 0px 0px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.profiles > .profiles_settings > .utility > .copy_profile > .button > button > #button { 
+    padding: 0px 0px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.label { 
+    grid-area: label; 
+}
+
+.save {
+    grid-area: save;
+    cursor: pointer;
+    background: var(--blue-color);
+    height: 30px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+}
+
+.save .option {
+    font-size: 13px;
+    line-height: 18px;
+    vertical-align: middle;
+}
+
+.save span {
+    padding-bottom: 0px;
+    display: inline-block;
+}
+
+.save #save {
+    font-size: 18px;
+    vertical-align: middle;
+}
+
+.save > a {
+    color: var(--white-color);
+    padding: 0px 2px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.delete {
+    grid-area: delete;
+    cursor: pointer;
+    background: var(--blue-color);
+    height: 30px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+}
+
+.delete .option {
+    font-size: 13px;
+    line-height: 18px;
+    vertical-align: middle;
+}
+
+.delete span {
+    padding-bottom: 0px;
+    display: inline-block;
+}
+
+.delete #delete {
+    font-size: 18px;
+    vertical-align: middle;
+}
+
+.delete > a {
+    color: var(--white-color);
+    padding: 0px 2px;
+    text-decoration: none;
+    white-space: nowrap;
+}
