@@ -415,11 +415,11 @@ select {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #fff;
+    background-color: var(--blue-color);
     -webkit-transition: .4s;
     transition: .4s;
     display: inline-block;
-    border: 1px solid #000;
+    border: 1px solid var(--blue-color);
 }
 
 .slider:before {
@@ -429,36 +429,29 @@ select {
     width: 13px;
     left: 1px;
     bottom: 1px;
-    background-color: #000;
+    background-color: var(--white-color);
     -webkit-transition: .4s;
     transition: .4s;
     display: inline-block;
 }
 
 input:checked + .slider {
-    background-color: #000;
+    background-color: var(--blue-color);
 }
 
 input:focus + .slider {
-    box-shadow: 0 0 1px #000;
+    box-shadow: 0 0 1px var(--blue-color);
 }
 
 input:checked + .slider:before {
     -webkit-transform: translateX(13px);
     -ms-transform: translateX(13px);
     transform: translateX(13px);
-    background-color: #fff;
+    background-color: var(--white-color);
 }
 
 .slider.round {
     border-radius: 17px;
-    display: inline-block;
-}
-
-.slider.round.small {
-    border-radius: 8.5px;
-    width: 7.5px;
-    height: 4.5px;
     display: inline-block;
 }
 
