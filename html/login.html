@@ -5,13 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/login.css" />
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <script src="../js/login.js"></script>
 </head>
 <body>
     <div class="container">
+        <img src="../images/logo.svg" alt="" class="logo">
         <input type="text" class="form" id="key" placeholder="Enter your key">
-        <input type="image" class="button" id="bind" src="../images/bind.svg">
-        <input type="image" class="button" id="reset" src="../images/reset.svg">
+        <div class="button">
+            <button type="submit">
+                <i class='bx bx-log-in' id="bind"></i>
+            </button>
+        </div>
+        <div class="button">
+            <button type="submit">
+                <i class='bx bx-reset' id="reset"></i>
+            </button>
+        </div>
     </div>
 </body>
 </html>
