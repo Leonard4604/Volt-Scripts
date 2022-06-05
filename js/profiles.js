@@ -44,7 +44,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         
         // Listener per il click del save button dopo che si è premuto add profile, salva il profilo in uno nuovo
         saveBtn.addEventListener('click', async () => {
-            const profiles = JSON.parse(await extract.profiles());
+            let profiles = await extract.profiles();
+            if (profiles) {
+                profiles = JSON.parse(profiles);
+            }
+            else {
+                profiles = [];
+            }
             const toSave = {
                 label: document.querySelector('#label').value,
                 address: {
@@ -74,7 +80,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Listener per il click del copy button
     copyProfile.addEventListener('click', async function() {
-        let profiles = JSON.parse(await extract.profiles());
+        let profiles = await extract.profiles();
+        if (profiles) {
+            profiles = JSON.parse(profiles);
+        }
+        else {
+            profiles = [];
+        }
         for (item in profiles) {
             if (profilesList.value === profiles[item].label) {
                 const toSave = {
@@ -109,7 +121,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Listener per il cambio nella selection
     profilesList.addEventListener('change', async function() {
-        let profiles = JSON.parse(await extract.profiles());
+        let profiles = await extract.profiles();
+        if (profiles) {
+            profiles = JSON.parse(profiles);
+        }
+        else {
+            profiles = [];
+        }
         for (item in profiles) {
             if (profilesList.value === profiles[item].label) {
                 document.querySelector('#label').value = profiles[item].label
@@ -132,7 +150,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Listener per il click del save button, sovrascrive i profili già esistenti
     saveBtn.addEventListener('click', async () => {
-        const profiles = JSON.parse(await extract.profiles());
+        let profiles = await extract.profiles();
+        if (profiles) {
+            profiles = JSON.parse(profiles);
+        }
+        else {
+            profiles = [];
+        }
         for (item in profiles) {
             if (profilesList.value === profiles[item].label) {
                 profiles[item].label = document.querySelector('#label').value,
@@ -160,7 +184,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const deleteBtn = document.querySelector('#delete');
     deleteBtn.addEventListener('click', async () => {
-        let profiles = JSON.parse(await extract.profiles());
+        let profiles = await extract.profiles();
+        if (profiles) {
+            profiles = JSON.parse(profiles);
+        }
+        else {
+            profiles = [];
+        }
         const profileToDelete = document.querySelector('#profile_selection > select').value
         for (item in profiles) {
             if (profileToDelete === profiles[item].label) {
