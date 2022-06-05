@@ -216,7 +216,7 @@
     grid-area: label; 
 }
 
-.save {
+.profiles .save {
     grid-area: save;
     cursor: pointer;
     background: var(--blue-color);
@@ -226,23 +226,23 @@
     justify-content: center;
 }
 
-.save .option {
+.profiles .save .option {
     font-size: 13px;
     line-height: 18px;
     vertical-align: middle;
 }
 
-.save span {
+.profiles .save span {
     padding-bottom: 0px;
     display: inline-block;
 }
 
-.save #save {
+.profiles .save #save {
     font-size: 18px;
     vertical-align: middle;
 }
 
-.save > a {
+.profiles .save > a {
     color: var(--white-color);
     padding: 0px 2px;
     text-decoration: none;

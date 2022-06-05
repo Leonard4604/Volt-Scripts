@@ -13,6 +13,7 @@
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <script src="../js/home.js"></script>
     <script src="../js/profiles.js"></script>
+    <script src="../js/settings.js"></script>
     <script src="../js/chart.min.js"></script>
 </head>
 <body>
@@ -373,7 +374,26 @@
             <canvas id="spendingChart" width="200" height="100"></canvas>
         </div>
         <div class="settings">
-
+            <div class="discord">
+                <div class="logo">
+                    <i class='bx bxl-discord-alt' ></i>
+                </div>
+                <div class="url">
+                    <input type="text" id="url" placeholder="Discord webhook URL" autocomplete="off">
+                </div>
+                <div class="test">
+                    <a href="#" id="test">
+                        <i class='bx bx-test-tube' id="test"></i>
+                        <span class="option">Test</span>
+                    </a>
+                </div>
+                <div class="save">
+                    <a href="#" id="save">
+                        <i class='bx bx-save' id="save"></i>
+                        <span class="option">Save</span>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
     <!-- glass effect -->

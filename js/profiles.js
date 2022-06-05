@@ -1,17 +1,22 @@
 document.addEventListener('DOMContentLoaded', async () => {
     chrome.storage.sync.get(null, function (store) {
-        const profiles = JSON.parse(store.profiles)
-        const select_elem = document.querySelector('#profile_selection > select')
-        profiles.forEach((object) =>    // create dropdown items
-        {
-            select_elem.add(new Option(object.label))
-        })
+        let profiles = '' 
+        if (store.profiles) {
+            profiles = JSON.parse(store.profiles)
+        }
+        if (profiles) {
+            const select_elem = document.querySelector('#profile_selection > select')
+            profiles.forEach((object) =>    // create dropdown items
+            {
+                select_elem.add(new Option(object.label))
+            })
+        }
     })
 
     const addProfile = document.querySelector('.add_profile > .button > button > #button')
     const copyProfile = document.querySelector('.copy_profile > .button > button > #button')
     const profilesList = document.querySelector('#profile_selection > select')
-    const saveBtn = document.querySelector('#save');
+    const saveBtn = document.querySelector('.profiles #save');
     
     addProfile.addEventListener('click', async function() {
         // Pulisco tutti i campi
