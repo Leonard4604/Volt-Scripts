@@ -35,6 +35,7 @@ button {
     height: 250px;
     position: absolute;
     top: 20px;
+    z-index: 0;
 }
 
 .container {  
@@ -47,6 +48,7 @@ button {
       "key bind reset";
     align-content: center; 
     padding-top: 50px;
+    z-index: 1;
 }
   
 #key { 
