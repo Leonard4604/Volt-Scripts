@@ -12,6 +12,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const saveBtn = document.querySelector('.settings #save');
     const testBtn = document.querySelector('.settings #test');
+    const importBtn = document.querySelector('.settings #import');
+    const exportBtn = document.querySelector('.settings #export');
+    const resetBtn = document.querySelector('.settings #reset');
+
     saveBtn.addEventListener('click', async () => {
         const discordWebhook = {
             url: webhookURL.value.replace(' ', '')
@@ -22,7 +26,47 @@ document.addEventListener('DOMContentLoaded', async () => {
     })
 
     testBtn.addEventListener('click', async () => {
-        await webhook.object(webhookURL.value.replace(' ', ''))
+        await webhook.create(webhookURL.value.replace(' ', ''))
+    })
+
+    importBtn.addEventListener('click', async () => {
+        const key = await extractKey();
+
+        if (document.querySelector('.settings .backup .status').textContent === 'Backup found.') {
+            const data = await license.retrieve(key);
+            if (data.metadata.backup && data.metadata.backup !== "[]") {
+                chrome.storage.sync.set({
+                    'profiles': data.metadata.backup
+                });
+                // Refresho la pagina per aggiornare il dropdown
+                window.location.reload()
+            }
+        }
+    })
+
+    exportBtn.addEventListener('click', async () => {
+        const key = await extractKey();
+        const backup = await extract.profiles();
+
+        const result = await license.backup.export(key, backup).then(res => res.json())
+        if (result.metadata.backup && result.metadata.backup !== "[]") {
+            alert('Backup successfully done.')
+            // Refresho la pagina per aggiornare il dropdown
+            window.location.reload()
+        }
+    })
+
+    resetBtn.addEventListener('click', async () => {
+        const key = await extractKey();
+
+        if (document.querySelector('.settings .backup .status').textContent === 'Backup found.') {
+            const result = await license.backup.reset(key).then(res => res.json())
+            if (!result.metadata.backup) {
+                alert('Backup reset successfully.')
+                // Refresho la pagina per aggiornare il dropdown
+                window.location.reload()
+            }
+        }
     })
 })
 
@@ -47,7 +91,7 @@ const webhook = {
             })
         })
     },
-    object: function (url) {
+    create: function (url) {
         const date = getDate()
         const version = document.querySelector('.version').textContent
         const embed = {

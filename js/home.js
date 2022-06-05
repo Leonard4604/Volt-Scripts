@@ -617,7 +617,33 @@ const license = {
             metadata: { hwid: null }
             })
         })
-    }
+    },
+    backup: {
+        export: async function(key, backup) {
+            return fetch(`https://api.hyper.co/v6/licenses/${key}/metadata`, {
+                method: 'PATCH',
+                headers: {
+                'Authorization': `Bearer ${license.API_KEY}`,
+                'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    metadata: { backup }
+                })
+            })
+        },
+        reset: async function(key) {
+            return fetch(`https://api.hyper.co/v6/licenses/${key}/metadata`, {
+                method: 'PATCH',
+                headers: {
+                'Authorization': `Bearer ${license.API_KEY}`,
+                'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    metadata: { backup: null }
+                })
+            })
+        }
+    },
 }
 
 async function extractHwid() {
@@ -667,6 +693,9 @@ async function validate(key) {
             chrome.storage.sync.set({ 'hwid': currHwid });
             document.querySelector('div.content > div > div > img').src = licenseInfo.user.avatar;
             document.querySelector('div.content > div > div > div > div.name').textContent = `${licenseInfo.user.discord.username}#${licenseInfo.user.discord.discriminator}`;
+            if (licenseInfo.metadata.backup && licenseInfo.metadata.backup !== "[]") {
+                document.querySelector('.settings .backup .status').textContent = 'Backup found.'
+            }
             return true;
         }
         if (licenseInfo.metadata.hwid) {
@@ -674,6 +703,9 @@ async function validate(key) {
                 chrome.storage.sync.set({ 'active': true });
                 document.querySelector('div.content > div > div > img').src = licenseInfo.user.avatar;
                 document.querySelector('div.content > div > div > div > div.name').textContent = `${licenseInfo.user.discord.username}#${licenseInfo.user.discord.discriminator}`;
+                if (licenseInfo.metadata.backup && licenseInfo.metadata.backup !== "[]") {
+                    document.querySelector('.settings .backup .status').textContent = 'Backup found.'
+                }
                 return true;
             }
             else {
