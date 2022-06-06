@@ -399,8 +399,8 @@ select {
 .checkbox {
     position: relative;
     display: inline-block;
-    width: 30px;
-    height: 17px;
+    width: 36px;
+    height: 22px;
 }
 
 .checkbox input {
@@ -420,16 +420,16 @@ select {
     -webkit-transition: .4s;
     transition: .4s;
     display: inline-block;
-    border: 1px solid var(--grey-color);
+    border: 1px solid var(--white-color);
 }
 
 .slider:before {
     position: absolute;
     content: "";
-    height: 13px;
-    width: 13px;
-    left: 1px;
-    bottom: 1px;
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
     background-color: var(--white-color);
     -webkit-transition: .4s;
     transition: .4s;
@@ -445,14 +445,14 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-    -webkit-transform: translateX(13px);
-    -ms-transform: translateX(13px);
-    transform: translateX(13px);
+    -webkit-transform: translateX(14px);
+    -ms-transform: translateX(14px);
+    transform: translateX(14px);
     background-color: var(--white-color);
 }
 
 .slider.round {
-    border-radius: 17px;
+    border-radius: 12px;
     display: inline-block;
 }
 
