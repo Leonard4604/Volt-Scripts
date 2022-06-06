@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const importBtn = document.querySelector('.settings #import');
     const exportBtn = document.querySelector('.settings #export');
     const resetBtn = document.querySelector('.settings #reset');
+    const clearCookiesBtn = document.querySelector('.settings #clear')
 
     saveBtn.addEventListener('click', async () => {
         const discordWebhook = {
@@ -67,6 +68,10 @@ document.addEventListener('DOMContentLoaded', async () => {
                 window.location.reload()
             }
         }
+    })
+
+    clearCookiesBtn.addEventListener('click', async () => {
+        chrome.runtime.sendMessage({ todo: "clearCookies" })
     })
 })
 
