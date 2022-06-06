@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Gestione pagine settings dei singoli moduli
     const zalandoSettings = document.querySelector('#zalando > #settings > .button > button > #button');
     zalandoSettings.addEventListener('click', () => {
-        show('.modules #zalando', '.dashboard')
+        show('.dashboard#zalando', '.container')
         chrome.storage.sync.set({
             'lastVisited': 'zalando'
         });
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const luisaviaromaSettings = document.querySelector('#luisaviaroma > #settings > .button > button > #button');
     luisaviaromaSettings.addEventListener('click', () => {
-        show('.modules #luisaviaroma', '.dashboard')
+        show('.dashboard#luisaviaroma', '.container')
         chrome.storage.sync.set({
             'lastVisited': 'luisaviaroma'
         });
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const cisalfaSettings = document.querySelector('#cisalfa > #settings > .button > button > #button');
     cisalfaSettings.addEventListener('click', () => {
-        show('.modules #cisalfa', '.dashboard')
+        show('.dashboard#cisalfa', '.container')
         chrome.storage.sync.set({
             'lastVisited': 'cisalfa'
         });
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const snipesSettings = document.querySelector('#snipes > #settings > .button > button > #button');
     snipesSettings.addEventListener('click', () => {
-        show('.modules #snipes', '.dashboard')
+        show('.dashboard#snipes', '.container')
         chrome.storage.sync.set({
             'lastVisited': 'snipes'
         });
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const soleboxSettings = document.querySelector('#solebox > #settings > .button > button > #button');
     soleboxSettings.addEventListener('click', () => {
-        show('.modules #solebox', '.dashboard')
+        show('.dashboard#solebox', '.container')
         chrome.storage.sync.set({
             'lastVisited': 'solebox'
         });
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const awlabHereSettings = document.querySelector('#awlab-here > #settings > .button > button > #button');
     awlabHereSettings.addEventListener('click', () => {
-        show('.modules #awlab-here', '.dashboard')
+        show('.dashboard#awlab-here', '.container')
         chrome.storage.sync.set({
             'lastVisited': 'awlab-here'
         });
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const supremeSettings = document.querySelector('#supreme > #settings > .button > button > #button');
     supremeSettings.addEventListener('click', () => {
-        show('.modules #supreme', '.dashboard')
+        show('.dashboard#supreme', '.container')
         chrome.storage.sync.set({
             'lastVisited': 'supreme'
         });
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const snsNakedSettings = document.querySelector('#sns-naked > #settings > .button > button > #button');
     snsNakedSettings.addEventListener('click', () => {
-        show('.modules #sns-naked', '.dashboard')
+        show('.dashboard#sns-naked', '.container')
         chrome.storage.sync.set({
             'lastVisited': 'sns-naked'
         });
@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const kith = document.querySelector('#kith > #settings > .button > button > #button');
     kith.addEventListener('click', () => {
-        show('.modules #kith', '.dashboard')
+        show('.dashboard#kith', '.container')
         chrome.storage.sync.set({
             'lastVisited': 'kith'
         });
@@ -114,22 +114,22 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const lastVisited = await extractLastVisited();
     if (lastVisited === 'profiles') {
-        show('.profiles', '.dashboard')
+        show('.profiles', '.container')
         profiles.style.color = "var(--blue-color)";
         profiles.style.backgroundColor = "var(--white-color)"
     }
     else if (lastVisited === 'proxy') {
-        show('.proxy', '.dashboard')
+        show('.proxy', '.container')
         proxy.style.color = "var(--blue-color)";
         proxy.style.backgroundColor = "var(--white-color)"
     }
     else if (lastVisited === 'analytics') {
-        show('.analytics', '.dashboard')
+        show('.analytics', '.container')
         analytics.style.color = "var(--blue-color)";
         analytics.style.backgroundColor = "var(--white-color)"
     }
     else if (lastVisited === 'settings') {
-        show('.settings', '.dashboard')
+        show('.settings', '.container')
         settings.style.color = "var(--blue-color)";
         settings.style.backgroundColor = "var(--white-color)"
     }
@@ -137,31 +137,31 @@ document.addEventListener('DOMContentLoaded', async () => {
         dash.style.color = "var(--blue-color)";
         dash.style.backgroundColor = "var(--white-color)"
         if (lastVisited === 'zalando') {
-            show('.modules #zalando', '.dashboard')
+            show('.dashboard#zalando', '.container')
         }
         else if (lastVisited === 'luisaviaroma') {
-            show('.modules #luisaviaroma', '.dashboard')
+            show('.dashboard#luisaviaroma', '.container')
         }
         else if (lastVisited === 'cisalfa') {
-            show('.modules #cisalfa', '.dashboard')
+            show('.dashboard#cisalfa', '.container')
         }
         else if (lastVisited === 'snipes') {
-            show('.modules #snipes', '.dashboard')
+            show('.dashboard#snipes', '.container')
         }
         else if (lastVisited === 'solebox') {
-            show('.modules #solebox', '.dashboard')
+            show('.dashboard#solebox', '.container')
         }
         else if (lastVisited === 'awlab-here') {
-            show('.modules #awlab-here', '.dashboard')
+            show('.dashboard#awlab-here', '.container')
         }
         else if (lastVisited === 'supreme') {
-            show('.modules #supreme', '.dashboard')
+            show('.dashboard#supreme', '.container')
         }
         else if (lastVisited === 'sns-naked') {
-            show('.modules #sns-naked', '.dashboard')
+            show('.dashboard#sns-naked', '.container')
         }
         else if (lastVisited === 'kith') {
-            show('.modules #kith', '.dashboard')
+            show('.dashboard#kith', '.container')
         }
     }
 
@@ -170,54 +170,54 @@ document.addEventListener('DOMContentLoaded', async () => {
             'lastVisited': 'dash'
         });
         
-        if (getStyle('.modules #zalando', 'display') === 'grid') {
-            show('.dashboard', '.modules #zalando')
+        if (getStyle('.dashboard#zalando', 'display') === 'grid') {
+            show('.container', '.dashboard#zalando')
         }
-        if (getStyle('.modules #luisaviaroma', 'display') === 'grid') {
-            show('.dashboard', '.modules #luisaviaroma')
+        if (getStyle('.dashboard#luisaviaroma', 'display') === 'grid') {
+            show('.container', '.dashboard#luisaviaroma')
         }
-        if (getStyle('.modules #cisalfa', 'display') === 'grid') {
-            show('.dashboard', '.modules #cisalfa')
+        if (getStyle('.dashboard#cisalfa', 'display') === 'grid') {
+            show('.container', '.dashboard#cisalfa')
         }
-        if (getStyle('.modules #snipes', 'display') === 'grid') {
-            show('.dashboard', '.modules #snipes')
+        if (getStyle('.dashboard#snipes', 'display') === 'grid') {
+            show('.container', '.dashboard#snipes')
         }
-        if (getStyle('.modules #solebox', 'display') === 'grid') {
-            show('.dashboard', '.modules #solebox')
+        if (getStyle('.dashboard#solebox', 'display') === 'grid') {
+            show('.container', '.dashboard#solebox')
         }
-        if (getStyle('.modules #awlab-here', 'display') === 'grid') {
-            show('.dashboard', '.modules #awlab-here')
+        if (getStyle('.dashboard#awlab-here', 'display') === 'grid') {
+            show('.container', '.dashboard#awlab-here')
         }
-        if (getStyle('.modules #supreme', 'display') === 'grid') {
-            show('.dashboard', '.modules #supreme')
+        if (getStyle('.dashboard#supreme', 'display') === 'grid') {
+            show('.container', '.dashboard#supreme')
         }
-        if (getStyle('.modules #sns-naked', 'display') === 'grid') {
-            show('.dashboard', '.modules #sns-naked')
+        if (getStyle('.dashboard#sns-naked', 'display') === 'grid') {
+            show('.container', '.dashboard#sns-naked')
         }
-        if (getStyle('.modules #kith', 'display') === 'grid') {
-            show('.dashboard', '.modules #kith')
+        if (getStyle('.dashboard#kith', 'display') === 'grid') {
+            show('.container', '.dashboard#kith')
         }
 
         if (getStyle('.profiles', 'display') === 'grid') {
-            show('.dashboard', '.profiles')
+            show('.container', '.profiles')
             profiles.removeAttribute('style');
             dash.style.color = "var(--blue-color)";
             dash.style.backgroundColor = "var(--white-color)"
         }
         if (getStyle('.proxy', 'display') === 'grid') {
-            show('.dashboard', '.proxy')
+            show('.container', '.proxy')
             proxy.removeAttribute('style');
             dash.style.color = "var(--blue-color)";
             dash.style.backgroundColor = "var(--white-color)"
         }
         if (getStyle('.analytics', 'display') === 'grid') {
-            show('.dashboard', '.analytics')
+            show('.container', '.analytics')
             analytics.removeAttribute('style');
             dash.style.color = "var(--blue-color)";
             dash.style.backgroundColor = "var(--white-color)"
         }
         if (getStyle('.settings', 'display') === 'grid') {
-            show('.dashboard', '.settings')
+            show('.container', '.settings')
             settings.removeAttribute('style');
             dash.style.color = "var(--blue-color)";
             dash.style.backgroundColor = "var(--white-color)"
@@ -229,63 +229,63 @@ document.addEventListener('DOMContentLoaded', async () => {
             'lastVisited': 'profiles'
         });
 
-        if (getStyle('.modules #zalando', 'display') === 'grid') {
-            show('.profiles', '.modules #zalando')
+        if (getStyle('.dashboard#zalando', 'display') === 'grid') {
+            show('.profiles', '.dashboard#zalando')
             dash.removeAttribute('style');
             profiles.style.color = "var(--blue-color)";
             profiles.style.backgroundColor = "var(--white-color)"
         }
-        if (getStyle('.modules #luisaviaroma', 'display') === 'grid') {
-            show('.profiles', '.modules #luisaviaroma')
+        if (getStyle('.dashboard#luisaviaroma', 'display') === 'grid') {
+            show('.profiles', '.dashboard#luisaviaroma')
             dash.removeAttribute('style');
             profiles.style.color = "var(--blue-color)";
             profiles.style.backgroundColor = "var(--white-color)"
         }
-        if (getStyle('.modules #cisalfa', 'display') === 'grid') {
-            show('.profiles', '.modules #cisalfa')
+        if (getStyle('.dashboard#cisalfa', 'display') === 'grid') {
+            show('.profiles', '.dashboard#cisalfa')
             dash.removeAttribute('style');
             profiles.style.color = "var(--blue-color)";
             profiles.style.backgroundColor = "var(--white-color)"
         }
-        if (getStyle('.modules #snipes', 'display') === 'grid') {
-            show('.profiles', '.modules #snipes')
+        if (getStyle('.dashboard#snipes', 'display') === 'grid') {
+            show('.profiles', '.dashboard#snipes')
             dash.removeAttribute('style');
             profiles.style.color = "var(--blue-color)";
             profiles.style.backgroundColor = "var(--white-color)"
         }
-        if (getStyle('.modules #solebox', 'display') === 'grid') {
-            show('.profiles', '.modules #solebox')
+        if (getStyle('.dashboard#solebox', 'display') === 'grid') {
+            show('.profiles', '.dashboard#solebox')
             dash.removeAttribute('style');
             profiles.style.color = "var(--blue-color)";
             profiles.style.backgroundColor = "var(--white-color)"
         }
-        if (getStyle('.modules #awlab-here', 'display') === 'grid') {
-            show('.profiles', '.modules #awlab-here')
+        if (getStyle('.dashboard#awlab-here', 'display') === 'grid') {
+            show('.profiles', '.dashboard#awlab-here')
             dash.removeAttribute('style');
             profiles.style.color = "var(--blue-color)";
             profiles.style.backgroundColor = "var(--white-color)"
         }
-        if (getStyle('.modules #supreme', 'display') === 'grid') {
-            show('.profiles', '.modules #supreme')
+        if (getStyle('.dashboard#supreme', 'display') === 'grid') {
+            show('.profiles', '.dashboard#supreme')
             dash.removeAttribute('style');
             profiles.style.color = "var(--blue-color)";
             profiles.style.backgroundColor = "var(--white-color)"
         }
-        if (getStyle('.modules #sns-naked', 'display') === 'grid') {
-            show('.profiles', '.modules #sns-naked')
+        if (getStyle('.dashboard#sns-naked', 'display') === 'grid') {
+            show('.profiles', '.dashboard#sns-naked')
             dash.removeAttribute('style');
             profiles.style.color = "var(--blue-color)";
             profiles.style.backgroundColor = "var(--white-color)"
         }
-        if (getStyle('.modules #kith', 'display') === 'grid') {
-            show('.profiles', '.modules #kith')
+        if (getStyle('.dashboard#kith', 'display') === 'grid') {
+            show('.profiles', '.dashboard#kith')
             dash.removeAttribute('style');
             profiles.style.color = "var(--blue-color)";
             profiles.style.backgroundColor = "var(--white-color)"
         }
 
-        if (getStyle('.dashboard', 'display') === 'grid') {
-            show('.profiles', '.dashboard')
+        if (getStyle('.container', 'display') === 'grid') {
+            show('.profiles', '.container')
             dash.removeAttribute('style');
             profiles.style.color = "var(--blue-color)";
             profiles.style.backgroundColor = "var(--white-color)"
@@ -315,63 +315,63 @@ document.addEventListener('DOMContentLoaded', async () => {
             'lastVisited': 'proxy'
         });
 
-        if (getStyle('.modules #zalando', 'display') === 'grid') {
-            show('.proxy', '.modules #zalando')
+        if (getStyle('.dashboard#zalando', 'display') === 'grid') {
+            show('.proxy', '.dashboard#zalando')
             dash.removeAttribute('style');
             proxy.style.color = "var(--blue-color)";
             proxy.style.backgroundColor = "var(--white-color)"
         }
-        if (getStyle('.modules #luisaviaroma', 'display') === 'grid') {
-            show('.proxy', '.modules #luisaviaroma')
+        if (getStyle('.dashboard#luisaviaroma', 'display') === 'grid') {
+            show('.proxy', '.dashboard#luisaviaroma')
             dash.removeAttribute('style');
             proxy.style.color = "var(--blue-color)";
             proxy.style.backgroundColor = "var(--white-color)"
         }
-        if (getStyle('.modules #cisalfa', 'display') === 'grid') {
-            show('.proxy', '.modules #cisalfa')
+        if (getStyle('.dashboard#cisalfa', 'display') === 'grid') {
+            show('.proxy', '.dashboard#cisalfa')
             dash.removeAttribute('style');
             proxy.style.color = "var(--blue-color)";
             proxy.style.backgroundColor = "var(--white-color)"
         }
-        if (getStyle('.modules #snipes', 'display') === 'grid') {
-            show('.proxy', '.modules #snipes')
+        if (getStyle('.dashboard#snipes', 'display') === 'grid') {
+            show('.proxy', '.dashboard#snipes')
             dash.removeAttribute('style');
             proxy.style.color = "var(--blue-color)";
             proxy.style.backgroundColor = "var(--white-color)"
         }
-        if (getStyle('.modules #solebox', 'display') === 'grid') {
-            show('.proxy', '.modules #solebox')
+        if (getStyle('.dashboard#solebox', 'display') === 'grid') {
+            show('.proxy', '.dashboard#solebox')
             dash.removeAttribute('style');
             proxy.style.color = "var(--blue-color)";
             proxy.style.backgroundColor = "var(--white-color)"
         }
-        if (getStyle('.modules #awlab-here', 'display') === 'grid') {
-            show('.proxy', '.modules #awlab-here')
+        if (getStyle('.dashboard#awlab-here', 'display') === 'grid') {
+            show('.proxy', '.dashboard#awlab-here')
             dash.removeAttribute('style');
             proxy.style.color = "var(--blue-color)";
             proxy.style.backgroundColor = "var(--white-color)"
         }
-        if (getStyle('.modules #supreme', 'display') === 'grid') {
-            show('.proxy', '.modules #supreme')
+        if (getStyle('.dashboard#supreme', 'display') === 'grid') {
+            show('.proxy', '.dashboard#supreme')
             dash.removeAttribute('style');
             proxy.style.color = "var(--blue-color)";
             proxy.style.backgroundColor = "var(--white-color)"
         }
-        if (getStyle('.modules #sns-naked', 'display') === 'grid') {
-            show('.proxy', '.modules #sns-naked')
+        if (getStyle('.dashboard#sns-naked', 'display') === 'grid') {
+            show('.proxy', '.dashboard#sns-naked')
             dash.removeAttribute('style');
             proxy.style.color = "var(--blue-color)";
             proxy.style.backgroundColor = "var(--white-color)"
         }
-        if (getStyle('.modules #kith', 'display') === 'grid') {
-            show('.proxy', '.modules #kith')
+        if (getStyle('.dashboard#kith', 'display') === 'grid') {
+            show('.proxy', '.dashboard#kith')
             dash.removeAttribute('style');
             proxy.style.color = "var(--blue-color)";
             proxy.style.backgroundColor = "var(--white-color)"
         }
 
-        if (getStyle('.dashboard', 'display') === 'grid') {
-            show('.proxy', '.dashboard')
+        if (getStyle('.container', 'display') === 'grid') {
+            show('.proxy', '.container')
             dash.removeAttribute('style');
             proxy.style.color = "var(--blue-color)";
             proxy.style.backgroundColor = "var(--white-color)"
@@ -401,63 +401,63 @@ document.addEventListener('DOMContentLoaded', async () => {
             'lastVisited': 'analytics'
         });
 
-        if (getStyle('.modules #zalando', 'display') === 'grid') {
-            show('.analytics', '.modules #zalando')
+        if (getStyle('.dashboard#zalando', 'display') === 'grid') {
+            show('.analytics', '.dashboard#zalando')
             dash.removeAttribute('style');
             analytics.style.color = "var(--blue-color)";
             analytics.style.backgroundColor = "var(--white-color)"
         }
-        if (getStyle('.modules #luisaviaroma', 'display') === 'grid') {
-            show('.analytics', '.modules #luisaviaroma')
+        if (getStyle('.dashboard#luisaviaroma', 'display') === 'grid') {
+            show('.analytics', '.dashboard#luisaviaroma')
             dash.removeAttribute('style');
             analytics.style.color = "var(--blue-color)";
             analytics.style.backgroundColor = "var(--white-color)"
         }
-        if (getStyle('.modules #cisalfa', 'display') === 'grid') {
-            show('.analytics', '.modules #cisalfa')
+        if (getStyle('.dashboard#cisalfa', 'display') === 'grid') {
+            show('.analytics', '.dashboard#cisalfa')
             dash.removeAttribute('style');
             analytics.style.color = "var(--blue-color)";
             analytics.style.backgroundColor = "var(--white-color)"
         }
-        if (getStyle('.modules #snipes', 'display') === 'grid') {
-            show('.analytics', '.modules #snipes')
+        if (getStyle('.dashboard#snipes', 'display') === 'grid') {
+            show('.analytics', '.dashboard#snipes')
             dash.removeAttribute('style');
             analytics.style.color = "var(--blue-color)";
             analytics.style.backgroundColor = "var(--white-color)"
         }
-        if (getStyle('.modules #solebox', 'display') === 'grid') {
-            show('.analytics', '.modules #solebox')
+        if (getStyle('.dashboard#solebox', 'display') === 'grid') {
+            show('.analytics', '.dashboard#solebox')
             dash.removeAttribute('style');
             analytics.style.color = "var(--blue-color)";
             analytics.style.backgroundColor = "var(--white-color)"
         }
-        if (getStyle('.modules #awlab-here', 'display') === 'grid') {
-            show('.analytics', '.modules #awlab-here')
+        if (getStyle('.dashboard#awlab-here', 'display') === 'grid') {
+            show('.analytics', '.dashboard#awlab-here')
             dash.removeAttribute('style');
             analytics.style.color = "var(--blue-color)";
             analytics.style.backgroundColor = "var(--white-color)"
         }
-        if (getStyle('.modules #supreme', 'display') === 'grid') {
-            show('.analytics', '.modules #supreme')
+        if (getStyle('.dashboard#supreme', 'display') === 'grid') {
+            show('.analytics', '.dashboard#supreme')
             dash.removeAttribute('style');
             analytics.style.color = "var(--blue-color)";
             analytics.style.backgroundColor = "var(--white-color)"
         }
-        if (getStyle('.modules #sns-naked', 'display') === 'grid') {
-            show('.analytics', '.modules #sns-naked')
+        if (getStyle('.dashboard#sns-naked', 'display') === 'grid') {
+            show('.analytics', '.dashboard#sns-naked')
             dash.removeAttribute('style');
             analytics.style.color = "var(--blue-color)";
             analytics.style.backgroundColor = "var(--white-color)"
         }
-        if (getStyle('.modules #kith', 'display') === 'grid') {
-            show('.analytics', '.modules #kith')
+        if (getStyle('.dashboard#kith', 'display') === 'grid') {
+            show('.analytics', '.dashboard#kith')
             dash.removeAttribute('style');
             analytics.style.color = "var(--blue-color)";
             analytics.style.backgroundColor = "var(--white-color)"
         }
 
-        if (getStyle('.dashboard', 'display') === 'grid') {
-            show('.analytics', '.dashboard')
+        if (getStyle('.container', 'display') === 'grid') {
+            show('.analytics', '.container')
             dash.removeAttribute('style');
             analytics.style.color = "var(--blue-color)";
             analytics.style.backgroundColor = "var(--white-color)"
@@ -487,63 +487,63 @@ document.addEventListener('DOMContentLoaded', async () => {
             'lastVisited': 'settings'
         });
 
-        if (getStyle('.modules #zalando', 'display') === 'grid') {
-            show('.settings', '.modules #zalando')
+        if (getStyle('.dashboard#zalando', 'display') === 'grid') {
+            show('.settings', '.dashboard#zalando')
             dash.removeAttribute('style');
             settings.style.color = "var(--blue-color)";
             settings.style.backgroundColor = "var(--white-color)"
         }
-        if (getStyle('.modules #luisaviaroma', 'display') === 'grid') {
-            show('.settings', '.modules #luisaviaroma')
+        if (getStyle('.dashboard#luisaviaroma', 'display') === 'grid') {
+            show('.settings', '.dashboard#luisaviaroma')
             dash.removeAttribute('style');
             settings.style.color = "var(--blue-color)";
             settings.style.backgroundColor = "var(--white-color)"
         }
-        if (getStyle('.modules #cisalfa', 'display') === 'grid') {
-            show('.settings', '.modules #cisalfa')
+        if (getStyle('.dashboard#cisalfa', 'display') === 'grid') {
+            show('.settings', '.dashboard#cisalfa')
             dash.removeAttribute('style');
             settings.style.color = "var(--blue-color)";
             settings.style.backgroundColor = "var(--white-color)"
         }
-        if (getStyle('.modules #snipes', 'display') === 'grid') {
-            show('.settings', '.modules #snipes')
+        if (getStyle('.dashboard#snipes', 'display') === 'grid') {
+            show('.settings', '.dashboard#snipes')
             dash.removeAttribute('style');
             settings.style.color = "var(--blue-color)";
             settings.style.backgroundColor = "var(--white-color)"
         }
-        if (getStyle('.modules #solebox', 'display') === 'grid') {
-            show('.settings', '.modules #solebox')
+        if (getStyle('.dashboard#solebox', 'display') === 'grid') {
+            show('.settings', '.dashboard#solebox')
             dash.removeAttribute('style');
             settings.style.color = "var(--blue-color)";
             settings.style.backgroundColor = "var(--white-color)"
         }
-        if (getStyle('.modules #awlab-here', 'display') === 'grid') {
-            show('.settings', '.modules #awlab-here')
+        if (getStyle('.dashboard#awlab-here', 'display') === 'grid') {
+            show('.settings', '.dashboard#awlab-here')
             dash.removeAttribute('style');
             settings.style.color = "var(--blue-color)";
             settings.style.backgroundColor = "var(--white-color)"
         }
-        if (getStyle('.modules #supreme', 'display') === 'grid') {
-            show('.settings', '.modules #supreme')
+        if (getStyle('.dashboard#supreme', 'display') === 'grid') {
+            show('.settings', '.dashboard#supreme')
             dash.removeAttribute('style');
             settings.style.color = "var(--blue-color)";
             settings.style.backgroundColor = "var(--white-color)"
         }
-        if (getStyle('.modules #sns-naked', 'display') === 'grid') {
-            show('.settings', '.modules #sns-naked')
+        if (getStyle('.dashboard#sns-naked', 'display') === 'grid') {
+            show('.settings', '.dashboard#sns-naked')
             dash.removeAttribute('style');
             settings.style.color = "var(--blue-color)";
             settings.style.backgroundColor = "var(--white-color)"
         }
-        if (getStyle('.modules #kith', 'display') === 'grid') {
-            show('.settings', '.modules #kith')
+        if (getStyle('.dashboard#kith', 'display') === 'grid') {
+            show('.settings', '.dashboard#kith')
             dash.removeAttribute('style');
             settings.style.color = "var(--blue-color)";
             settings.style.backgroundColor = "var(--white-color)"
         }
 
-        if (getStyle('.dashboard', 'display') === 'grid') {
-            show('.settings', '.dashboard')
+        if (getStyle('.container', 'display') === 'grid') {
+            show('.settings', '.container')
             dash.removeAttribute('style');
             settings.style.color = "var(--blue-color)";
             settings.style.backgroundColor = "var(--white-color)"

@@ -1,5 +1,5 @@
 /* dashboard items */
-.dashboard {  
+.container {  
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 108.5px 108.5px 108.5px 108.5px;
@@ -78,6 +78,14 @@
     color: var(--dark-blue-color);
 }
 
+.dashboard#zalando {
+    display: none;
+    background: var(--white-color);
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+}
+
 /* luisaviaroma */
 .item#luisaviaroma { 
     grid-area: luisaviaroma; 
@@ -136,6 +144,14 @@
     font-size: 22px;
     cursor: pointer;
     color: var(--dark-blue-color);
+}
+
+.dashboard#luisaviaroma {
+    display: none;
+    background: var(--white-color);
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
 }
 
 /* cisalfa */
@@ -198,6 +214,14 @@
     color: var(--dark-blue-color);
 }
 
+.dashboard#cisalfa {
+    display: none;
+    background: var(--white-color);
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+}
+
 /* snipes */
 .item#snipes { 
     grid-area: snipes; 
@@ -256,6 +280,14 @@
     font-size: 22px;
     cursor: pointer;
     color: var(--dark-blue-color);
+}
+
+.dashboard#snipes {
+    display: none;
+    background: var(--white-color);
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
 }
 
 /* solebox */
@@ -318,6 +350,14 @@
     color: var(--dark-blue-color);
 }
 
+.dashboard#solebox {
+    display: none;
+    background: var(--white-color);
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+}
+
 /* awlab-here */
 .item#awlab-here { 
     grid-area: awlab-here; 
@@ -345,13 +385,13 @@
       "awlab here"; 
 }
       
-.item #awlab { 
+.item#awlab { 
     grid-area: awlab; 
     background-image: url(../images/modules/awlab.png);
     background-size: contain;
     background-repeat: no-repeat;
 }
-.item #here { 
+.item#here { 
     grid-area: here; 
     background-image: url(../images/modules/here.png);
     background-size: contain;
@@ -392,6 +432,14 @@
     font-size: 22px;
     cursor: pointer;
     color: var(--dark-blue-color);
+}
+
+.dashboard#awlab-here {
+    display: none;
+    background: var(--white-color);
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
 }
 
 /* supreme */
@@ -452,6 +500,14 @@
     font-size: 22px;
     cursor: pointer;
     color: var(--dark-blue-color);
+}
+
+.dashboard#supreme {
+    display: none;
+    background: var(--white-color);
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
 }
 
 /* sns-naked */
@@ -535,6 +591,14 @@
     color: var(--dark-blue-color);
 }
 
+.dashboard#sns-naked {
+    display: none;
+    background: var(--white-color);
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+}
+
 /* kith */
 .item#kith { 
     grid-area: kith; 
@@ -593,6 +657,14 @@
     font-size: 22px;
     cursor: pointer;
     color: var(--dark-blue-color);
+}
+
+.dashboard#kith {
+    display: none;
+    background: var(--white-color);
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
 }
 
 #test { 
