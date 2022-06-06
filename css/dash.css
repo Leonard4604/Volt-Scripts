@@ -1,5 +1,5 @@
 /* dashboard items */
-.container {  
+.dashboard {  
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 108.5px 108.5px 108.5px 108.5px;
@@ -19,7 +19,7 @@
 }
 
 /* zalando */
-#zalando { 
+.item#zalando { 
     grid-area: zalando; 
     display: grid;
     grid-template-columns: 1fr;
@@ -35,18 +35,18 @@
     padding: 2px;
 }
 
-#zalando > #logo { 
+.item#zalando > #logo { 
     grid-area: logo; 
     background-image: url(../images/modules/zalando.png);
     background-size: contain;
     background-repeat: no-repeat;
 }
       
-#zalando > #info { 
+.item#zalando > #info { 
     grid-area: info; 
 }
 
-#zalando > #settings { 
+.item#zalando > #settings { 
     grid-area: settings; 
     display: grid; 
     grid-template-columns: 1fr 1fr; 
@@ -56,7 +56,7 @@
       "switch button"; 
 }
 
-#zalando > #settings > .switch { 
+.item#zalando > #settings > .switch { 
     grid-area: switch;
     display: flex; 
     align-items: center;
@@ -64,30 +64,22 @@
     padding: 6px 6px;
 }
 
-#zalando > #settings > .button { 
+.item#zalando > #settings > .button { 
     grid-area: button;
     display: flex; 
     align-items: center;
     justify-content: flex-end;
 }
 
-#zalando > #settings > .button > button > #button { 
+.item#zalando > #settings > .button > button > #button { 
     padding: 6px 6px;
     font-size: 22px;
     cursor: pointer;
     color: var(--dark-blue-color);
 }
 
-.dashboard#zalando {
-    display: none;
-    background: var(--white-color);
-    width: 100%;
-    height: 100%;
-    border-radius: 4px;
-}
-
 /* luisaviaroma */
-#luisaviaroma { 
+.item#luisaviaroma { 
     grid-area: luisaviaroma; 
     display: grid;
     grid-template-columns: 1fr;
@@ -103,18 +95,18 @@
     padding: 2px;
 }
 
-#luisaviaroma > #logo { 
+.item#luisaviaroma > #logo { 
     grid-area: logo; 
     background-image: url(../images/modules/lvr.png);
     background-size: contain;
     background-repeat: no-repeat;
 }
       
-#luisaviaroma > #info { 
+.item#luisaviaroma > #info { 
     grid-area: info; 
 }
 
-#luisaviaroma > #settings { 
+.item#luisaviaroma > #settings { 
     grid-area: settings; 
     display: grid; 
     grid-template-columns: 1fr 1fr; 
@@ -124,7 +116,7 @@
       "switch button"; 
 }
 
-#luisaviaroma > #settings > .switch { 
+.item#luisaviaroma > #settings > .switch { 
     grid-area: switch;
     display: flex; 
     align-items: center;
@@ -132,30 +124,22 @@
     padding: 6px 6px;
 }
 
-#luisaviaroma > #settings > .button { 
+.item#luisaviaroma > #settings > .button { 
     grid-area: button;
     display: flex; 
     align-items: center;
     justify-content: flex-end;
 }
 
-#luisaviaroma > #settings > .button > button > #button { 
+.item#luisaviaroma > #settings > .button > button > #button { 
     padding: 6px 6px;
     font-size: 22px;
     cursor: pointer;
     color: var(--dark-blue-color);
 }
 
-.dashboard#luisaviaroma {
-    display: none;
-    background: var(--white-color);
-    width: 100%;
-    height: 100%;
-    border-radius: 4px;
-}
-
 /* cisalfa */
-#cisalfa { 
+.item#cisalfa { 
     grid-area: cisalfa; 
     display: grid;
     grid-template-columns: 1fr;
@@ -171,18 +155,18 @@
     padding: 2px;
 }
 
-#cisalfa > #logo { 
+.item#cisalfa > #logo { 
     grid-area: logo; 
     background-image: url(../images/modules/cisalfa.png);
     background-size: contain;
     background-repeat: no-repeat;
 }
       
-#cisalfa > #info { 
+.item#cisalfa > #info { 
     grid-area: info; 
 }
 
-#cisalfa > #settings { 
+.item#cisalfa > #settings { 
     grid-area: settings; 
     display: grid; 
     grid-template-columns: 1fr 1fr; 
@@ -192,7 +176,7 @@
       "switch button"; 
 }
 
-#cisalfa > #settings > .switch { 
+.item#cisalfa > #settings > .switch { 
     grid-area: switch;
     display: flex; 
     align-items: center;
@@ -200,30 +184,22 @@
     padding: 6px 6px;
 }
 
-#cisalfa > #settings > .button { 
+.item#cisalfa > #settings > .button { 
     grid-area: button;
     display: flex; 
     align-items: center;
     justify-content: flex-end;
 }
 
-#cisalfa > #settings > .button > button > #button { 
+.item#cisalfa > #settings > .button > button > #button { 
     padding: 6px 6px;
     font-size: 22px;
     cursor: pointer;
     color: var(--dark-blue-color);
 }
 
-.dashboard#cisalfa {
-    display: none;
-    background: var(--white-color);
-    width: 100%;
-    height: 100%;
-    border-radius: 4px;
-}
-
 /* snipes */
-#snipes { 
+.item#snipes { 
     grid-area: snipes; 
     display: grid;
     grid-template-columns: 1fr;
@@ -239,18 +215,18 @@
     padding: 2px;
 }
 
-#snipes > #logo { 
+.item#snipes > #logo { 
     grid-area: logo; 
     background-image: url(../images/modules/snipes.png);
     background-size: contain;
     background-repeat: no-repeat;
 }
       
-#snipes > #info { 
+.item#snipes > #info { 
     grid-area: info; 
 }
 
-#snipes > #settings { 
+.item#snipes > #settings { 
     grid-area: settings; 
     display: grid; 
     grid-template-columns: 1fr 1fr; 
@@ -260,7 +236,7 @@
       "switch button"; 
 }
 
-#snipes > #settings > .switch { 
+.item#snipes > #settings > .switch { 
     grid-area: switch;
     display: flex; 
     align-items: center;
@@ -268,30 +244,22 @@
     padding: 6px 6px;
 }
 
-#snipes > #settings > .button { 
+.item#snipes > #settings > .button { 
     grid-area: button;
     display: flex; 
     align-items: center;
     justify-content: flex-end;
 }
 
-#snipes > #settings > .button > button > #button { 
+.item#snipes > #settings > .button > button > #button { 
     padding: 6px 6px;
     font-size: 22px;
     cursor: pointer;
     color: var(--dark-blue-color);
 }
 
-.dashboard#snipes {
-    display: none;
-    background: var(--white-color);
-    width: 100%;
-    height: 100%;
-    border-radius: 4px;
-}
-
 /* solebox */
-#solebox { 
+.item#solebox { 
     grid-area: solebox;
     display: grid;
     grid-template-columns: 1fr;
@@ -307,18 +275,18 @@
     padding: 2px; 
 }
 
-#solebox > #logo { 
+.item#solebox > #logo { 
     grid-area: logo; 
     background-image: url(../images/modules/solebox.png);
     background-size: contain;
     background-repeat: no-repeat;
 }
       
-#solebox > #info { 
+.item#solebox > #info { 
     grid-area: info; 
 }
 
-#solebox > #settings { 
+.item#solebox > #settings { 
     grid-area: settings; 
     display: grid; 
     grid-template-columns: 1fr 1fr; 
@@ -328,7 +296,7 @@
       "switch button"; 
 }
 
-#solebox > #settings > .switch { 
+.item#solebox > #settings > .switch { 
     grid-area: switch;
     display: flex; 
     align-items: center;
@@ -336,30 +304,22 @@
     padding: 6px 6px;
 }
 
-#solebox > #settings > .button { 
+.item#solebox > #settings > .button { 
     grid-area: button;
     display: flex; 
     align-items: center;
     justify-content: flex-end;
 }
 
-#solebox > #settings > .button > button > #button { 
+.item#solebox > #settings > .button > button > #button { 
     padding: 6px 6px;
     font-size: 22px;
     cursor: pointer;
     color: var(--dark-blue-color);
 }
 
-.dashboard#solebox {
-    display: none;
-    background: var(--white-color);
-    width: 100%;
-    height: 100%;
-    border-radius: 4px;
-}
-
 /* awlab-here */
-#awlab-here { 
+.item#awlab-here { 
     grid-area: awlab-here; 
     display: grid;
     grid-template-columns: 1fr;
@@ -375,7 +335,7 @@
     padding: 2px; 
 }
 
-#awlab-here > #logo { 
+.item#awlab-here > #logo { 
     grid-area: logo; 
     display: grid; 
     grid-template-columns: 1fr 1fr; 
@@ -385,24 +345,24 @@
       "awlab here"; 
 }
       
-#awlab { 
+.item #awlab { 
     grid-area: awlab; 
     background-image: url(../images/modules/awlab.png);
     background-size: contain;
     background-repeat: no-repeat;
 }
-#here { 
+.item #here { 
     grid-area: here; 
     background-image: url(../images/modules/here.png);
     background-size: contain;
     background-repeat: no-repeat;
 }
 
-#awlab-here > #info { 
+.item#awlab-here > #info { 
     grid-area: info; 
 }
 
-#awlab-here > #settings { 
+.item#awlab-here > #settings { 
     grid-area: settings; 
     display: grid; 
     grid-template-columns: 1fr 1fr; 
@@ -412,7 +372,7 @@
       "switch button"; 
 }
 
-#awlab-here > #settings > .switch { 
+.item#awlab-here > #settings > .switch { 
     grid-area: switch;
     display: flex; 
     align-items: center;
@@ -420,30 +380,22 @@
     padding: 6px 6px;
 }
 
-#awlab-here > #settings > .button { 
+.item#awlab-here > #settings > .button { 
     grid-area: button;
     display: flex; 
     align-items: center;
     justify-content: flex-end;
 }
 
-#awlab-here > #settings > .button > button > #button { 
+.item#awlab-here > #settings > .button > button > #button { 
     padding: 6px 6px;
     font-size: 22px;
     cursor: pointer;
     color: var(--dark-blue-color);
 }
 
-.dashboard#awlab-here {
-    display: none;
-    background: var(--white-color);
-    width: 100%;
-    height: 100%;
-    border-radius: 4px;
-}
-
 /* supreme */
-#supreme { 
+.item#supreme { 
     grid-area: supreme; 
     display: grid;
     grid-template-columns: 1fr;
@@ -459,18 +411,18 @@
     padding: 2px; 
 }
 
-#supreme > #logo { 
+.item#supreme > #logo { 
     grid-area: logo; 
     background-image: url(../images/modules/supreme.png);
     background-size: contain;
     background-repeat: no-repeat;
 }
       
-#supreme > #info { 
+.item#supreme > #info { 
     grid-area: info; 
 }
 
-#supreme > #settings { 
+.item#supreme > #settings { 
     grid-area: settings; 
     display: grid; 
     grid-template-columns: 1fr 1fr; 
@@ -480,7 +432,7 @@
       "switch button"; 
 }
 
-#supreme > #settings > .switch { 
+.item#supreme > #settings > .switch { 
     grid-area: switch;
     display: flex; 
     align-items: center;
@@ -488,30 +440,22 @@
     padding: 6px 6px;
 }
 
-#supreme > #settings > .button { 
+.item#supreme > #settings > .button { 
     grid-area: button;
     display: flex; 
     align-items: center;
     justify-content: flex-end;
 }
 
-#supreme > #settings > .button > button > #button { 
+.item#supreme > #settings > .button > button > #button { 
     padding: 6px 6px;
     font-size: 22px;
     cursor: pointer;
     color: var(--dark-blue-color);
 }
 
-.dashboard#supreme {
-    display: none;
-    background: var(--white-color);
-    width: 100%;
-    height: 100%;
-    border-radius: 4px;
-}
-
 /* sns-naked */
-#sns-naked { 
+.item#sns-naked { 
     grid-area: sns-naked; 
     display: grid;
     grid-template-columns: 1fr;
@@ -527,7 +471,7 @@
     padding: 2px; 
 }
 
-#sns-naked > #logo { 
+.item#sns-naked > #logo { 
     grid-area: logo; 
     display: grid; 
     grid-template-columns: 1fr 1fr; 
@@ -537,28 +481,29 @@
       "sns naked"; 
 }
       
-#sns { 
+.item#sns { 
     grid-area: sns; 
     background-image: url(../images/modules/sns.png);
     background-size: contain;
     background-repeat: no-repeat;
 }
-#naked { 
+
+.item#naked { 
     grid-area: naked; 
     background-image: url(../images/modules/naked.png);
     background-size: contain;
     background-repeat: no-repeat;
 }
 
-#sns-naked > #info { 
+.item#sns-naked > #info { 
     grid-area: info; 
 }
 
-#sns-naked > #settings { 
+.item#sns-naked > #settings { 
     grid-area: settings; 
 }
 
-#sns-naked > #settings { 
+.item#sns-naked > #settings { 
     grid-area: settings; 
     display: grid; 
     grid-template-columns: 1fr 1fr; 
@@ -568,7 +513,7 @@
       "switch button"; 
 }
 
-#sns-naked > #settings > .switch { 
+.item#sns-naked > #settings > .switch { 
     grid-area: switch;
     display: flex; 
     align-items: center;
@@ -576,30 +521,22 @@
     padding: 6px 6px;
 }
 
-#sns-naked > #settings > .button { 
+.item#sns-naked > #settings > .button { 
     grid-area: button;
     display: flex; 
     align-items: center;
     justify-content: flex-end;
 }
 
-#sns-naked > #settings > .button > button > #button { 
+.item#sns-naked > #settings > .button > button > #button { 
     padding: 6px 6px;
     font-size: 22px;
     cursor: pointer;
     color: var(--dark-blue-color);
 }
 
-.dashboard#sns-naked {
-    display: none;
-    background: var(--white-color);
-    width: 100%;
-    height: 100%;
-    border-radius: 4px;
-}
-
 /* kith */
-#kith { 
+.item#kith { 
     grid-area: kith; 
     display: grid;
     grid-template-columns: 1fr;
@@ -615,18 +552,18 @@
     padding: 2px; 
 }
 
-#kith > #logo { 
+.item#kith > #logo { 
     grid-area: logo; 
     background-image: url(../images/modules/kith.png);
     background-size: contain;
     background-repeat: no-repeat;
 }
       
-#kith > #info { 
+.item#kith > #info { 
     grid-area: info; 
 }
 
-#kith > #settings { 
+.item#kith > #settings { 
     grid-area: settings; 
     display: grid; 
     grid-template-columns: 1fr 1fr; 
@@ -636,7 +573,7 @@
       "switch button"; 
 }
 
-#kith > #settings > .switch { 
+.item#kith > #settings > .switch { 
     grid-area: switch;
     display: flex; 
     align-items: center;
@@ -644,26 +581,18 @@
     padding: 6px 6px;
 }
 
-#kith > #settings > .button { 
+.item#kith > #settings > .button { 
     grid-area: button;
     display: flex; 
     align-items: center;
     justify-content: flex-end;
 }
 
-#kith > #settings > .button > button > #button { 
+.item#kith > #settings > .button > button > #button { 
     padding: 6px 6px;
     font-size: 22px;
     cursor: pointer;
     color: var(--dark-blue-color);
-}
-
-.dashboard#kith {
-    display: none;
-    background: var(--white-color);
-    width: 100%;
-    height: 100%;
-    border-radius: 4px;
 }
 
 #test { 
