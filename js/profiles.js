@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             profiles = JSON.parse(store.profiles)
         }
         if (profiles) {
-            const select_elem = document.querySelector('#profile_selection > select')
+            const select_elem = document.querySelector('select#profile_selection')
             profiles.forEach((object) =>    // create dropdown items
             {
                 select_elem.add(new Option(object.label))
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const addProfile = document.querySelector('.add_profile > .button > button > #button')
     const copyProfile = document.querySelector('.copy_profile > .button > button > #button')
-    const profilesList = document.querySelector('#profile_selection > select')
+    const profilesList = document.querySelector('select#profile_selection')
     const saveBtn = document.querySelector('.profiles #save');
     
     addProfile.addEventListener('click', async function() {
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.querySelector('#cvv').value = ''
 
         // Seleziono l'ultima opzione
-        const select_elem = document.querySelector('#profile_selection > select')
+        const select_elem = document.querySelector('select#profile_selection')
         select_elem.add(new Option(''))
 
         select_elem.options[0].removeAttribute('selected');
@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         else {
             profiles = [];
         }
-        const profileToDelete = document.querySelector('#profile_selection > select').value
+        const profileToDelete = document.querySelector('select#profile_selection').value
         for (item in profiles) {
             if (profileToDelete === profiles[item].label) {
                 profiles.splice(item, 1);

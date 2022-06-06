@@ -333,6 +333,14 @@ select:invalid {
   color: rgba(255,255,255,0.4);
 }
 
+select option:disabled {
+    color: rgba(255,255,255,0.4);
+}
+
+select option { 
+    color: var(--white-color);
+}
+
 select {
     width: 100%;
     display: inline-block;

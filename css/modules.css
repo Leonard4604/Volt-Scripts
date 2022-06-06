@@ -1,0 +1,87 @@
+.dashboard#zalando {
+    display: none;
+    grid-template-columns: 0.5fr 1fr;
+    grid-template-rows: 60px 0.2fr;
+    grid-auto-rows: 1fr;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    align-content: center;
+    grid-template-areas:
+      "logo logo"
+      "settings sizing";
+}
+
+.dashboard#zalando .logo {
+    grid-area: logo;
+    display: flex;
+    background: var(--white-color);
+    border-radius: 4px;
+}
+
+.dashboard#zalando .logo img {
+    margin: auto;
+} 
+
+.dashboard#zalando #settings {
+    grid-area: settings;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    align-content: center;
+    grid-template-areas:
+      "mode"
+      "delay";
+    background: var(--white-color);
+    border-radius: 4px;
+    padding: 6px 6px;
+}
+
+.dashboard#zalando .mode {
+    grid-area: mode;
+}
+
+.dashboard#zalando .delay {
+    grid-area: delay;
+}
+
+.dashboard#zalando .sizing {
+    grid-area: sizing;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    align-content: center;
+    grid-template-areas:
+      "single"
+      "range";
+    background: var(--white-color);
+    border-radius: 4px;
+    padding: 6px 6px;
+}
+
+.dashboard#zalando #single {
+    grid-area: single;
+}
+
+.dashboard#zalando #range {
+    grid-area: range;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    align-content: center;
+    grid-template-areas:
+      "min max";
+}
+
+.dashboard#zalando #min {
+    grid-area: min;
+}
+
+.dashboard#zalando #max {
+    grid-area: max;
+}
