@@ -1,13 +1,28 @@
 .dashboard#zalando {
     display: none;
-    grid-template-columns: 0.5fr 1fr;
-    grid-template-rows: 60px 0.2fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
     grid-auto-rows: 1fr;
     gap: 10px 10px;
     grid-auto-flow: row;
     align-content: center;
     grid-template-areas:
-      "logo logo"
+      "logo"
+      "settings"
+      "init"
+      "coupon";
+}
+
+.dashboard#zalando .run#zalando {
+    display: grid;
+    grid-area: settings;
+    grid-template-columns: 0.5fr 1fr;
+    grid-template-rows: 1fr;
+    grid-auto-rows: 1fr;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    align-content: center;
+    grid-template-areas:
       "settings sizing";
 }
 
@@ -84,4 +99,144 @@
 
 .dashboard#zalando #max_selection {
     grid-area: max;
+}
+
+.dashboard#zalando .init#zalando {
+    grid-area: init;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    align-content: center;
+    grid-template-areas:
+      "coupons dummy"
+      "coupons payment"
+      "play play";
+    background: var(--white-color);
+    border-radius: 4px;
+    padding: 6px 6px;
+}
+
+.dashboard#zalando .dummy {
+    grid-area: dummy;
+}
+
+.dashboard#zalando .play {
+    grid-area: play;
+}
+
+.dashboard#zalando .coupons {
+    grid-area: coupons;
+}
+
+.dashboard#zalando .payment {
+    grid-area: payment;
+}
+
+.dashboard#zalando .play {
+    grid-area: play;
+    cursor: pointer;
+    background: var(--blue-color);
+    height: 30px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+}
+
+.dashboard#zalando .play .option {
+    font-size: 13px;
+    line-height: 18px;
+    vertical-align: middle;
+}
+
+.dashboard#zalando .play span {
+    padding-bottom: 0px;
+    display: inline-block;
+}
+
+.dashboard#zalando .play #play {
+    font-size: 18px;
+    vertical-align: middle;
+}
+
+.dashboard#zalando .play > a {
+    color: var(--white-color);
+    padding: 0px 2px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.dashboard#zalando .coupon#zalando {
+    grid-area: coupon;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    align-content: center;
+    grid-template-areas:
+      "email"
+      "generate";
+    background: var(--white-color);
+    border-radius: 4px;
+    padding: 6px 6px;
+}
+
+.dashboard#zalando .generate {
+    grid-area: generate;
+    cursor: pointer;
+    background: var(--blue-color);
+    height: 30px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+}
+
+.dashboard#zalando .generate .option {
+    font-size: 13px;
+    line-height: 18px;
+    vertical-align: middle;
+}
+
+.dashboard#zalando .generate span {
+    padding-bottom: 0px;
+    display: inline-block;
+}
+
+.dashboard#zalando .generate #generate {
+    font-size: 18px;
+    vertical-align: middle;
+}
+
+.dashboard#zalando .generate > a {
+    color: var(--white-color);
+    padding: 0px 2px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+/* BUTTONS UNDERLINE ON HOVER */
+#zalando span {
+    display: inline-block;
+    position: relative;
+    color: var(--white-color);
+}
+  
+#zalando span:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--white-color);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+#zalando span:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
 }
