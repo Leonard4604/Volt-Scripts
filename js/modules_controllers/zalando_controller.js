@@ -61,6 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
         chrome.storage.sync.set({
             'zalando': JSON.stringify(zalandoSettings)
         });
+        dashMode.textContent = `Mode: ${mode.value.charAt(0).toUpperCase()}${mode.value.slice(1)}`
     })
 
     delay.addEventListener('change', () => {
@@ -68,6 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         chrome.storage.sync.set({
             'zalando': JSON.stringify(zalandoSettings)
         });
+        dashDelay.textContent = `Delay: ${delay.value.charAt(0).toUpperCase()}${delay.value.slice(1)}`
     })
 
     size.addEventListener('change', () => {
