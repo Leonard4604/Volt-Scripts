@@ -470,7 +470,7 @@ input:checked + .slider:before {
 }
 
 textarea {
-    text-indent: 4px;
+    padding: 4px;
     color: var(--white-color);
     background-color: var(--blue-color);
     border: 1px solid var(--black-color);
