@@ -45,6 +45,16 @@
     grid-area: info; 
 }
 
+.item#zalando .mode {
+    font-size: 12px;
+    margin: 0 6px;
+}
+
+.item#zalando .delay {
+    font-size: 12px;
+    margin: 0 6px;
+}
+
 .item#zalando > #settings { 
     grid-area: settings; 
     display: grid; 

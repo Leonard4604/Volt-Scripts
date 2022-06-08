@@ -9,6 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const dummy = document.querySelector('.dashboard#zalando #dummy')
     const method = document.querySelector('.dashboard#zalando #method_selection')
     const email = document.querySelector('.dashboard#zalando #email')
+
+    const dashMode = document.querySelector('.item#zalando .mode')
+    const dashDelay = document.querySelector('.item#zalando .delay')
+
     let zalandoSettings = new Zalando()
 
     chrome.storage.sync.get(null, function (store) {
@@ -24,6 +28,9 @@ document.addEventListener('DOMContentLoaded', () => {
             dummy.value = zalandoSettings.dummy = settings.dummy || ''
             method.value = zalandoSettings.method = settings.method || ''
             email.value = zalandoSettings.email = settings.email || ''
+
+            dashMode.textContent = `Mode: ${settings.mode.charAt(0).toUpperCase()}${settings.mode.slice(1)}`
+            dashDelay.textContent = `Delay: ${settings.delay.charAt(0).toUpperCase()}${settings.delay.slice(1)}`
         }
         else {
             status.checked = zalandoSettings.status || false
@@ -36,6 +43,9 @@ document.addEventListener('DOMContentLoaded', () => {
             dummy.value = zalandoSettings.dummy = ''
             method.value = zalandoSettings.method = ''
             email.value = zalandoSettings.email = ''
+
+            dashMode.textContent = `Mode: Default`
+            dashDelay.textContent = `Delay: Default`
         }
     })
 
