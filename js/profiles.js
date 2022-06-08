@@ -16,7 +16,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     const addProfile = document.querySelector('.add_profile > .button > button > #button')
     const copyProfile = document.querySelector('.copy_profile > .button > button > #button')
     const profilesList = document.querySelector('select#profile_selection')
-    const saveBtn = document.querySelector('.profiles #save');
+    const saveBtn = document.querySelector('.profiles .save#custom_button');
+    const deleteBtn = document.querySelector('.profiles .delete#custom_button');
     
     addProfile.addEventListener('click', async function() {
         // Pulisco tutti i campi
@@ -182,7 +183,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         window.location.reload()
     })
 
-    const deleteBtn = document.querySelector('#delete');
     deleteBtn.addEventListener('click', async () => {
         let profiles = await extract.profiles();
         if (profiles) {

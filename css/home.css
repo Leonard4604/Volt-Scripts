@@ -58,10 +58,10 @@ label {
     stroke-linejoin: round;
 }
 .loader svg polyline#back {
-    stroke: rgba(110,123,242,0.3);
+    stroke: rgba(87, 123, 193,0.3);
 }
 .loader svg polyline#front {
-    stroke: #6e7bf2;
+    stroke: var(--dark-blue-color);
     stroke-dasharray: 12, 36;
     stroke-dashoffset: 48;
     animation: dash 1s linear infinite;

@@ -10,12 +10,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     })
 
-    const saveBtn = document.querySelector('.settings #save');
-    const testBtn = document.querySelector('.settings #test');
-    const importBtn = document.querySelector('.settings #import');
-    const exportBtn = document.querySelector('.settings #export');
-    const resetBtn = document.querySelector('.settings #reset');
-    const clearCookiesBtn = document.querySelector('.settings #clear')
+    const saveBtn = document.querySelector('.settings .save#custom_button');
+    const testBtn = document.querySelector('.settings .test#custom_button');
+    const importBtn = document.querySelector('.settings .import#custom_button');
+    const exportBtn = document.querySelector('.settings .export#custom_button');
+    const resetBtn = document.querySelector('.settings .reset#custom_button');
+    const clearCookiesBtn = document.querySelector('.settings .clear#custom_button')
 
     saveBtn.addEventListener('click', async () => {
         const discordWebhook = {
