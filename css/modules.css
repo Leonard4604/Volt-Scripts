@@ -62,11 +62,11 @@
     padding: 6px 6px;
 }
 
-.dashboard#zalando #single {
+.dashboard#zalando .single {
     grid-area: single;
 }
 
-.dashboard#zalando #range {
+.dashboard#zalando .range {
     grid-area: range;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -78,10 +78,10 @@
       "min max";
 }
 
-.dashboard#zalando #min {
+.dashboard#zalando #min_selection {
     grid-area: min;
 }
 
-.dashboard#zalando #max {
+.dashboard#zalando #max_selection {
     grid-area: max;
 }
