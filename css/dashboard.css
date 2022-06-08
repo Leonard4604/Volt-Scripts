@@ -86,7 +86,7 @@
 /* luisaviaroma */
 .item#luisaviaroma { 
     grid-area: luisaviaroma; 
-    display: grid;
+    display: none;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     grid-auto-rows: 1fr;
@@ -152,7 +152,7 @@
 /* cisalfa */
 .item#cisalfa { 
     grid-area: cisalfa; 
-    display: grid;
+    display: none;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     grid-auto-rows: 1fr;
@@ -218,7 +218,7 @@
 /* snipes */
 .item#snipes { 
     grid-area: snipes; 
-    display: grid;
+    display: none;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     grid-auto-rows: 1fr;
@@ -284,7 +284,7 @@
 /* solebox */
 .item#solebox { 
     grid-area: solebox;
-    display: grid;
+    display: none;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     grid-auto-rows: 1fr;
@@ -350,7 +350,7 @@
 /* awlab-here */
 .item#awlab-here { 
     grid-area: awlab-here; 
-    display: grid;
+    display: none;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     grid-auto-rows: 1fr;
@@ -374,13 +374,13 @@
       "awlab here"; 
 }
       
-.item#awlab { 
+.item #awlab { 
     grid-area: awlab; 
     background-image: url(../images/modules/awlab.png);
     background-size: contain;
     background-repeat: no-repeat;
 }
-.item#here { 
+.item #here { 
     grid-area: here; 
     background-image: url(../images/modules/here.png);
     background-size: contain;
@@ -432,7 +432,7 @@
 /* supreme */
 .item#supreme { 
     grid-area: supreme; 
-    display: grid;
+    display: none;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     grid-auto-rows: 1fr;
@@ -498,7 +498,7 @@
 /* sns-naked */
 .item#sns-naked { 
     grid-area: sns-naked; 
-    display: grid;
+    display: none;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     grid-auto-rows: 1fr;
@@ -522,14 +522,14 @@
       "sns naked"; 
 }
       
-.item#sns { 
+.item #sns { 
     grid-area: sns; 
     background-image: url(../images/modules/sns.png);
     background-size: contain;
     background-repeat: no-repeat;
 }
 
-.item#naked { 
+.item #naked { 
     grid-area: naked; 
     background-image: url(../images/modules/naked.png);
     background-size: contain;
@@ -585,7 +585,7 @@
 /* kith */
 .item#kith { 
     grid-area: kith; 
-    display: grid;
+    display: none;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     grid-auto-rows: 1fr;
