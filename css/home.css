@@ -481,3 +481,28 @@ textarea {
     height: 100%;
     resize: none;
 }
+
+/* BUTTONS UNDERLINE ON HOVER */
+#custom_button {
+    position: relative;
+    color: var(--white-color);
+}
+  
+#custom_button:after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 10%;
+    margin: auto;
+    background-color: var(--white-color);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+    z-index: 100;
+}
+
+#custom_button:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}

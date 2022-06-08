@@ -307,28 +307,3 @@
     text-decoration: none;
     white-space: nowrap;
 }
-
-/* BUTTONS UNDERLINE ON HOVER */
-.settings span {
-    display: inline-block;
-    position: relative;
-    color: var(--white-color);
-}
-  
-.settings span:after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: var(--white-color);
-    transform-origin: bottom right;
-    transition: transform 0.25s ease-out;
-}
-
-.settings span:hover:after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-}
