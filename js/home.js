@@ -108,7 +108,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Gestione delle varie pagine
     const dash = document.querySelector('.sidebar ul li a#dashboard');
     const profiles = document.querySelector('.sidebar ul li a#profiles');
-    const proxy = document.querySelector('.sidebar ul li a#proxy');
     const analytics = document.querySelector('.sidebar ul li a#analytics');
     const settings = document.querySelector('.sidebar ul li a#settings');
 
@@ -117,11 +116,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         show('.profiles', '.container')
         profiles.style.color = "var(--blue-color)";
         profiles.style.backgroundColor = "var(--white-color)"
-    }
-    else if (lastVisited === 'proxy') {
-        show('.proxy', '.container')
-        proxy.style.color = "var(--blue-color)";
-        proxy.style.backgroundColor = "var(--white-color)"
     }
     else if (lastVisited === 'analytics') {
         show('.analytics', '.container')
@@ -201,12 +195,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (getStyle('.profiles', 'display') === 'grid') {
             show('.container', '.profiles')
             profiles.removeAttribute('style');
-            dash.style.color = "var(--blue-color)";
-            dash.style.backgroundColor = "var(--white-color)"
-        }
-        if (getStyle('.proxy', 'display') === 'grid') {
-            show('.container', '.proxy')
-            proxy.removeAttribute('style');
             dash.style.color = "var(--blue-color)";
             dash.style.backgroundColor = "var(--white-color)"
         }
@@ -290,12 +278,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             profiles.style.color = "var(--blue-color)";
             profiles.style.backgroundColor = "var(--white-color)"
         }
-        if (getStyle('.proxy', 'display') === 'grid') {
-            show('.profiles', '.proxy')
-            proxy.removeAttribute('style');
-            profiles.style.color = "var(--blue-color)";
-            profiles.style.backgroundColor = "var(--white-color)"
-        }
         if (getStyle('.analytics', 'display') === 'grid') {
             show('.profiles', '.analytics')
             analytics.removeAttribute('style');
@@ -310,91 +292,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     })
     
-    proxy.addEventListener('click', () => {
-        chrome.storage.sync.set({
-            'lastVisited': 'proxy'
-        });
-
-        if (getStyle('.dashboard#zalando', 'display') === 'grid') {
-            show('.proxy', '.dashboard#zalando')
-            dash.removeAttribute('style');
-            proxy.style.color = "var(--blue-color)";
-            proxy.style.backgroundColor = "var(--white-color)"
-        }
-        if (getStyle('.dashboard#luisaviaroma', 'display') === 'grid') {
-            show('.proxy', '.dashboard#luisaviaroma')
-            dash.removeAttribute('style');
-            proxy.style.color = "var(--blue-color)";
-            proxy.style.backgroundColor = "var(--white-color)"
-        }
-        if (getStyle('.dashboard#cisalfa', 'display') === 'grid') {
-            show('.proxy', '.dashboard#cisalfa')
-            dash.removeAttribute('style');
-            proxy.style.color = "var(--blue-color)";
-            proxy.style.backgroundColor = "var(--white-color)"
-        }
-        if (getStyle('.dashboard#snipes', 'display') === 'grid') {
-            show('.proxy', '.dashboard#snipes')
-            dash.removeAttribute('style');
-            proxy.style.color = "var(--blue-color)";
-            proxy.style.backgroundColor = "var(--white-color)"
-        }
-        if (getStyle('.dashboard#solebox', 'display') === 'grid') {
-            show('.proxy', '.dashboard#solebox')
-            dash.removeAttribute('style');
-            proxy.style.color = "var(--blue-color)";
-            proxy.style.backgroundColor = "var(--white-color)"
-        }
-        if (getStyle('.dashboard#awlab-here', 'display') === 'grid') {
-            show('.proxy', '.dashboard#awlab-here')
-            dash.removeAttribute('style');
-            proxy.style.color = "var(--blue-color)";
-            proxy.style.backgroundColor = "var(--white-color)"
-        }
-        if (getStyle('.dashboard#supreme', 'display') === 'grid') {
-            show('.proxy', '.dashboard#supreme')
-            dash.removeAttribute('style');
-            proxy.style.color = "var(--blue-color)";
-            proxy.style.backgroundColor = "var(--white-color)"
-        }
-        if (getStyle('.dashboard#sns-naked', 'display') === 'grid') {
-            show('.proxy', '.dashboard#sns-naked')
-            dash.removeAttribute('style');
-            proxy.style.color = "var(--blue-color)";
-            proxy.style.backgroundColor = "var(--white-color)"
-        }
-        if (getStyle('.dashboard#kith', 'display') === 'grid') {
-            show('.proxy', '.dashboard#kith')
-            dash.removeAttribute('style');
-            proxy.style.color = "var(--blue-color)";
-            proxy.style.backgroundColor = "var(--white-color)"
-        }
-
-        if (getStyle('.container', 'display') === 'grid') {
-            show('.proxy', '.container')
-            dash.removeAttribute('style');
-            proxy.style.color = "var(--blue-color)";
-            proxy.style.backgroundColor = "var(--white-color)"
-        }
-        if (getStyle('.profiles', 'display') === 'grid') {
-            show('.proxy', '.profiles')
-            profiles.removeAttribute('style');
-            proxy.style.color = "var(--blue-color)";
-            proxy.style.backgroundColor = "var(--white-color)"
-        }
-        if (getStyle('.analytics', 'display') === 'grid') {
-            show('.proxy', '.analytics')
-            analytics.removeAttribute('style');
-            proxy.style.color = "var(--blue-color)";
-            proxy.style.backgroundColor = "var(--white-color)"
-        }
-        if (getStyle('.settings', 'display') === 'grid') {
-            show('.proxy', '.settings')
-            settings.removeAttribute('style');
-            proxy.style.color = "var(--blue-color)";
-            proxy.style.backgroundColor = "var(--white-color)"
-        }
-    })
     
     analytics.addEventListener('click', () => {
         chrome.storage.sync.set({
@@ -465,12 +362,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (getStyle('.profiles', 'display') === 'grid') {
             show('.analytics', '.profiles')
             profiles.removeAttribute('style');
-            analytics.style.color = "var(--blue-color)";
-            analytics.style.backgroundColor = "var(--white-color)"
-        }
-        if (getStyle('.proxy', 'display') === 'grid') {
-            show('.analytics', '.proxy')
-            proxy.removeAttribute('style');
             analytics.style.color = "var(--blue-color)";
             analytics.style.backgroundColor = "var(--white-color)"
         }
@@ -551,12 +442,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (getStyle('.profiles', 'display') === 'grid') {
             show('.settings', '.profiles')
             profiles.removeAttribute('style');
-            settings.style.color = "var(--blue-color)";
-            settings.style.backgroundColor = "var(--white-color)"
-        }
-        if (getStyle('.proxy', 'display') === 'grid') {
-            show('.settings', '.proxy')
-            proxy.removeAttribute('style');
             settings.style.color = "var(--blue-color)";
             settings.style.backgroundColor = "var(--white-color)"
         }
