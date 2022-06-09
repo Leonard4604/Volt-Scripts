@@ -292,7 +292,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     })
     
-    
     analytics.addEventListener('click', () => {
         chrome.storage.sync.set({
             'lastVisited': 'analytics'
