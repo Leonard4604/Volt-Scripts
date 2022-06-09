@@ -1,8 +1,88 @@
 /* Analytics */
 .analytics {
     display: none;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-auto-rows: 1fr;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "chart"
+      "orders";
+}
+
+.analytics .chart {
+    grid-area: chart; 
     background: var(--white-color);
     width: 100%;
     height: 100%;
     border-radius: 4px;
+}
+
+.analytics canvas {
+    width: 100%;
+    height: 100%;
+}
+
+.analytics .orders {
+    grid-area: orders; 
+    background: var(--white-color);
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.analytics .orders::-webkit-scrollbar-thumb {
+    border-radius: 100px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+    background-color: rgba(52, 76, 183, 0.7);
+}
+
+.analytics .orders::-webkit-scrollbar-track {
+    background-color: var(--white-color);
+    border-radius: 100px;
+}
+
+.analytics .orders .card {
+    display: flex;
+    align-items: center;
+    padding: 2px 6px;
+    width: calc(100% - 10px);
+    margin: 4px auto;
+    border-radius: 4px;
+    background: var(--dark-blue-color);
+}
+
+.analytics .orders .card #product,
+.analytics .orders .card #site,
+.analytics .orders .card #price {
+    color: var(--white-color);
+}
+
+.analytics .orders .card > div{
+    flex: 1 1 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 5px;
+}
+
+.analytics .orders .card img {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+}
+
+.analytics .orders .card #delete > #delete {
+    padding: 0px 0px;
+    color: var(--white-color);
+    font-size: 22px;
+    cursor: pointer;
 }

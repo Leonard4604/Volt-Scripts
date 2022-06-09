@@ -751,37 +751,3 @@ async function extractLastVisited() {
         })
     })
 }
-
-function makeSpendingChart() {
-    const dates = ['09/05/2022', '10/05/2022', '11/05/2022']
-    const totals = [100, 200, 300]
-    const ctx = document.getElementById('spendingChart');
-    const data = {
-        labels: dates,
-        datasets: [{
-            label: 'Spent',
-            lineTension: 0.3,
-            data: totals,
-            fill: true,
-            borderColor: '#000957',
-            backgroundColor: 'rgba(0, 9, 87, 0.8)',
-            borderWidth: 2,
-        }]
-      };
-    const myChart = new Chart(ctx, {
-        type: 'line',
-        data: data,
-        options: {
-            scales: {
-                x: {
-
-                },
-                y: {
-                    beginAtZero: true,
-                    type: 'linear',
-                    grace: '10%'
-                }
-            }
-        }
-    });
-}
