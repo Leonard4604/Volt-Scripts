@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     chrome.storage.sync.get(null, function (store) {
         if (store.zalando) {
             const settings = JSON.parse(store.zalando)
-            status.checked = settings.status || false
+            status.checked = zalandoSettings.status = settings.status || false
             mode.value = zalandoSettings.mode = settings.mode || ''
             delay.value = zalandoSettings.delay = settings.delay || ''
             size.value = zalandoSettings.size = settings.size || ''
@@ -29,8 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
             method.value = zalandoSettings.method = settings.method || ''
             email.value = zalandoSettings.email = settings.email || ''
 
-            dashMode.textContent = `Mode: ${settings.mode.charAt(0).toUpperCase()}${settings.mode.slice(1)}`
-            dashDelay.textContent = `Delay: ${settings.delay.charAt(0).toUpperCase()}${settings.delay.slice(1)}`
+            dashMode.textContent = `Mode: ${settings.mode.toString().charAt(0).toUpperCase()}${settings.mode.toString().slice(1)}`
+            dashDelay.textContent = `Delay: ${settings.delay.toString().charAt(0).toUpperCase()}${settings.delay.toString().slice(1)}`
         }
         else {
             status.checked = zalandoSettings.status || false
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     delay.addEventListener('change', () => {
-        zalandoSettings.delay = delay.value
+        zalandoSettings.delay = +delay.value
         chrome.storage.sync.set({
             'zalando': JSON.stringify(zalandoSettings)
         });
@@ -73,21 +73,26 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     size.addEventListener('change', () => {
-        zalandoSettings.size = size.value
+        if (size.value === 'random') {
+            zalandoSettings.size = size.value
+        }
+        else {
+            zalandoSettings.size = +size.value
+        }
         chrome.storage.sync.set({
             'zalando': JSON.stringify(zalandoSettings)
         });
     })
 
     min.addEventListener('change', () => {
-        zalandoSettings.min = min.value
+        zalandoSettings.min = +min.value
         chrome.storage.sync.set({
             'zalando': JSON.stringify(zalandoSettings)
         });
     })
 
     max.addEventListener('change', () => {
-        zalandoSettings.max = max.value
+        zalandoSettings.max = +max.value
         chrome.storage.sync.set({
             'zalando': JSON.stringify(zalandoSettings)
         });
