@@ -4,7 +4,7 @@
     width: 100%;
     height: 100%;
     grid-template-columns: 1fr;
-    grid-template-rows: 0.2fr 1fr;
+    grid-template-rows: auto 1fr;
     grid-auto-rows: 1fr;
     gap: 10px 10px;
     grid-auto-flow: row;
@@ -33,12 +33,14 @@
 
 .analytics .info h5 {
     margin-bottom: 5px;
-    color: rgba(255, 255, 255, 0.5)
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 0;
 }
 
 .analytics .info h3 {
     margin-top: 0;
-    color: rgba(255, 255, 255, 1)
+    color: rgba(255, 255, 255, 1);
+    margin-bottom: 0;
 }
 
 .analytics .outbox {
@@ -56,11 +58,11 @@
 }
 
 .analytics #checkouts .outbox {
-    background: #576dcf;
+    background: #ff8989;
 }
 
 .analytics #checkouts .outbox i {
-    color: var(--dark-blue-color);
+    color: #890000;
 }
 
 .analytics #spent .outbox {
@@ -100,6 +102,16 @@
     display: flex;
     flex-direction: column;
     overflow: auto;
+
+
+}
+
+.analytics .orders h3 {
+    text-align: center;
+    line-height: 264px;
+    font-size: 14px;
+    color: var(--dark-blue-color);
+    margin: 0;
 }
 
 .analytics .orders::-webkit-scrollbar-thumb {

@@ -60,8 +60,17 @@ document.addEventListener('DOMContentLoaded', async () => {
                 `
                 document.querySelector('.analytics .orders').insertAdjacentHTML('beforeend', html)
             });
-
-            // makeSpendingChart(orders)
+            const totalCheckouts = getTotal.checkouts(orders)
+            const totalSpent = getTotal.spent(orders)
+    
+            document.querySelector('.analytics #checkouts h3').textContent = totalCheckouts
+            document.querySelector('.analytics #spent h3').textContent = `${totalSpent} €`
+        }
+        if (orders.length === 0) {
+            const html = `
+                <h3>No checkout found.</h3>
+            `
+            document.querySelector('.analytics .orders').insertAdjacentHTML('beforeend', html)
         }
     })
 
@@ -72,53 +81,21 @@ document.addEventListener('DOMContentLoaded', async () => {
     else{
         document.body.attachEvent('onclick', deleteOrder);//for IE
     }
-})
 
-function makeSpendingChart(orders) {
-    let dates = []
-    for (item of orders) {
-        dates.push(item.date)
-    }
-    let totals = []
-    for (item of orders) {
-        totals.push(item.price)
-    }
-    console.log(totals)
-    const ctx = document.getElementById('chart');
-    const data = {
-        labels: dates,
-        datasets: [{
-            label: 'Spent',
-            lineTension: 0.3,
-            data: totals,
-            fill: true,
-            borderColor: '#000957',
-            backgroundColor: 'rgba(0, 9, 87, 0.8)',
-            borderWidth: 2,
-        }]
-      };
-    const myChart = new Chart(ctx, {
-        type: 'line',
-        data: data,
-        options: {
-            plugins: {
-                legend: {
-                    display: false
-                },
-            },
-            scales: {
-                x: {
-
-                },
-                y: {
-                    beginAtZero: true,
-                    type: 'linear',
-                    grace: '10%'
-                }
+    
+    const getTotal = {
+        spent: function(object) {
+            let total = 0;
+            for (item of object) {
+                total += +item.price.replace(/\$|\€|\£/g, '')
             }
+            return (Math.floor(total * 100) / 100);
+        },
+        checkouts: function(object) {
+            return object.length;
         }
-    });
-}
+    }
+})
 
 function deleteOrder(e){
     e = e || window.event;
