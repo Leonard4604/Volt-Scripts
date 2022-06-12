@@ -4,31 +4,96 @@
     width: 100%;
     height: 100%;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 0.2fr 1fr;
     grid-auto-rows: 1fr;
     gap: 10px 10px;
     grid-auto-flow: row;
     grid-template-areas:
-      "chart"
+      "info"
       "orders";
 }
 
-.analytics .chart {
-    grid-area: chart; 
-    background: var(--white-color);
+.analytics .info {
+    grid-area: info; 
     width: 100%;
     height: 100%;
     border-radius: 4px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-auto-rows: 1fr;
+    gap: 0px 6px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "checkouts spent";
+    padding: 6px 6px;
+    background: #a3afe5;
 }
 
-.analytics canvas {
+.analytics .info h5 {
+    margin-bottom: 5px;
+    color: rgba(255, 255, 255, 0.5)
+}
+
+.analytics .info h3 {
+    margin-top: 0;
+    color: rgba(255, 255, 255, 1)
+}
+
+.analytics .outbox {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    margin: 10px;
+}
+
+.analytics .outbox i {
+    font-size: 35px;
+}
+
+.analytics #checkouts .outbox {
+    background: #576dcf;
+}
+
+.analytics #checkouts .outbox i {
+    color: var(--dark-blue-color);
+}
+
+.analytics #spent .outbox {
+    background: #80ff80;
+}
+
+.analytics #spent .outbox i {
+    color: #008000;
+}
+
+.analytics #checkouts {
+    grid-area: checkouts; 
+    background: #3852c6;
     width: 100%;
     height: 100%;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+}
+
+.analytics #spent {
+    grid-area: spent; 
+    background: #3852c6;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
 }
 
 .analytics .orders {
     grid-area: orders; 
-    background: var(--white-color);
+    background: #a3afe5;
     width: 100%;
     height: 100%;
     border-radius: 4px;
@@ -45,7 +110,7 @@
 }
 
 .analytics .orders::-webkit-scrollbar-track {
-    background-color: var(--white-color);
+    background: #a3afe5;
     border-radius: 100px;
 }
 
@@ -54,9 +119,17 @@
     align-items: center;
     padding: 2px 6px;
     width: calc(100% - 10px);
-    margin: 4px auto;
+    margin: 3px auto;
     border-radius: 4px;
-    background: var(--dark-blue-color);
+    background: #3852c6;
+}
+
+.analytics .orders .card:first-child {
+    margin-top: 6px;
+}
+
+.analytics .orders .card:last-child {
+    margin-bottom: 6px;
 }
 
 .analytics .orders .card #product,

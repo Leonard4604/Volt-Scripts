@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 image: 'https://images-ext-2.discordapp.net/external/WsD32nS1ccJVDE7WU3cnaZEQSZJNkE-Wmk7nESF3PYs/%3Fimwidth%3D303%26filter%3Dpackshot/https/img01.ztat.net/article/spp-media-p1/bb061281ef424fb8a0d684792b15c6d2/7f5cce17eb834a28aabfdf13d726a16c.jpg', 
                 product: 'Dunk High', 
                 site: 'Zalando IT',
-                price: +'109.99€'.replace('€', ''),
+                price: '109.99€',
                 date: '09/06/2022'
             },
             {
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 image: 'https://images-ext-2.discordapp.net/external/WsD32nS1ccJVDE7WU3cnaZEQSZJNkE-Wmk7nESF3PYs/%3Fimwidth%3D303%26filter%3Dpackshot/https/img01.ztat.net/article/spp-media-p1/bb061281ef424fb8a0d684792b15c6d2/7f5cce17eb834a28aabfdf13d726a16c.jpg', 
                 product: 'Dunk High', 
                 site: 'Zalando IT',
-                price: +'109.99€'.replace('€', ''),
+                price: '109.99€',
                 date: '10/06/2022'
             },
             {
@@ -22,9 +22,26 @@ document.addEventListener('DOMContentLoaded', async () => {
                 image: 'https://images-ext-2.discordapp.net/external/WsD32nS1ccJVDE7WU3cnaZEQSZJNkE-Wmk7nESF3PYs/%3Fimwidth%3D303%26filter%3Dpackshot/https/img01.ztat.net/article/spp-media-p1/bb061281ef424fb8a0d684792b15c6d2/7f5cce17eb834a28aabfdf13d726a16c.jpg', 
                 product: 'Dunk High', 
                 site: 'Zalando IT',
-                price: +'109.99€'.replace('€', ''),
+                price: '109.99€',
                 date: '11/06/2022'
             },
+            {
+                id: Math.floor(Math.random() * Math.floor(Math.random() * Date.now())),
+                image: 'https://images-ext-2.discordapp.net/external/WsD32nS1ccJVDE7WU3cnaZEQSZJNkE-Wmk7nESF3PYs/%3Fimwidth%3D303%26filter%3Dpackshot/https/img01.ztat.net/article/spp-media-p1/bb061281ef424fb8a0d684792b15c6d2/7f5cce17eb834a28aabfdf13d726a16c.jpg', 
+                product: 'Dunk High', 
+                site: 'Zalando IT',
+                price: '109.99€',
+                date: '11/06/2022'
+            },
+            {
+                id: Math.floor(Math.random() * Math.floor(Math.random() * Date.now())),
+                image: 'https://images-ext-2.discordapp.net/external/WsD32nS1ccJVDE7WU3cnaZEQSZJNkE-Wmk7nESF3PYs/%3Fimwidth%3D303%26filter%3Dpackshot/https/img01.ztat.net/article/spp-media-p1/bb061281ef424fb8a0d684792b15c6d2/7f5cce17eb834a28aabfdf13d726a16c.jpg', 
+                product: 'Dunk High', 
+                site: 'Zalando IT',
+                price: '109.99€',
+                date: '11/06/2022'
+            },
+
         ]
 
         if (store.orders) {
@@ -44,7 +61,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 document.querySelector('.analytics .orders').insertAdjacentHTML('beforeend', html)
             });
 
-            makeSpendingChart(orders)
+            // makeSpendingChart(orders)
         }
     })
 
