@@ -691,22 +691,7 @@ async function validate(key) {
         if (!licenseInfo.metadata.hwid) {
             const res = await license.bind(key, currHwid);
             chrome.storage.sync.set({ 'hwid': currHwid });
-            const avatar = licenseInfo.user.avatar;
-            const username = licenseInfo.user.discord.username;
-            const discriminator = licenseInfo.user.discord.discriminator;
-            const plan = licenseInfo.plan.name;
-            const type = licenseInfo.plan.type;
-            const joined = licenseInfo.plan.created;
-            const key = licenseInfo.key
-            setInfo(avatar, username, discriminator, plan, type, joined, key)
-            if (licenseInfo.metadata.backup && licenseInfo.metadata.backup !== "[]") {
-                document.querySelector('.settings .backup .status').textContent = 'Backup found.'
-            }
-            return true;
-        }
-        if (licenseInfo.metadata.hwid) {
-            if ((licenseInfo.metadata.hwid === currHwid) || (licenseInfo.metadata.hwid === lastHwid)) {
-                chrome.storage.sync.set({ 'active': true });
+            if (licenseInfo.user.discord) {
                 const avatar = licenseInfo.user.avatar;
                 const username = licenseInfo.user.discord.username;
                 const discriminator = licenseInfo.user.discord.discriminator;
@@ -715,6 +700,45 @@ async function validate(key) {
                 const joined = licenseInfo.plan.created;
                 const key = licenseInfo.key
                 setInfo(avatar, username, discriminator, plan, type, joined, key)
+            }
+            if (!licenseInfo.user.discord) {
+                const avatar = false;
+                const username = licenseInfo.email;
+                const discriminator = false;
+                const plan = licenseInfo.plan.name;
+                const type = licenseInfo.plan.type;
+                const joined = licenseInfo.plan.created;
+                const key = licenseInfo.key
+                setInfo(avatar, username, discriminator, plan, type, joined, key)
+            }
+            if (licenseInfo.metadata.backup && licenseInfo.metadata.backup !== "[]") {
+                document.querySelector('.settings .backup .status').textContent = 'Backup found.'
+            }
+            return true;
+        }
+        if (licenseInfo.metadata.hwid) {
+            if ((licenseInfo.metadata.hwid === currHwid) || (licenseInfo.metadata.hwid === lastHwid)) {
+                chrome.storage.sync.set({ 'active': true });
+                if (licenseInfo.user.discord) {
+                    const avatar = licenseInfo.user.avatar;
+                    const username = licenseInfo.user.discord.username;
+                    const discriminator = licenseInfo.user.discord.discriminator;
+                    const plan = licenseInfo.plan.name;
+                    const type = licenseInfo.plan.type;
+                    const joined = licenseInfo.plan.created;
+                    const key = licenseInfo.key
+                    setInfo(avatar, username, discriminator, plan, type, joined, key)
+                }
+                if (!licenseInfo.user.discord) {
+                    const avatar = false;
+                    const username = licenseInfo.email;
+                    const discriminator = false;
+                    const plan = licenseInfo.plan.name;
+                    const type = licenseInfo.plan.type;
+                    const joined = licenseInfo.plan.created;
+                    const key = licenseInfo.key
+                    setInfo(avatar, username, discriminator, plan, type, joined, key)
+                }
                 if (licenseInfo.metadata.backup && licenseInfo.metadata.backup !== "[]") {
                     document.querySelector('.settings .backup .status').textContent = 'Backup found.'
                 }
@@ -767,7 +791,7 @@ async function extractLastVisited() {
 function setInfo(avatar, username, discriminator, plan, type, joined, key) {
     document.querySelector('div.content > div > div > img').src = avatar
     document.querySelector('div.content > div > div > div > div.name').textContent = `${username}#${discriminator}`
-    document.querySelector('.home #username h3').textContent = `Welcome back, ${username}`
+    document.querySelector('.home #username h3').textContent = `Welcome back, ${username}.`
     document.querySelector('.home #plan p').textContent = `Plan: ${plan}`
     document.querySelector('.home #type p').textContent = `Plan Type: ${type}`
     document.querySelector('.home #joined p').textContent = `Join Date: ${convertDate(joined)}`
