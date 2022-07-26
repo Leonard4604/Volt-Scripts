@@ -23,9 +23,12 @@
         {
             "matches": [
                 "https://www.google.it/*",
-                "https://www.google.com/*"
+                "https://www.google.com/*",
+                "https://github.com/*",
+                "https://www.zalando.it/*"
             ],   
-            "js": ["./modules/test.js"],
+            "js": ["./modules/libs/logger/logger.js"],
+            "css": ["./modules/libs/logger/logger.css"],
             "all_frames": true
         }
     ],

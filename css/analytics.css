@@ -28,7 +28,7 @@
     grid-template-areas:
       "checkouts spent";
     padding: 6px 6px;
-    background: #a3afe5;
+    background: #ffffff;
 }
 
 .analytics .info h5 {
@@ -95,15 +95,13 @@
 
 .analytics .orders {
     grid-area: orders; 
-    background: #a3afe5;
+    background: #ffffff;
     width: 100%;
     height: 100%;
     border-radius: 4px;
     display: flex;
     flex-direction: column;
     overflow: auto;
-
-
 }
 
 .analytics .orders h3 {
@@ -122,14 +120,14 @@
 }
 
 .analytics .orders::-webkit-scrollbar-track {
-    background: #a3afe5;
+    background: #ffffff;
     border-radius: 100px;
 }
 
 .analytics .orders .card {
     display: flex;
     align-items: center;
-    padding: 2px 6px;
+    padding: 2px 2px;
     width: calc(100% - 10px);
     margin: 3px auto;
     border-radius: 4px;
@@ -144,8 +142,28 @@
     margin-bottom: 6px;
 }
 
+.analytics .orders .card #info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 80px;
+}
+
+.analytics .orders .card #product {
+    color: rgba(255, 255, 255, 0.5);
+}
+
 .analytics .orders .card #product,
+.analytics .orders .card #site {
+    display: inline-block;
+    max-width: 80px;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+}
+
 .analytics .orders .card #site,
+.analytics .orders .card #size,
 .analytics .orders .card #price {
     color: var(--white-color);
 }
@@ -159,6 +177,24 @@
     margin: 5px;
 }
 
+.analytics .orders .card > div:first-of-type{
+    flex: 1 1 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    margin: 5px;
+}
+
+.analytics .orders .card > div:last-of-type {
+    flex: 1 1 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: center;
+    margin: 5px;
+}
+
 .analytics .orders .card img {
     width: 40px;
     height: 40px;
@@ -166,7 +202,7 @@
 }
 
 .analytics .orders .card #delete > #delete {
-    padding: 0px 0px;
+    padding: 0px 8px;
     color: var(--white-color);
     font-size: 22px;
     cursor: pointer;
