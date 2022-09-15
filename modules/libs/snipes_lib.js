@@ -23,7 +23,7 @@ async function addToCart(body, referrer) {
 
 const pid = {
     getProductInfo: async function(pid) {
-        fetch(`https://www.snipes.it/p/${pid}.html?dwvar_${pid}_size=&format=ajax`, {
+        return fetch(`https://www.snipes.it/p/${pid}.html?dwvar_${pid}_size=&format=ajax`, {
             "headers": {
               "accept": "application/json, text/javascript, */*; q=0.01",
               "accept-language": "it-IT,it;q=0.9,en;q=0.8,en-US;q=0.7",

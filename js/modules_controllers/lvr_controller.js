@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
             min.value = luisaviaromaSettings.min = settings.min || ''
             max.value = luisaviaromaSettings.max = settings.max || ''
 
-            dashMode.textContent = `Mode: ${settings.mode.toString().charAt(0).toUpperCase()}${settings.mode.toString().slice(1)}`
+            dashMode.textContent = `Mode: ${settings.mode.toString().charAt(0).toUpperCase() || `Default`}${settings.mode.toString().slice(1)}`
             dashDelay.textContent = `Delay: ${settings.delay.toString().charAt(0).toUpperCase()}${settings.delay.toString().slice(1)}`
         }
         else {
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         chrome.storage.sync.set({
             'luisaviaroma': JSON.stringify(luisaviaromaSettings)
         });
-        dashMode.textContent = `Mode: ${mode.value.charAt(0).toUpperCase()}${mode.value.slice(1)}`
+        dashMode.textContent = `Mode: ${mode.value.charAt(0).toUpperCase() || `Default`}${mode.value.slice(1)}`
     })
 
     delay.addEventListener('change', () => {
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         chrome.storage.sync.set({
             'luisaviaroma': JSON.stringify(luisaviaromaSettings)
         });
-        dashDelay.textContent = `Delay: ${delay.value.charAt(0).toUpperCase()}${delay.value.slice(1)}`
+        dashDelay.textContent = `Delay: ${+delay.value.charAt(0).toUpperCase()}${delay.value.slice(1)}`
     })
 
     size.addEventListener('change', () => {

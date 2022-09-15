@@ -430,11 +430,14 @@
                         <select id="mode_selection" required>
                             <option selected="selected" value="">Select Mode</option>
                             <option value="normal">Normal</option>
-                            <option value="fast">Fast</option>
+                            <option value="human">Human</option>
                         </select>
                     </div>
                     <div class="delay">
-                        <input type="number" id="delay" placeholder="Delay" autocomplete="off">
+                        <input type="number" id="delay" placeholder="Monitor Delay" autocomplete="off">
+                    </div>
+                    <div class="steps_delay">
+                        <input type="number" id="steps_delay" placeholder="Steps Delay" autocomplete="off">
                     </div>
                 </div>
                 <div class="sizing">
@@ -545,6 +548,13 @@
                             <option value="50">50</option>
                         </select>
                     </div>
+                </div>
+                <div class="pid">
+                    <input type="text" id="label" placeholder="Label" autocomplete="off">
+                    <input type="number" id="pid" placeholder="Pid" autocomplete="off">
+                    <button type="submit" id="pid_start">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-play"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    </button>
                 </div>
             </div>
         </div>
