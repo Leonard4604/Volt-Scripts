@@ -15,7 +15,7 @@
     background: rgba(52, 76, 183, 0.95);
     width: 350px;
     height: 200px;
-    border-radius: 4px 0px 4px 4px;
+    border-radius: 4px 0px 0px 4px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -54,14 +54,24 @@
     width: 50px;
 }
 
-#close-volt-logger {
+#volt-logger-sidebar {
     position: absolute;
+    top: 0px;
+    right: -25px;
+    width: 25px;
+    height: 200px;
+    background: rgba(52, 76, 183, 0.5);
+    border-radius: 0px 4px 4px 0px;
+    display: flex;
+    justify-content: top;
+}
+
+#close-volt-logger {
     right: -25px;
     top: 0px;
     width: 25px;
-    height: 29px;
-    background: rgba(52, 76, 183, 0.5);
-    border-radius: 0px 4px 4px 0px;
+    height: 30px;
+    border-bottom: rgba(52, 76, 183, 0.7) 1px solid;
     cursor: pointer;
     display: flex;
     align-items: center;

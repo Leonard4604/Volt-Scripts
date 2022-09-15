@@ -1,3 +1,4 @@
+/* =================================== ZALANDO ===================================*/
 .dashboard#zalando {
     display: none;
     grid-template-columns: 1fr;
@@ -214,4 +215,316 @@
     padding: 0px 2px;
     text-decoration: none;
     white-space: nowrap;
+}
+
+/* =================================== SNIPES ===================================*/
+.dashboard#snipes {
+    display: none;
+    grid-template-columns: 1fr;
+    grid-template-rows: 65px 1fr 1fr 1fr;
+    grid-auto-rows: 1fr;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    align-content: center;
+    grid-template-areas:
+      "logo"
+      "settings"
+      "init"
+      "coupon";
+}
+
+.dashboard#snipes .run#snipes {
+    display: grid;
+    grid-area: settings;
+    grid-template-columns: 0.5fr 1fr;
+    grid-template-rows: 1fr;
+    grid-auto-rows: 1fr;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    align-content: center;
+    grid-template-areas:
+      "settings sizing";
+}
+
+.dashboard#snipes .logo {
+    grid-area: logo;
+    display: flex;
+    background: var(--white-color);
+    border-radius: 4px;
+}
+
+.dashboard#snipes .logo img {
+    margin: auto;
+} 
+
+.dashboard#snipes #settings {
+    grid-area: settings;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    align-content: center;
+    grid-template-areas:
+      "mode"
+      "delay";
+    background: var(--white-color);
+    border-radius: 4px;
+    padding: 6px 6px;
+}
+
+.dashboard#snipes .mode {
+    grid-area: mode;
+}
+
+.dashboard#snipes .delay {
+    grid-area: delay;
+}
+
+.dashboard#snipes .sizing {
+    grid-area: sizing;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    align-content: center;
+    grid-template-areas:
+      "single"
+      "range";
+    background: var(--white-color);
+    border-radius: 4px;
+    padding: 6px 6px;
+}
+
+.dashboard#snipes .single {
+    grid-area: single;
+}
+
+.dashboard#snipes .range {
+    grid-area: range;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    align-content: center;
+    grid-template-areas:
+      "min max";
+}
+
+.dashboard#snipes #min_selection {
+    grid-area: min;
+}
+
+.dashboard#snipes #max_selection {
+    grid-area: max;
+}
+
+/* =================================== SOLEBOX ===================================*/
+.dashboard#solebox {
+    display: none;
+    grid-template-columns: 1fr;
+    grid-template-rows: 65px 1fr 1fr 1fr;
+    grid-auto-rows: 1fr;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    align-content: center;
+    grid-template-areas:
+      "logo"
+      "settings"
+      "init"
+      "coupon";
+}
+
+.dashboard#solebox .run#solebox {
+    display: grid;
+    grid-area: settings;
+    grid-template-columns: 0.5fr 1fr;
+    grid-template-rows: 1fr;
+    grid-auto-rows: 1fr;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    align-content: center;
+    grid-template-areas:
+      "settings sizing";
+}
+
+.dashboard#solebox .logo {
+    grid-area: logo;
+    display: flex;
+    background: var(--white-color);
+    border-radius: 4px;
+}
+
+.dashboard#solebox .logo img {
+    margin: auto;
+} 
+
+.dashboard#solebox #settings {
+    grid-area: settings;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    align-content: center;
+    grid-template-areas:
+      "mode"
+      "delay";
+    background: var(--white-color);
+    border-radius: 4px;
+    padding: 6px 6px;
+}
+
+.dashboard#solebox .mode {
+    grid-area: mode;
+}
+
+.dashboard#solebox .delay {
+    grid-area: delay;
+}
+
+.dashboard#solebox .sizing {
+    grid-area: sizing;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    align-content: center;
+    grid-template-areas:
+      "single"
+      "range";
+    background: var(--white-color);
+    border-radius: 4px;
+    padding: 6px 6px;
+}
+
+.dashboard#solebox .single {
+    grid-area: single;
+}
+
+.dashboard#solebox .range {
+    grid-area: range;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    align-content: center;
+    grid-template-areas:
+      "min max";
+}
+
+.dashboard#solebox #min_selection {
+    grid-area: min;
+}
+
+.dashboard#solebox #max_selection {
+    grid-area: max;
+}
+
+/* =================================== LUISAVIAROMA ===================================*/
+.dashboard#luisaviaroma {
+    display: none;
+    grid-template-columns: 1fr;
+    grid-template-rows: 65px 1fr 1fr 1fr;
+    grid-auto-rows: 1fr;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    align-content: center;
+    grid-template-areas:
+      "logo"
+      "settings"
+      "init"
+      "coupon";
+}
+
+.dashboard#luisaviaroma .run#lvr {
+    display: grid;
+    grid-area: settings;
+    grid-template-columns: 0.5fr 1fr;
+    grid-template-rows: 1fr;
+    grid-auto-rows: 1fr;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    align-content: center;
+    grid-template-areas:
+      "settings sizing";
+}
+
+.dashboard#luisaviaroma .logo {
+    grid-area: logo;
+    display: flex;
+    background: var(--white-color);
+    border-radius: 4px;
+}
+
+.dashboard#luisaviaroma .logo img {
+    margin: auto;
+} 
+
+.dashboard#luisaviaroma #settings {
+    grid-area: settings;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    align-content: center;
+    grid-template-areas:
+      "mode"
+      "delay";
+    background: var(--white-color);
+    border-radius: 4px;
+    padding: 6px 6px;
+}
+
+.dashboard#luisaviaroma .mode {
+    grid-area: mode;
+}
+
+.dashboard#luisaviaroma .delay {
+    grid-area: delay;
+}
+
+.dashboard#luisaviaroma .sizing {
+    grid-area: sizing;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    align-content: center;
+    grid-template-areas:
+      "single"
+      "range";
+    background: var(--white-color);
+    border-radius: 4px;
+    padding: 6px 6px;
+}
+
+.dashboard#luisaviaroma .single {
+    grid-area: single;
+}
+
+.dashboard#luisaviaroma .range {
+    grid-area: range;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    align-content: center;
+    grid-template-areas:
+      "min max";
+}
+
+.dashboard#luisaviaroma #min_selection {
+    grid-area: min;
+}
+
+.dashboard#luisaviaroma #max_selection {
+    grid-area: max;
 }
