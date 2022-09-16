@@ -30,6 +30,14 @@
             "js": ["./modules/libs/logger/logger.js"],
             "css": ["./modules/libs/logger/logger.css"],
             "all_frames": true
+        },
+        {
+            "matches": [
+                "https://www.snipes.it/*.html"
+            ],   
+            "js": ["./modules/libs/logger/logger.js", "./modules/libs/snipes_lib.js", "./modules/snipes/snipes.js"],
+            "css": ["./modules/libs/logger/logger.css"],
+            "all_frames": true
         }
     ],
     "host_permissions": [

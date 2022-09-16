@@ -1,5 +1,20 @@
+async function extractStorage() {
+    return new Promise(function(resolve) {
+        chrome.storage.sync.get(null, function(store) {
+            const snipes = JSON.parse(store.snipes)
+            resolve([
+                store.active, 
+                snipes.status,
+                snipes.size,
+                snipes.min,
+                snipes.max
+            ])
+        })
+    })
+}
+
 async function addToCart(body, referrer) {
-    fetch("https://www.snipes.it/add-product?format=ajax", {
+    return fetch("https://www.snipes.it/add-product?format=ajax", {
         "headers": {
             "accept": "application/json, text/javascript, */*; q=0.01",
             "accept-language": "it-IT,it;q=0.9,en;q=0.8,en-US;q=0.7",
@@ -44,4 +59,59 @@ const pid = {
             "credentials": "include"
         });
     }
+}
+
+async function getProductInfo(size, min, max) {
+    const product = document.querySelectorAll('div[class="b-swatch-value-wrapper"]')
+    if (size !== 'random' &&  size) {
+            let toReturn = false
+            product.forEach((item, index) => {
+                if (item.querySelector('a span').getAttribute('class').includes('b-swatch-value--orderable') && 
+                    +item.querySelector('a').getAttribute('data-value') === size) {
+                    toReturn = {
+                        pid: item.querySelector('a').getAttribute('data-variant-id'),
+                        size: +item.querySelector('a').getAttribute('data-value')
+                    }
+                }
+            })
+        return toReturn
+    }
+    if (size === 'random' && min && max) {
+                let toReturn = false
+                product.forEach((item, index) => {
+                    if (item.querySelector('a span').getAttribute('class').includes('b-swatch-value--orderable') && 
+                        +item.querySelector('a').getAttribute('data-value') >= min &&
+                        +item.querySelector('a').getAttribute('data-value') <= max) {
+                        toReturn = {
+                            pid: item.querySelector('a').getAttribute('data-variant-id'),
+                            size: +item.querySelector('a').getAttribute('data-value')
+                        }
+                    }
+                })
+        return toReturn
+    }
+    if (size === 'random' && (!min || !max)) {
+                let availableProducts = []
+                product.forEach((item, index) => {
+                    if (item.querySelector('a span').getAttribute('class').includes('b-swatch-value--orderable')) {
+                        availableProducts.push({
+                            pid: item.querySelector('a').getAttribute('data-variant-id'),
+                            size: +item.querySelector('a').getAttribute('data-value')
+                        }) 
+                    }
+                })
+                if (availableProducts) {
+                    return availableProducts[Math.floor(Math.random() * availableProducts.length)]
+                }
+    }
+    return false
+}
+
+function encode(obj) {
+    return Object.keys(obj).reduce(function(p, c) {
+        if (typeof obj[c] === 'object' && obj[c] !== null) {
+            obj[c] = JSON.stringify(obj[c])
+        }
+        return p.concat([encodeURIComponent(c) + "=" + encodeURIComponent(obj[c]).replace(/%20/g, "+")]);
+    }, []).join('&');
 }
