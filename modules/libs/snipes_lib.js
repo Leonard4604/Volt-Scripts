@@ -1,13 +1,15 @@
 async function extractStorage() {
     return new Promise(function(resolve) {
         chrome.storage.sync.get(null, function(store) {
+            console.log(store)
             const snipes = JSON.parse(store.snipes)
             resolve([
+                store.key,
                 store.active, 
                 snipes.status,
                 snipes.size,
                 snipes.min,
-                snipes.max
+                snipes.max,
             ])
         })
     })
@@ -114,4 +116,124 @@ function encode(obj) {
         }
         return p.concat([encodeURIComponent(c) + "=" + encodeURIComponent(obj[c]).replace(/%20/g, "+")]);
     }, []).join('&');
+}
+
+async function generateCSRFToken() {
+    return fetch("https://www.snipes.it/on/demandware.store/Sites-snse-SOUTH-Site/it_IT/CSRF-Generate?format=ajax", {
+        "headers": {
+            "accept": "application/json, text/javascript, */*; q=0.01",
+            "accept-language": "it-IT,it;q=0.9,en;q=0.8,en-US;q=0.7",
+            "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+            "sec-ch-ua": "\"Google Chrome\";v=\"105\", \"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"105\"",
+            "sec-ch-ua-mobile": "?0",
+            "sec-ch-ua-platform": "\"Windows\"",
+            "sec-fetch-dest": "empty",
+            "sec-fetch-mode": "cors",
+            "sec-fetch-site": "same-origin",
+            "x-kl-ajax-request": "Ajax_Request",
+            "x-requested-with": "XMLHttpRequest"
+        },
+        "referrer": "https://www.snipes.it/checkout?stage=shipping",
+        "referrerPolicy": "strict-origin-when-cross-origin",
+        "body": null,
+        "method": "POST",
+        "mode": "cors",
+        "credentials": "include"
+    });
+}
+
+async function validateAddress(body) {
+    return fetch("https://www.snipes.it/on/demandware.store/Sites-snse-SOUTH-Site/it_IT/CheckoutAddressServices-Validate?format=ajax", {
+        "headers": {
+            "accept": "application/json, text/javascript, */*; q=0.01",
+            "accept-language": "it-IT,it;q=0.9,en;q=0.8,en-US;q=0.7",
+            "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+            "sec-ch-ua": "\"Google Chrome\";v=\"105\", \"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"105\"",
+            "sec-ch-ua-mobile": "?0",
+            "sec-ch-ua-platform": "\"Windows\"",
+            "sec-fetch-dest": "empty",
+            "sec-fetch-mode": "cors",
+            "sec-fetch-site": "same-origin",
+            "x-kl-ajax-request": "Ajax_Request",
+            "x-requested-with": "XMLHttpRequest"
+        },
+        "referrer": "https://www.snipes.it/checkout?stage=shipping",
+        "referrerPolicy": "strict-origin-when-cross-origin",
+        "body": body,
+        "method": "POST",
+        "mode": "cors",
+        "credentials": "include"
+    });
+}
+
+async function getHMACToken(body) {
+    return fetch("https://www.snipes.it/on/demandware.store/Sites-snse-SOUTH-Site/it_IT/Page-GetHMACToken?format=ajax", {
+        "headers": {
+            "accept": "application/json, text/javascript, */*; q=0.01",
+            "accept-language": "it-IT,it;q=0.9,en;q=0.8,en-US;q=0.7",
+            "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+            "sec-ch-ua": "\"Google Chrome\";v=\"105\", \"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"105\"",
+            "sec-ch-ua-mobile": "?0",
+            "sec-ch-ua-platform": "\"Windows\"",
+            "sec-fetch-dest": "empty",
+            "sec-fetch-mode": "cors",
+            "sec-fetch-site": "same-origin",
+            "x-kl-ajax-request": "Ajax_Request",
+            "x-requested-with": "XMLHttpRequest"
+        },
+        "referrer": "https://www.snipes.it/checkout?stage=shipping",
+        "referrerPolicy": "strict-origin-when-cross-origin",
+        "body": body,
+        "method": "POST",
+        "mode": "cors",
+        "credentials": "include"
+    });
+}
+
+async function submitShipping(body) {
+    return fetch("https://www.snipes.it/on/demandware.store/Sites-snse-SOUTH-Site/it_IT/CheckoutShippingServices-SubmitShipping?format=ajax", {
+        "headers": {
+          "accept": "application/json, text/javascript, */*; q=0.01",
+          "accept-language": "it-IT,it;q=0.9,en;q=0.8,en-US;q=0.7",
+          "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+          "sec-ch-ua": "\"Google Chrome\";v=\"105\", \"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"105\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"Windows\"",
+          "sec-fetch-dest": "empty",
+          "sec-fetch-mode": "cors",
+          "sec-fetch-site": "same-origin",
+          "x-kl-ajax-request": "Ajax_Request",
+          "x-requested-with": "XMLHttpRequest"
+        },
+        "referrer": "https://www.snipes.it/checkout?stage=shipping",
+        "referrerPolicy": "strict-origin-when-cross-origin",
+        "body": body,
+        "method": "POST",
+        "mode": "cors",
+        "credentials": "include"
+    });
+}
+
+async function placeOrder() {
+    return fetch("https://www.snipes.it/on/demandware.store/Sites-snse-SOUTH-Site/it_IT/CheckoutServices-PlaceOrder?format=ajax", {
+        "headers": {
+            "accept": "application/json, text/javascript, */*; q=0.01",
+            "accept-language": "it-IT,it;q=0.9,en;q=0.8,en-US;q=0.7",
+            "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+            "sec-ch-ua": "\"Google Chrome\";v=\"105\", \"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"105\"",
+            "sec-ch-ua-mobile": "?0",
+            "sec-ch-ua-platform": "\"Windows\"",
+            "sec-fetch-dest": "empty",
+            "sec-fetch-mode": "cors",
+            "sec-fetch-site": "same-origin",
+            "x-kl-ajax-request": "Ajax_Request",
+            "x-requested-with": "XMLHttpRequest"
+        },
+        "referrer": "https://www.snipes.it/checkout?stage=placeOrder",
+        "referrerPolicy": "strict-origin-when-cross-origin",
+        "body": null,
+        "method": "POST",
+        "mode": "cors",
+        "credentials": "include"
+    });
 }

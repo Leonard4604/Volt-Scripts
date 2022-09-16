@@ -1,4 +1,4 @@
-async function process(size, min, max) {
+async function process(key, size, min, max) {
     logger.wait('Adding to cart...')
     const product = await getProductInfo(size, min, max)
     if (product) {
@@ -19,6 +19,7 @@ async function process(size, min, max) {
         if (!result.error) {
             logger.update.success('Product added to cart')
         }
+        window.open('https://www.snipes.it/checkout?stage=placeOrder#placeOrder','_blank');
         return true
     }
     if (!product) {
@@ -29,10 +30,10 @@ async function process(size, min, max) {
 
 
 async function executeScript() {
-    const [volt, status, size, min, max] = await extractStorage()
+    const [key, volt, status, size, min, max] = await extractStorage()
     if (volt && status === true) {
         logger.display()
-        await process(size, min, max)
+        await process(key, size, min, max)
     }
 }
 
