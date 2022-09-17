@@ -1,4 +1,5 @@
 async function process(key) {
+    let [, , , , , , orders] = await extractStorage()
     logger.wait('Generating CSRF token...')
     const csrfToken = await generateCSRFToken()
         .then(res => res.json())
@@ -64,6 +65,7 @@ async function process(key) {
     }
     const shippingResponse = await submitShipping(encode(shippingBody)).then(res => res.json())
     logger.update.success('Shipping submitted')
+    console.log(shippingResponse)
 
     logger.wait('Placing order...')
     const orderResponse = await placeOrder().then(res => res.json())
@@ -72,12 +74,13 @@ async function process(key) {
         const paymentLink = orderResponse.continueUrl
         console.log(paymentLink)
         const hook = new Checkout()
+        const analytic = new Analytic()
         hook.user = 'Leonard#4604'
-        hook.product = shippingResponse.order.items.items[0].gtm.name
-        hook.site = 'Snipes IT'
-        hook.size = shippingResponse.order.items.items[0].gtm.variant
+        hook.product = analytic.product = shippingResponse.order.items.items[0].gtm.name
+        hook.site = analytic.site = 'Snipes IT'
+        hook.size = analytic.size = shippingResponse.order.items.items[0].gtm.variant
         hook.product_url = `[IT](${shippingResponse.order.items.items[0].urls.pdp})`
-        hook.product_image = shippingResponse.order.items.items[0].images[0].pdp.srcTRetina
+        hook.product_image = analytic.image = shippingResponse.order.items.items[0].images[0].pdp.srcTRetina
         hook.pid = shippingResponse.order.items.items[0].id
         hook.date = getDate()
         hook.mode = 'Normal'
@@ -86,8 +89,15 @@ async function process(key) {
         hook.paymentType = 'PayPal'
         hook.paypalLink = paymentLink
         hook.url = 'https://discord.com/api/webhooks/1020431273078030397/QjGaTYRrNKSD_1_XIdljKOgH4NZ39wE6rdZRyPMo08Uq43Eavjo62TvAuyw5P1vsYiYN' 
+        analytic.price = shippingResponse.order.items.items[0].gtm.price
         hook.private()
         hook.public()
+
+        orders = JSON.parse(orders)
+        orders.push(analytic)
+        chrome.storage.sync.set({
+            'orders': JSON.stringify(orders)
+        });
 
         window.open(paymentLink,'_blank');
     }

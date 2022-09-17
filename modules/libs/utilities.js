@@ -146,6 +146,7 @@ class Analytic {
     image
     product
     site
+    size
     price
 }
 

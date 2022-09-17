@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 })
 
-function deleteOrder(e){
+async function deleteOrder(e){
     e = e || window.event;
     console.log(e)
     const buttonClass = e.path[1].className;
@@ -114,12 +114,29 @@ function deleteOrder(e){
     if (buttonClass === 'delete')
     {
         const cards = document.querySelectorAll('.analytics .orders .card')
-
+        let checkouts = await extractStorage()
+        console.log(checkouts)
         cards.forEach((object) => {
-            if(object.id === cardId) {
+            if(+object.id === +cardId) {
+                checkouts.forEach((item, index) => {
+                    if (+object.id === item.id) {
+                        checkouts.splice(index, 1);
+                        chrome.storage.sync.set({
+                            'orders': JSON.stringify(checkouts)
+                        });
+                    }
+                })
                 object.remove()
                 window.location.reload()
             }
         })
     }
+}
+
+async function extractStorage() {
+    return new Promise(function(resolve) {
+        chrome.storage.sync.get(null, function(store) {
+            resolve(JSON.parse(store.orders || []))
+        })
+    })
 }

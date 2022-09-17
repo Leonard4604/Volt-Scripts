@@ -10,6 +10,7 @@ async function extractStorage() {
                 snipes.size,
                 snipes.min,
                 snipes.max,
+                store.orders || []
             ])
         })
     })
