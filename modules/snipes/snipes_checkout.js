@@ -1,4 +1,4 @@
-async function process(key) {
+async function process(key, discord) {
     let [, , , , , , orders] = await extractStorage()
     logger.wait('Generating CSRF token...')
     const csrfToken = await generateCSRFToken()
@@ -65,14 +65,13 @@ async function process(key) {
     }
     const shippingResponse = await submitShipping(encode(shippingBody)).then(res => res.json())
     logger.update.success('Shipping submitted')
-    console.log(shippingResponse)
 
     logger.wait('Placing order...')
     const orderResponse = await placeOrder().then(res => res.json())
     if (!orderResponse.error) {
         logger.update.success('Order placed')
         const paymentLink = orderResponse.continueUrl
-        console.log(paymentLink)
+
         const hook = new Checkout()
         const analytic = new Analytic()
         hook.user = 'Leonard#4604'
@@ -88,7 +87,7 @@ async function process(key) {
         hook.version = '1.0.0'
         hook.paymentType = 'PayPal'
         hook.paypalLink = paymentLink
-        hook.url = 'https://discord.com/api/webhooks/1020431273078030397/QjGaTYRrNKSD_1_XIdljKOgH4NZ39wE6rdZRyPMo08Uq43Eavjo62TvAuyw5P1vsYiYN' 
+        hook.url = discord 
         analytic.price = shippingResponse.order.items.items[0].gtm.price
         hook.private()
         hook.public()
@@ -104,10 +103,10 @@ async function process(key) {
 }
 
 async function executeScript() {
-    const [key, volt, status] = await extractStorage()
+    const [key, volt, status, , , , , discord] = await extractStorage()
     if (volt && status === true) {
         logger.display()
-        await process(key)
+        await process(key, discord)
     }
 }
 

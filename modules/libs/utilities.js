@@ -72,7 +72,7 @@ class Checkout extends Webhook{
         const embed = {
             product: this.product,
             site: this.site,
-            size: this.sizes,
+            size: this.size,
             product_url: this.product_url,
             product_image: this.product_image,
             pid: this.pid,
@@ -107,7 +107,7 @@ class Checkout extends Webhook{
                     inline: true
                 },
                 {
-                    name: 'Sizes',
+                    name: 'Size',
                     value: `${this.size}`,
                     inline: true
                 },

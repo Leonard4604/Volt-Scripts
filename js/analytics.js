@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                         <div id="product">${res.product}</div>
                     </div>
                     <div id="size">${res.size}</div>
-                    <div id="price">${res.price}</div>
+                    <div id="price">${res.price} €</div>
                     <div id="delete" class="delete"><i class='bx bx-trash' id="delete"></i></div>
                 </div>
                 `
