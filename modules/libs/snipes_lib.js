@@ -111,15 +111,6 @@ async function getProductInfo(size, min, max) {
     return false
 }
 
-function encode(obj) {
-    return Object.keys(obj).reduce(function(p, c) {
-        if (typeof obj[c] === 'object' && obj[c] !== null) {
-            obj[c] = JSON.stringify(obj[c])
-        }
-        return p.concat([encodeURIComponent(c) + "=" + encodeURIComponent(obj[c]).replace(/%20/g, "+")]);
-    }, []).join('&');
-}
-
 async function generateCSRFToken() {
     return fetch("https://www.snipes.it/on/demandware.store/Sites-snse-SOUTH-Site/it_IT/CSRF-Generate?format=ajax", {
         "headers": {

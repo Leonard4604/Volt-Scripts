@@ -153,3 +153,12 @@ class Analytic {
 function getDate() {
     return new Date().toISOString()
 }
+
+function encode(obj) {
+    return Object.keys(obj).reduce(function(p, c) {
+        if (typeof obj[c] === 'object' && obj[c] !== null) {
+            obj[c] = JSON.stringify(obj[c])
+        }
+        return p.concat([encodeURIComponent(c) + "=" + encodeURIComponent(obj[c]).replace(/%20/g, "+")]);
+    }, []).join('&');
+}
