@@ -162,3 +162,18 @@ function encode(obj) {
         return p.concat([encodeURIComponent(c) + "=" + encodeURIComponent(obj[c]).replace(/%20/g, "+")]);
     }, []).join('&');
 }
+
+function fractionToDecimal(f) {
+    return f.split('/').reduce((n, d, i) => n / (i ? d : 1));
+}
+
+function convert(size) {
+    if (size.includes(' ')) {
+        const [int, frac] = size.split(' ')
+        const dec = frac.split('/').reduce((n, d, i) => n / (i ? d : 1));
+        return (+int + dec)
+    }
+    else {
+        return +size
+    }
+}

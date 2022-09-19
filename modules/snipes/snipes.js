@@ -17,7 +17,7 @@ async function process(key, size, min, max) {
                 res.json()
             )
         if (!result.error) {
-            logger.update.success('Product added to cart')
+            logger.update.success(`Product added to cart in size: ${result.gtm.variant}`)
         }
         window.open('https://www.snipes.it/checkout?stage=placeOrder#placeOrder','_blank');
         return true

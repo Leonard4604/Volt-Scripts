@@ -71,10 +71,10 @@ async function getProductInfo(size, min, max) {
             let toReturn = false
             product.forEach((item, index) => {
                 if (item.querySelector('a span').getAttribute('class').includes('b-swatch-value--orderable') && 
-                    +item.querySelector('a').getAttribute('data-value') === size) {
+                    convert(item.querySelector('a').getAttribute('data-value') === size)) {
                     toReturn = {
                         pid: item.querySelector('a').getAttribute('data-variant-id'),
-                        size: +item.querySelector('a').getAttribute('data-value')
+                        size: item.querySelector('a').getAttribute('data-value')
                     }
                 }
             })
@@ -84,11 +84,11 @@ async function getProductInfo(size, min, max) {
                 let toReturn = false
                 product.forEach((item, index) => {
                     if (item.querySelector('a span').getAttribute('class').includes('b-swatch-value--orderable') && 
-                        +item.querySelector('a').getAttribute('data-value') >= min &&
-                        +item.querySelector('a').getAttribute('data-value') <= max) {
+                        convert(item.querySelector('a').getAttribute('data-value')) >= min &&
+                        convert(item.querySelector('a').getAttribute('data-value') <= max)) {
                         toReturn = {
                             pid: item.querySelector('a').getAttribute('data-variant-id'),
-                            size: +item.querySelector('a').getAttribute('data-value')
+                            size: item.querySelector('a').getAttribute('data-value')
                         }
                     }
                 })
@@ -100,7 +100,7 @@ async function getProductInfo(size, min, max) {
                     if (item.querySelector('a span').getAttribute('class').includes('b-swatch-value--orderable')) {
                         availableProducts.push({
                             pid: item.querySelector('a').getAttribute('data-variant-id'),
-                            size: +item.querySelector('a').getAttribute('data-value')
+                            size: item.querySelector('a').getAttribute('data-value')
                         }) 
                     }
                 })
