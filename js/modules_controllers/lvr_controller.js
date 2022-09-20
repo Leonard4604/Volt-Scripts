@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const size = document.querySelector('.dashboard#luisaviaroma #sizing_selection')
     const min = document.querySelector('.dashboard#luisaviaroma #min_selection')
     const max = document.querySelector('.dashboard#luisaviaroma #max_selection')
+    const items = document.querySelector('.dashboard#luisaviaroma #items_selection')
 
     const dashMode = document.querySelector('.item#luisaviaroma .mode')
     const dashDelay = document.querySelector('.item#luisaviaroma .delay')
@@ -12,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let luisaviaromaSettings = new Luisaviaroma()
 
     chrome.storage.sync.get(null, function (store) {
+        console.log(store)
         console.log(store.luisaviaroma)
         if (store.luisaviaroma) {
             const settings = JSON.parse(store.luisaviaroma)
@@ -21,6 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
             size.value = luisaviaromaSettings.size = settings.size || ''
             min.value = luisaviaromaSettings.min = settings.min || ''
             max.value = luisaviaromaSettings.max = settings.max || ''
+            items.value = luisaviaromaSettings.items = settings.items || 1
+            luisaviaromaSettings.address = settings.address || false
 
             dashMode.textContent = `Mode: ${settings.mode.toString().charAt(0).toUpperCase() || `Default`}${settings.mode.toString().slice(1)}`
             dashDelay.textContent = `Delay: ${settings.delay.toString().charAt(0).toUpperCase()}${settings.delay.toString().slice(1)}`
@@ -32,12 +36,15 @@ document.addEventListener('DOMContentLoaded', () => {
             size.value = luisaviaromaSettings.size = ''
             min.value = luisaviaromaSettings.min = ''
             max.value = luisaviaromaSettings.max = ''
+            items.value = luisaviaromaSettings.items = 1
+            luisaviaromaSettings.address = false
 
             dashMode.textContent = `Mode: Default`
             dashDelay.textContent = `Delay: Default`
         }
     })
 
+    console.log(luisaviaromaSettings)
     status.addEventListener('click', () => {
         luisaviaromaSettings.status = status.checked
         chrome.storage.sync.set({
@@ -82,6 +89,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     max.addEventListener('change', () => {
         luisaviaromaSettings.max = +max.value
+        chrome.storage.sync.set({
+            'luisaviaroma': JSON.stringify(luisaviaromaSettings)
+        });
+    })
+
+    items.addEventListener('change', () => {
+        luisaviaromaSettings.items = +items.value
+        chrome.storage.sync.set({
+            'luisaviaroma': JSON.stringify(luisaviaromaSettings)
+        });
+    })
+
+    const resetBtn = document.querySelector('.dashboard#luisaviaroma .reset')
+    resetBtn.addEventListener('click', () => {
+        luisaviaromaSettings.address = false
         chrome.storage.sync.set({
             'luisaviaroma': JSON.stringify(luisaviaromaSettings)
         });

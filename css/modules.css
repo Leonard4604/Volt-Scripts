@@ -492,13 +492,14 @@ input::-webkit-inner-spin-button {
     display: grid;
     grid-area: settings;
     grid-template-columns: 0.5fr 1fr;
-    grid-template-rows: 1fr;
+    grid-template-rows: 1fr 1fr;
     grid-auto-rows: 1fr;
     gap: 10px 10px;
     grid-auto-flow: row;
     align-content: center;
     grid-template-areas:
-      "settings sizing";
+      "settings sizing"
+      "reset items";
 }
 
 .dashboard#luisaviaroma .logo {
@@ -574,4 +575,52 @@ input::-webkit-inner-spin-button {
 
 .dashboard#luisaviaroma #max_selection {
     grid-area: max;
+}
+
+.dashboard#luisaviaroma .background#reset {
+    grid-area: reset;
+    background: var(--white-color);
+    padding: 6px;
+    height: fit-content;
+    border-radius: 4px;
+}
+
+.dashboard#luisaviaroma .reset {
+    cursor: pointer;
+    background: var(--blue-color);
+    height: 30px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+}
+
+.dashboard#luisaviaroma .reset .option {
+    font-size: 13px;
+    line-height: 18px;
+    vertical-align: middle;
+}
+
+.dashboard#luisaviaroma .reset span {
+    padding-bottom: 0px;
+    display: inline-block;
+}
+
+.dashboard#luisaviaroma .reset #reset {
+    font-size: 18px;
+    vertical-align: middle;
+}
+
+.dashboard#luisaviaroma .reset > a {
+    color: var(--white-color);
+    padding: 0px 2px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.dashboard#luisaviaroma .items {
+    grid-area: items;
+    background-color: var(--white-color);
+    height: fit-content;
+    padding: 6px;
+    border-radius: 4px;
 }

@@ -4,6 +4,7 @@ async function extractStorage() {
             const lvr = JSON.parse(store.luisaviaroma)
             const discord = JSON.parse(store.discord)
             resolve([
+                lvr,
                 store.key,
                 store.active, 
                 lvr.status,
@@ -11,7 +12,10 @@ async function extractStorage() {
                 lvr.min,
                 lvr.max,
                 store.orders || [],
-                discord.url
+                discord.url,
+                lvr.address,
+                lvr.items,
+                store.version
             ])
         })
     })
@@ -126,6 +130,32 @@ async function getAddress() {
     "referrer": "https://www.luisaviaroma.com/myarea/myCart.aspx?season=&gender=",
     "referrerPolicy": "strict-origin-when-cross-origin",
     "body": "{\"RewardId\":1}",
+    "method": "POST",
+    "mode": "cors",
+    "credentials": "include"
+    });
+}
+
+async function placeOrder(body) {
+    return fetch("https://www.luisaviaroma.com/myarea/bag/confirmloggeduserandcreateorder", {
+    "headers": {
+        "accept": "*/*",
+        "accept-language": "it-IT,it;q=0.9,en;q=0.8,en-US;q=0.7",
+        "cache-control": "max-age=0",
+        "content-type": "application/json",
+        "sec-ch-ua": "\"Google Chrome\";v=\"105\", \"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"105\"",
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": "\"Windows\"",
+        "sec-fetch-dest": "empty",
+        "sec-fetch-mode": "cors",
+        "sec-fetch-site": "same-origin",
+        "x-kl-ajax-request": "Ajax_Request",
+        "x-lvr-requested-with": "checkout/confirmloggeduserandcreateorder",
+        "x-requested-with": "XMLHttpRequest"
+    },
+    "referrer": "https://www.luisaviaroma.com/myarea/myCart.aspx?season=&gender=",
+    "referrerPolicy": "strict-origin-when-cross-origin",
+    "body": body,
     "method": "POST",
     "mode": "cors",
     "credentials": "include"
