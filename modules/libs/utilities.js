@@ -71,7 +71,7 @@ class Checkout extends Webhook{
     public() {
         const embed = {
             product: this.product,
-            site: this.site,
+            site: `||${this.site}||`,
             size: this.size,
             product_url: this.product_url,
             product_image: this.product_image,
