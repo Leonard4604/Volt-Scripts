@@ -1,4 +1,4 @@
-async function process(key, size, min, max) {
+async function process(size, min, max) {
     logger.wait('Adding to cart...')
     const product = await getProductInfo(size, min, max)
     if (product) {
@@ -30,10 +30,10 @@ async function process(key, size, min, max) {
 
 
 async function executeScript() {
-    const [key, volt, status, size, min, max] = await extractStorage()
+    const [, volt, status, size, min, max] = await extractStorage()
     if (volt && status === true) {
         logger.display()
-        await process(key, size, min, max)
+        await process(size, min, max)
     }
 }
 
