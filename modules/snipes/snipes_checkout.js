@@ -1,5 +1,4 @@
-async function process(key, discord) {
-    let [, , , , , , orders] = await extractStorage()
+async function process(key, orders, discord, version) {
     logger.wait('Generating CSRF token...')
     const csrfToken = await generateCSRFToken()
         .then(res => res.json())
@@ -84,7 +83,7 @@ async function process(key, discord) {
         hook.date = getDate()
         hook.mode = 'Normal'
         hook.key = key
-        hook.version = '1.0.0'
+        hook.version = version
         hook.paymentType = 'PayPal'
         hook.paypalLink = paymentLink
         hook.url = discord 
@@ -103,10 +102,10 @@ async function process(key, discord) {
 }
 
 async function executeScript() {
-    const [key, volt, status, , , , , discord] = await extractStorage()
+    const [key, volt, status, , , , orders, discord, version] = await extractStorage()
     if (volt && status === true) {
         logger.display()
-        await process(key, discord)
+        await process(key, orders, discord, version)
     }
 }
 

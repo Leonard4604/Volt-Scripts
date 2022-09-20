@@ -11,7 +11,8 @@ async function extractStorage() {
                 snipes.min,
                 snipes.max,
                 store.orders || [],
-                discord.url
+                discord.url,
+                store.version
             ])
         })
     })
