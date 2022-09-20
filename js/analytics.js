@@ -92,9 +92,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     const getTotal = {
         spent: function(object) {
+            console.log(object);
             let total = 0;
             for (item of object) {
-                total += +item.price.replace(/\$|\€|\£/g, '')
+                if (typeof item.price === 'string') {
+                    total += +item.price.replace(/\$|\€|\£/g, '')
+                }
+                else {
+                    total += +item.price
+                }
             }
             return (Math.floor(total * 100) / 100);
         },
