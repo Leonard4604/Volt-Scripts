@@ -760,6 +760,7 @@ function version() {
     chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
         if (request.version) {
             document.querySelector('div.content > div > div > div > div.version').textContent = request.version;
+            chrome.storage.sync.set({ 'version': request.version });
         }
         else {
             return false;
