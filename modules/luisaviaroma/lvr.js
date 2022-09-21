@@ -128,7 +128,7 @@ async function flow(lvr, volt, listResponse) {
         hook.key = volt.key
         hook.version = volt.version
         hook.paymentLink = paymentLink
-        hook.url = volt.discord 
+        hook.url = JSON.parse(volt.discord).url
         analytic.price = orderResponse.ConfirmUserResponse.ListResponse.Rows[0].TotalViewValue
         hook.private()
         hook.public()

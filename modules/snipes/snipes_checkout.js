@@ -84,7 +84,7 @@ async function process(snipes, volt) {
         hook.key = volt.key
         hook.version = volt.version
         hook.paymentLink = paymentLink
-        hook.url = volt.discord 
+        hook.url = JSON.parse(volt.discord).url
         analytic.price = shippingResponse.order.items.items[0].gtm.price
         hook.private()
         hook.public()
