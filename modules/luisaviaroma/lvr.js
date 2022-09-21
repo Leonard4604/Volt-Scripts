@@ -112,6 +112,7 @@ async function flow(lvr, key, listResponse, orders, discord, address, version) {
         }
     }
     const orderResponse = await placeOrder(JSON.stringify(orderInfo)).then(res => res.json())
+    console.log(orderResponse)
     if (!orderResponse.ErrorDescription) {
         const paymentLink = orderResponse.CreateOrderResponse.Action.Url
         logger.update.success(`Product checked out`)
@@ -119,18 +120,17 @@ async function flow(lvr, key, listResponse, orders, discord, address, version) {
         const hook = new Checkout()
         const analytic = new Analytic()
         hook.user = 'Leonard#4604'
-        hook.product = analytic.product = orderResponse.ConfirmUserResponse.ListResponse.Rows[0].Description
-        hook.site = analytic.site = 'Luisaviaroma'
+        hook.store = analytic.store = 'Luisaviaroma'
+        hook.product = analytic.product = `${orderResponse.ConfirmUserResponse.ListResponse.Rows[0].DesignerDescription} - ${orderResponse.ConfirmUserResponse.ListResponse.Rows[0].Description}`
         hook.size = analytic.size = `${orderResponse.ConfirmUserResponse.ListResponse.Rows[0].Size} x ${orderResponse.ConfirmUserResponse.ListResponse.Rows[0].Quantity}`
         hook.product_url = `[Link](https://www.luisaviaroma.com/${orderResponse.ConfirmUserResponse.ListResponse.Rows[0].Code})`
-        hook.product_image = analytic.image = 'https://i.postimg.cc/vB3MDK2s/t-pfp.png'
+        hook.product_image = analytic.image = `https://Volt-Image-Proxy.leonard4604.repl.co/proxy?url=https:${orderResponse.ConfirmUserResponse.ListResponse.Rows[0].Photo}`
         hook.pid = orderResponse.ConfirmUserResponse.ListResponse.Rows[0].Code
         hook.date = getDate()
         hook.mode = 'Normal'
         hook.key = key
         hook.version = version
-        hook.paymentType = 'PayPal'
-        hook.paypalLink = paymentLink
+        hook.paymentLink = paymentLink
         hook.url = discord 
         analytic.price = orderResponse.ConfirmUserResponse.ListResponse.Rows[0].TotalViewValue
         hook.private()

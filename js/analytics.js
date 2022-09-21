@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 <div class="card" id="${res.id}">
                     <div id="image"><img src="${res.image}" alt=""></div>
                     <div id="info">
-                        <div id="site">${res.site}</div>
+                        <div id="store">${res.store}</div>
                         <div id="product">${res.product}</div>
                     </div>
                     <div id="size">${res.size}</div>

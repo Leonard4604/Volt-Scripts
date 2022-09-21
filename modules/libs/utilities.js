@@ -56,8 +56,8 @@ class Devtools extends Webhook{
 class Checkout extends Webhook{
     url
     user
+    store
     product
-    site
     size
     product_url
     product_image
@@ -66,12 +66,11 @@ class Checkout extends Webhook{
     mode
     key
     version
-    paymentType
-    paypalLink
+    paymentLink
     public() {
         const embed = {
             product: this.product,
-            site: `||${this.site}||`,
+            store: this.store,
             size: this.size,
             product_url: this.product_url,
             product_image: this.product_image,
@@ -90,20 +89,18 @@ class Checkout extends Webhook{
             "thumbnail": {
                 "url": `${this.product_image}`
             },
-            author: {
-                name: 'Volt Scripts',
-                icon_url: 'https://i.postimg.cc/vB3MDK2s/t-pfp.png'
-            },
-            title: ':cloud_lightning: A storm has come! :cloud_lightning:',
+            title: 'A storm has come! Click here to pay! :cloud_lightning:',
+            url: this.paymentLink,
             timestamp: this.date,
             fields: [
                 {
-                    name: 'Product',
-                    value: `${this.product}`,
+                    name: 'Store',
+                    value: `||${this.store}||`,
+                    
                 },
                 {
-                    name: 'Site',
-                    value: `||${this.site}||`,
+                    name: 'Product',
+                    value: `${this.product}`,
                     inline: true
                 },
                 {
@@ -113,17 +110,12 @@ class Checkout extends Webhook{
                 },
                 {
                     name: 'PID',
-                    value: this.pid,
+                    value: `||${this.pid}||`,
                     inline: true
                 },
                 {
                     name: 'Mode',
                     value: `||${this.mode}||`,
-                    inline: true
-                },
-                {
-                    name: 'Payment Link',
-                    value: `[${this.paymentType}](${this.paypalLink})`,
                     inline: true
                 },
                 {
@@ -133,7 +125,7 @@ class Checkout extends Webhook{
                 }
             ],
             footer: {
-                text: `Volt version ${this.version}`,
+                text: `Volt Scripts - v. ${this.version}`,
                 icon_url: 'https://i.postimg.cc/vB3MDK2s/t-pfp.png'
             }
         }

@@ -74,8 +74,8 @@ async function process(key, orders, discord, version) {
         const hook = new Checkout()
         const analytic = new Analytic()
         hook.user = 'Leonard#4604'
+        hook.store = analytic.site = 'Snipes IT'
         hook.product = analytic.product = shippingResponse.order.items.items[0].gtm.name
-        hook.site = analytic.site = 'Snipes IT'
         hook.size = analytic.size = shippingResponse.order.items.items[0].gtm.variant
         hook.product_url = `[IT](${shippingResponse.order.items.items[0].urls.pdp})`
         hook.product_image = analytic.image = shippingResponse.order.items.items[0].images[0].pdp.srcTRetina
@@ -84,8 +84,7 @@ async function process(key, orders, discord, version) {
         hook.mode = 'Normal'
         hook.key = key
         hook.version = version
-        hook.paymentType = 'PayPal'
-        hook.paypalLink = paymentLink
+        hook.paymentLink = paymentLink
         hook.url = discord 
         analytic.price = shippingResponse.order.items.items[0].gtm.price
         hook.private()
