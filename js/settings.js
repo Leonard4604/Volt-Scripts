@@ -100,7 +100,7 @@ const webhook = {
         const date = getDate()
         const version = document.querySelector('.version').textContent
         const embed = {
-            color: hexToDecimal("#c9cc74"),
+            color: hexToDecimal("#f8ff58"),
             "thumbnail": {
                 "url": 'https://i.postimg.cc/vB3MDK2s/t-pfp.png'
             },
