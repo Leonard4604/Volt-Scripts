@@ -73,8 +73,7 @@ async function process(key, orders, discord, version) {
 
         const hook = new Checkout()
         const analytic = new Analytic()
-        hook.user = 'Leonard#4604'
-        hook.store = analytic.site = 'Snipes IT'
+        hook.store = analytic.store = 'Snipes'
         hook.product = analytic.product = shippingResponse.order.items.items[0].gtm.name
         hook.size = analytic.size = shippingResponse.order.items.items[0].gtm.variant
         hook.product_url = `[IT](${shippingResponse.order.items.items[0].urls.pdp})`

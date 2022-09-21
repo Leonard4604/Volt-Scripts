@@ -119,7 +119,6 @@ async function flow(lvr, key, listResponse, orders, discord, address, version) {
 
         const hook = new Checkout()
         const analytic = new Analytic()
-        hook.user = 'Leonard#4604'
         hook.store = analytic.store = 'Luisaviaroma'
         hook.product = analytic.product = `${orderResponse.ConfirmUserResponse.ListResponse.Rows[0].DesignerDescription} - ${orderResponse.ConfirmUserResponse.ListResponse.Rows[0].Description}`
         hook.size = analytic.size = `${orderResponse.ConfirmUserResponse.ListResponse.Rows[0].Size} x ${orderResponse.ConfirmUserResponse.ListResponse.Rows[0].Quantity}`

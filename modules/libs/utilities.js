@@ -55,7 +55,6 @@ class Devtools extends Webhook{
 
 class Checkout extends Webhook{
     url
-    user
     store
     product
     size
