@@ -13,8 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let luisaviaromaSettings = new Luisaviaroma()
 
     chrome.storage.sync.get(null, function (store) {
-        console.log(store)
-        console.log(store.luisaviaroma)
         if (store.luisaviaroma) {
             const settings = JSON.parse(store.luisaviaroma)
             status.checked = luisaviaromaSettings.status = settings.status || false
@@ -44,7 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     })
 
-    console.log(luisaviaromaSettings)
     status.addEventListener('click', () => {
         luisaviaromaSettings.status = status.checked
         chrome.storage.sync.set({

@@ -92,7 +92,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     const getTotal = {
         spent: function(object) {
-            console.log(object);
             let total = 0;
             for (item of object) {
                 if (typeof item.price === 'string') {
@@ -112,16 +111,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 async function deleteOrder(e){
     e = e || window.event;
-    console.log(e)
     const buttonClass = e.path[1].className;
     const cardId = e.path[2].id;
 
-    // console.log(buttonClass)
     if (buttonClass === 'delete')
     {
         const cards = document.querySelectorAll('.analytics .orders .card')
         let checkouts = await extractStorage()
-        console.log(checkouts)
         cards.forEach((object) => {
             if(+object.id === +cardId) {
                 checkouts.forEach((item, index) => {

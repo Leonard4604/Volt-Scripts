@@ -683,7 +683,6 @@ async function validate(key) {
 
     // Prendo l'ultimo hwid nello storage
     const lastHwid = await extractHwid();
-    console.log(licenseInfo)
     if ((!licenseInfo) || (licenseInfo.status === "canceled")) {
         return false
     }

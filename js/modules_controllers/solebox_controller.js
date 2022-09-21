@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let soleboxSettings = new Solebox()
 
     chrome.storage.sync.get(null, function (store) {
-        console.log(store.solebox)
         if (store.solebox) {
             const settings = JSON.parse(store.solebox)
             status.checked = soleboxSettings.status = settings.status || false

@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let snipesSettings = new Snipes()
 
     chrome.storage.sync.get(null, function (store) {
-        console.log(store.snipes)
         if (store.snipes) {
             const settings = JSON.parse(store.snipes)
             status.checked = snipesSettings.status = settings.status || false
