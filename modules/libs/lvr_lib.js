@@ -2,21 +2,7 @@ async function extractStorage() {
     return new Promise(function(resolve) {
         chrome.storage.sync.get(null, function(store) {
             const lvr = JSON.parse(store.luisaviaroma)
-            const discord = JSON.parse(store.discord)
-            resolve([
-                lvr,
-                store.key,
-                store.active, 
-                lvr.status,
-                lvr.size,
-                lvr.min,
-                lvr.max,
-                store.orders || [],
-                discord.url,
-                lvr.address,
-                lvr.items,
-                store.version
-            ])
+            resolve([lvr, store])
         })
     })
 }
@@ -83,6 +69,74 @@ async function getProductInfo(size, min, max) {
         }
     }
     return false
+}
+
+async function restock(size, min, max, delay) {
+    return await new Promise(resolve => {
+        let delayInterval = setInterval(async function() {
+            let pageData = await fetch(window.location.href)
+            .then(response => response.text())
+
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(pageData, "text/html");
+
+            const product = JSON.parse(doc.querySelector('#allContainer > div.site-main-container.container-full > script').textContent.split('window.__BODY_MODEL__ = ')[1].split(';window.hydratecounter')[0])
+
+            if (size !== 'random' &&  size) {
+                let toReturn = false
+                product.Availability.forEach((item, index) => {
+                    if (+item.SizeValue === size) {
+                        toReturn = {
+                            seasonId: product.ItemParameters.SeasonId,
+                            collectionId: product.ItemParameters.CollectionId,
+                            itemId: +product.ItemParameters.ItemId,
+                            vendorColorId: product.ItemParameters.VendorColorId,
+                            sizeTypeId: item.SizeTypeId,
+                            sizeId: item.SizeId.toString()
+                        }
+                    }
+                })
+                clearInterval(delayInterval)
+                resolve(toReturn)
+            }
+            if (size === 'random' && min && max) {
+                let toReturn = false
+                product.Availability.forEach((item, index) => {
+                    if (+item.SizeValue >= min && +item.SizeValue <= max) {
+                        toReturn = {
+                            seasonId: product.ItemParameters.SeasonId,
+                            collectionId: product.ItemParameters.CollectionId,
+                            itemId: +product.ItemParameters.ItemId,
+                            vendorColorId: product.ItemParameters.VendorColorId,
+                            sizeTypeId: item.SizeTypeId,
+                            sizeId: item.SizeId.toString()
+                        }
+                    }
+                })
+                clearInterval(delayInterval)
+                resolve(toReturn)
+            }
+            if (size === 'random' && (!min || !max)) {
+                let availableProducts = []
+                product.Availability.forEach((item, index) => {
+                    availableProducts.push({
+                        seasonId: product.ItemParameters.SeasonId,
+                        collectionId: product.ItemParameters.CollectionId,
+                        itemId: +product.ItemParameters.ItemId,
+                        vendorColorId: product.ItemParameters.VendorColorId,
+                        sizeTypeId: item.SizeTypeId,
+                        sizeId: item.SizeId.toString()
+                    }) 
+                })
+                if (availableProducts) {
+                    clearInterval(delayInterval)
+                    resolve(availableProducts[Math.floor(Math.random() * availableProducts.length)])
+                }
+            }
+            clearInterval(delayInterval)
+            resolve(false)
+        }, delay)
+    }); 
 }
 
 async function addToCart(body, referrer) {

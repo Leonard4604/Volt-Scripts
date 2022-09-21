@@ -1,4 +1,4 @@
-async function process(key, orders, discord, version) {
+async function process(snipes, volt) {
     logger.wait('Generating CSRF token...')
     const csrfToken = await generateCSRFToken()
         .then(res => res.json())
@@ -81,18 +81,18 @@ async function process(key, orders, discord, version) {
         hook.pid = shippingResponse.order.items.items[0].id
         hook.date = getDate()
         hook.mode = 'Normal'
-        hook.key = key
-        hook.version = version
+        hook.key = volt.key
+        hook.version = volt.version
         hook.paymentLink = paymentLink
-        hook.url = discord 
+        hook.url = volt.discord 
         analytic.price = shippingResponse.order.items.items[0].gtm.price
         hook.private()
         hook.public()
 
-        orders = JSON.parse(orders)
-        orders.push(analytic)
+        volt.orders = JSON.parse(volt.orders)
+        volt.orders.push(analytic)
         chrome.storage.sync.set({
-            'orders': JSON.stringify(orders)
+            'orders': JSON.stringify(volt.orders)
         });
 
         window.open(paymentLink,'_blank');
@@ -100,10 +100,10 @@ async function process(key, orders, discord, version) {
 }
 
 async function executeScript() {
-    const [key, volt, status, , , , orders, discord, version] = await extractStorage()
-    if (volt && status === true) {
+    const [snipes, volt] = await extractStorage()
+    if (volt.active && snipes.status === true) {
         logger.display()
-        await process(key, orders, discord, version)
+        await process(snipes, volt)
     }
 }
 

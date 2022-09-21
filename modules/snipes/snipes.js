@@ -1,6 +1,6 @@
-async function process(size, min, max) {
+async function process(snipes) {
     logger.wait('Adding to cart...')
-    const product = await getProductInfo(size, min, max)
+    const product = await getProductInfo(snipes.size, snipes.min, snipes.max)
     if (product) {
         const body = {
             pid: product.pid,
@@ -30,10 +30,10 @@ async function process(size, min, max) {
 
 
 async function executeScript() {
-    const [, volt, status, size, min, max] = await extractStorage()
-    if (volt && status === true) {
+    const [snipes, volt] = await extractStorage()
+    if (volt.active && snipes.status === true) {
         logger.display()
-        await process(size, min, max)
+        await process(snipes)
     }
 }
 

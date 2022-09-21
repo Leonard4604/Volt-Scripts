@@ -2,18 +2,7 @@ async function extractStorage() {
     return new Promise(function(resolve) {
         chrome.storage.sync.get(null, function(store) {
             const snipes = JSON.parse(store.snipes)
-            const discord = JSON.parse(store.discord)
-            resolve([
-                store.key,
-                store.active, 
-                snipes.status,
-                snipes.size,
-                snipes.min,
-                snipes.max,
-                store.orders || [],
-                discord.url,
-                store.version
-            ])
+            resolve([snipes, store])
         })
     })
 }

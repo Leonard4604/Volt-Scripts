@@ -1,9 +1,7 @@
-async function flow(lvr, key, listResponse, orders, discord, address, version) {
-    if (!address) {
+async function flow(lvr, volt, listResponse) {
+    if (!lvr.address) {
         logger.wait('Initializing shipping information...')
-        address = await getAddress().then(res => res.json());
-        console.log(address);
-        lvr.address = address
+        lvr.address = await getAddress().then(res => res.json());
         chrome.storage.sync.set({
             'luisaviaroma': JSON.stringify(lvr)
         });
@@ -23,32 +21,32 @@ async function flow(lvr, key, listResponse, orders, discord, address, version) {
                 "Password":""
             },
             "ShipAddress":{
-                "AddressID":address.Addresses[0].AddressID,
-                "FirstName":address.Addresses[0].FirstName,
-                "LastName":address.Addresses[0].LastName,
-                "Phone":address.Addresses[0].Phone,
-                "CountryId":address.Addresses[0].CountryID,
-                "Address":address.Addresses[0].Address,
-                "ZipCode":address.Addresses[0].ZipCode,
-                "City":address.Addresses[0].City,
-                "StateId":address.Addresses[0].ProvID,
-                "CodFisc":address.Addresses[0].CodFisc,
-                "PecDestinatario":address.Addresses[0].PecDestinatario,
-                "CodDestinatario":address.Addresses[0].CodDestinatario
+                "AddressID":lvr.address.Addresses[0].AddressID,
+                "FirstName":lvr.address.Addresses[0].FirstName,
+                "LastName":lvr.address.Addresses[0].LastName,
+                "Phone":lvr.address.Addresses[0].Phone,
+                "CountryId":lvr.address.Addresses[0].CountryID,
+                "Address":lvr.address.Addresses[0].Address,
+                "ZipCode":lvr.address.Addresses[0].ZipCode,
+                "City":lvr.address.Addresses[0].City,
+                "StateId":lvr.address.Addresses[0].ProvID,
+                "CodFisc":lvr.address.Addresses[0].CodFisc,
+                "PecDestinatario":lvr.address.Addresses[0].PecDestinatario,
+                "CodDestinatario":lvr.address.Addresses[0].CodDestinatario
             },
             "BillAddress":{
-                "AddressID":address.Addresses[0].AddressID,
-                "FirstName":address.Addresses[0].FirstName,
-                "LastName":address.Addresses[0].LastName,
-                "Phone":address.Addresses[0].Phone,
-                "CountryId":address.Addresses[0].CountryID,
-                "Address":address.Addresses[0].Address,
-                "ZipCode":address.Addresses[0].ZipCode,
-                "City":address.Addresses[0].City,
-                "StateId":address.Addresses[0].ProvID,
-                "CodFisc":address.Addresses[0].CodFisc,
-                "PecDestinatario":address.Addresses[0].PecDestinatario,
-                "CodDestinatario":address.Addresses[0].CodDestinatario
+                "AddressID":lvr.address.Addresses[0].AddressID,
+                "FirstName":lvr.address.Addresses[0].FirstName,
+                "LastName":lvr.address.Addresses[0].LastName,
+                "Phone":lvr.address.Addresses[0].Phone,
+                "CountryId":lvr.address.Addresses[0].CountryID,
+                "Address":lvr.address.Addresses[0].Address,
+                "ZipCode":lvr.address.Addresses[0].ZipCode,
+                "City":lvr.address.Addresses[0].City,
+                "StateId":lvr.address.Addresses[0].ProvID,
+                "CodFisc":lvr.address.Addresses[0].CodFisc,
+                "PecDestinatario":lvr.address.Addresses[0].PecDestinatario,
+                "CodDestinatario":lvr.address.Addresses[0].CodDestinatario
             },
             "PaymentCode":"PPA",
             "ShippingTypeService":listResponse.SelectedShippingAgent.TypeService,
@@ -65,32 +63,32 @@ async function flow(lvr, key, listResponse, orders, discord, address, version) {
                 "Password":""
             },
             "ShipAddress":{
-                "AddressID":address.Addresses[0].AddressID,
-                "FirstName":address.Addresses[0].FirstName,
-                "LastName":address.Addresses[0].LastName,
-                "Phone":address.Addresses[0].Phone,
-                "CountryId":address.Addresses[0].CountryID,
-                "Address":address.Addresses[0].Address,
-                "ZipCode":address.Addresses[0].ZipCode,
-                "City":address.Addresses[0].City,
-                "StateId":address.Addresses[0].ProvID,
-                "CodFisc":address.Addresses[0].CodFisc,
-                "PecDestinatario":address.Addresses[0].PecDestinatario,
-                "CodDestinatario":address.Addresses[0].CodDestinatario
+                "AddressID":lvr.address.Addresses[0].AddressID,
+                "FirstName":lvr.address.Addresses[0].FirstName,
+                "LastName":lvr.address.Addresses[0].LastName,
+                "Phone":lvr.address.Addresses[0].Phone,
+                "CountryId":lvr.address.Addresses[0].CountryID,
+                "Address":lvr.address.Addresses[0].Address,
+                "ZipCode":lvr.address.Addresses[0].ZipCode,
+                "City":lvr.address.Addresses[0].City,
+                "StateId":lvr.address.Addresses[0].ProvID,
+                "CodFisc":lvr.address.Addresses[0].CodFisc,
+                "PecDestinatario":lvr.address.Addresses[0].PecDestinatario,
+                "CodDestinatario":lvr.address.Addresses[0].CodDestinatario
             },
             "BillAddress":{
-                "AddressID":address.Addresses[0].AddressID,
-                "FirstName":address.Addresses[0].FirstName,
-                "LastName":address.Addresses[0].LastName,
-                "Phone":address.Addresses[0].Phone,
-                "CountryId":address.Addresses[0].CountryID,
-                "Address":address.Addresses[0].Address,
-                "ZipCode":address.Addresses[0].ZipCode,
-                "City":address.Addresses[0].City,
-                "StateId":address.Addresses[0].ProvID,
-                "CodFisc":address.Addresses[0].CodFisc,
-                "PecDestinatario":address.Addresses[0].PecDestinatario,
-                "CodDestinatario":address.Addresses[0].CodDestinatario
+                "AddressID":lvr.address.Addresses[0].AddressID,
+                "FirstName":lvr.address.Addresses[0].FirstName,
+                "LastName":lvr.address.Addresses[0].LastName,
+                "Phone":lvr.address.Addresses[0].Phone,
+                "CountryId":lvr.address.Addresses[0].CountryID,
+                "Address":lvr.address.Addresses[0].Address,
+                "ZipCode":lvr.address.Addresses[0].ZipCode,
+                "City":lvr.address.Addresses[0].City,
+                "StateId":lvr.address.Addresses[0].ProvID,
+                "CodFisc":lvr.address.Addresses[0].CodFisc,
+                "PecDestinatario":lvr.address.Addresses[0].PecDestinatario,
+                "CodDestinatario":lvr.address.Addresses[0].CodDestinatario
             },
             "ShippingTypeService":listResponse.SelectedShippingAgent.TypeService,
             "PaymentCode":"PPA",
@@ -127,18 +125,18 @@ async function flow(lvr, key, listResponse, orders, discord, address, version) {
         hook.pid = orderResponse.ConfirmUserResponse.ListResponse.Rows[0].Code
         hook.date = getDate()
         hook.mode = 'Normal'
-        hook.key = key
-        hook.version = version
+        hook.key = volt.key
+        hook.version = volt.version
         hook.paymentLink = paymentLink
-        hook.url = discord 
+        hook.url = volt.discord 
         analytic.price = orderResponse.ConfirmUserResponse.ListResponse.Rows[0].TotalViewValue
         hook.private()
         hook.public()
 
-        orders = JSON.parse(orders)
-        orders.push(analytic)
+        volt.orders = JSON.parse(volt.orders)
+        volt.orders.push(analytic)
         chrome.storage.sync.set({
-            'orders': JSON.stringify(orders)
+            'orders': JSON.stringify(volt.orders)
         });
 
         window.open(paymentLink,'_blank');
@@ -148,55 +146,53 @@ async function flow(lvr, key, listResponse, orders, discord, address, version) {
     }
 }
 
-async function process(lvr, key, size, min, max, orders, discord, address, items, version) {
+async function process(lvr, volt) {
     logger.wait('Adding to cart...')
-    const product = await getProductInfo(size, min, max)
-    console.log(product)
-    if (product) {
-        const body = {
-            SeasonId: product.seasonId,
-            CollectionId: product.collectionId,
-            ItemId: product.itemId,
-            VendorColorId: product.vendorColorId,
-            SizeTypeId: product.sizeTypeId,
-            SizeId: product.sizeId,
-            Quantity: items,
-            IsMobile: false
-        }
-        const result = await addToCart(JSON.stringify(body), window.location.href)
-            .then(res => 
-                res.json()
-            )
-            .catch(err => {
-                logger.update.error(`Hit by Akamai, Please clear your cookies and try again`)
-                return false
-            })
-        console.log(result)
-        if (result) {
-            if (result.ListResponse) {
-                logger.update.success(`Product added to cart`)
-                await flow(lvr, key, result.ListResponse, orders, discord, address, version)
-                return true
-            }
-            else if (!result.ListResponse) {
-                logger.update.error(result.ErrorDescription)
-                return false
-            }
-        }
-        return false
-    }
+    let product = await getProductInfo(lvr.size, lvr.min, lvr.max)
     if (!product) {
         logger.update.error('Product not available')
-        return false
+        product = await restock(lvr.size, lvr.min, lvr.max, lvr.delay)
+        logger.wait('Started monitoring product...')
     }
+    const body = {
+        SeasonId: product.seasonId,
+        CollectionId: product.collectionId,
+        ItemId: product.itemId,
+        VendorColorId: product.vendorColorId,
+        SizeTypeId: product.sizeTypeId,
+        SizeId: product.sizeId,
+        Quantity: lvr.items,
+        IsMobile: false
+    }
+    const result = await addToCart(JSON.stringify(body), window.location.href)
+        .then(res => 
+            res.json()
+        )
+        .catch(err => {
+            logger.update.error(`Hit by Akamai, Please clear your cookies and try again`)
+            return false
+        })
+    if (result) {
+        if (result.ListResponse) {
+            logger.update.success(`Product added to cart`)
+            await flow(lvr, volt, result.ListResponse)
+            return true
+        }
+        else if (!result.ListResponse) {
+            logger.update.error(result.ErrorDescription)
+            return false
+        }
+    }
+    return false
 }
 
 
 async function executeScript() {
-    const [lvr, key, volt, status, size, min, max, orders, discord, address, items, version] = await extractStorage()
-    if (volt && status === true) {
+    const [lvr, volt] = await extractStorage()
+    console.log(lvr, volt)
+    if (volt.active && lvr.status === true) {
         logger.display()
-        await process(lvr, key, size, min, max, orders, discord, address, items, version)
+        await process(lvr, volt)
     }
 }
 
