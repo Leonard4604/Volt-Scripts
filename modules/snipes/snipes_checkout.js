@@ -6,7 +6,7 @@ async function process(snipes, volt) {
             return object.csrf.token
         })
         .catch(error => {
-            console.log(error)
+
         })
     logger.update.success('Token generated')
 
@@ -89,7 +89,12 @@ async function process(snipes, volt) {
         hook.private()
         hook.public()
 
-        volt.orders = JSON.parse(volt.orders)
+        if (!volt.orders) {
+            volt.orders = []
+        }
+        else {
+            volt.orders = JSON.parse(volt.orders)
+        }
         volt.orders.push(analytic)
         chrome.storage.sync.set({
             'orders': JSON.stringify(volt.orders)

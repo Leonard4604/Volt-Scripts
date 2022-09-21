@@ -110,7 +110,6 @@ async function flow(lvr, volt, listResponse) {
         }
     }
     const orderResponse = await placeOrder(JSON.stringify(orderInfo)).then(res => res.json())
-    console.log(orderResponse)
     if (!orderResponse.ErrorDescription) {
         const paymentLink = orderResponse.CreateOrderResponse.Action.Url
         logger.update.success(`Product checked out`)
@@ -133,7 +132,12 @@ async function flow(lvr, volt, listResponse) {
         hook.private()
         hook.public()
 
-        volt.orders = JSON.parse(volt.orders)
+        if (!volt.orders) {
+            volt.orders = []
+        }
+        else {
+            volt.orders = JSON.parse(volt.orders)
+        }
         volt.orders.push(analytic)
         chrome.storage.sync.set({
             'orders': JSON.stringify(volt.orders)
@@ -189,7 +193,6 @@ async function process(lvr, volt) {
 
 async function executeScript() {
     const [lvr, volt] = await extractStorage()
-    console.log(lvr, volt)
     if (volt.active && lvr.status === true) {
         logger.display()
         await process(lvr, volt)
