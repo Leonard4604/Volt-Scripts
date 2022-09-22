@@ -66,7 +66,9 @@ const logger = {
         </div>
       `
       const loading = document.querySelectorAll('#volt-logger-loading')
-      loading[loading.length - 1].remove();
+      if (loading.length !== 0) {
+        loading[loading.length - 1].remove();
+      }
       document.querySelector('#volt-logger-content').insertAdjacentHTML('beforeend', html)
       updateScroll()   
       },
@@ -84,7 +86,9 @@ const logger = {
         </div>
       `
       const loading = document.querySelectorAll('#volt-logger-loading')
-      loading[loading.length - 1].remove();
+      if (loading.length !== 0) {
+        loading[loading.length - 1].remove();
+      }
       document.querySelector('#volt-logger-content').insertAdjacentHTML('beforeend', html)
       updateScroll()  
       }
