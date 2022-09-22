@@ -21,20 +21,20 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     addProfile.addEventListener('click', async function() {
         // Pulisco tutti i campi
-        document.querySelector('#label').value = ''
-        document.querySelector('#first_name').value = ''
-        document.querySelector('#last_name').value = ''
-        document.querySelector('#email').value = ''
-        document.querySelector('#phone').value = ''
-        document.querySelector('#country').value = ''
-        document.querySelector('#field').value = ''
-        document.querySelector('#zip').value = ''
-        document.querySelector('#province').value = ''
-        document.querySelector('#city').value = ''
-        document.querySelector('#name').value = ''
-        document.querySelector('#number').value = ''
-        document.querySelector('#expiry').value = ''
-        document.querySelector('#cvv').value = ''
+        document.querySelector('.profiles #label').value = ''
+        document.querySelector('.profiles #first_name').value = ''
+        document.querySelector('.profiles #last_name').value = ''
+        document.querySelector('.profiles #email').value = ''
+        document.querySelector('.profiles #phone').value = ''
+        document.querySelector('.profiles #country').value = ''
+        document.querySelector('.profiles #field').value = ''
+        document.querySelector('.profiles #zip').value = ''
+        document.querySelector('.profiles #province').value = ''
+        document.querySelector('.profiles #city').value = ''
+        document.querySelector('.profiles #name').value = ''
+        document.querySelector('.profiles #number').value = ''
+        document.querySelector('.profiles #expiry').value = ''
+        document.querySelector('.profiles #cvv').value = ''
 
         // Seleziono l'ultima opzione
         const select_elem = document.querySelector('select#profile_selection')
@@ -53,25 +53,26 @@ document.addEventListener('DOMContentLoaded', async () => {
                 profiles = [];
             }
             const toSave = {
-                label: document.querySelector('#label').value,
+                label: document.querySelector('.profiles #label').value,
                 address: {
-                    firstName: document.querySelector('#first_name').value,
-                    lastName: document.querySelector('#last_name').value,
-                    email: document.querySelector('#email').value,
-                    phone: document.querySelector('#phone').value,
-                    country: document.querySelector('#country').value,
-                    field: document.querySelector('#field').value,
-                    zip: document.querySelector('#zip').value,
-                    province: document.querySelector('#province').value,
-                    city: document.querySelector('#city').value
+                    firstName: document.querySelector('.profiles #first_name').value,
+                    lastName: document.querySelector('.profiles #last_name').value,
+                    email: document.querySelector('.profiles #email').value,
+                    phone: document.querySelector('.profiles #phone').value,
+                    country: document.querySelector('.profiles #country').value,
+                    field: document.querySelector('.profiles #field').value,
+                    zip: document.querySelector('.profiles #zip').value,
+                    province: document.querySelector('.profiles #province').value,
+                    city: document.querySelector('.profiles #city').value
                 },
                 creditCard: {
-                    name: document.querySelector('#name').value,
-                    number: document.querySelector('#number').value,
-                    expiry: document.querySelector('#expiry').value,
-                    cvv: document.querySelector('#cvv').value
+                    name: document.querySelector('.profiles #name').value,
+                    number: document.querySelector('.profiles #number').value,
+                    expiry: document.querySelector('.profiles #expiry').value,
+                    cvv: document.querySelector('.profiles #cvv').value
                 }
             }
+            console.log(toSave)
             profiles.push(toSave)
             chrome.storage.sync.set({
                 'profiles': JSON.stringify(profiles, null, 3)
@@ -131,20 +132,20 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
         for (item in profiles) {
             if (profilesList.value === profiles[item].label) {
-                document.querySelector('#label').value = profiles[item].label
-                document.querySelector('#first_name').value = profiles[item].address.firstName || ''
-                document.querySelector('#last_name').value = profiles[item].address.lastName || ''
-                document.querySelector('#email').value = profiles[item].address.email || ''
-                document.querySelector('#phone').value = profiles[item].address.phone || ''
-                document.querySelector('#country').value = profiles[item].address.country || ''
-                document.querySelector('#field').value = profiles[item].address.field || ''
-                document.querySelector('#zip').value = profiles[item].address.zip || ''
-                document.querySelector('#province').value = profiles[item].address.province || ''
-                document.querySelector('#city').value = profiles[item].address.city || ''
-                document.querySelector('#name').value = profiles[item].creditCard.name || ''
-                document.querySelector('#number').value = profiles[item].creditCard.number || ''
-                document.querySelector('#expiry').value = profiles[item].creditCard.expiry || ''
-                document.querySelector('#cvv').value = profiles[item].creditCard.cvv || ''
+                document.querySelector('.profiles #label').value = profiles[item].label
+                document.querySelector('.profiles #first_name').value = profiles[item].address.firstName || ''
+                document.querySelector('.profiles #last_name').value = profiles[item].address.lastName || ''
+                document.querySelector('.profiles #email').value = profiles[item].address.email || ''
+                document.querySelector('.profiles #phone').value = profiles[item].address.phone || ''
+                document.querySelector('.profiles #country').value = profiles[item].address.country || ''
+                document.querySelector('.profiles #field').value = profiles[item].address.field || ''
+                document.querySelector('.profiles #zip').value = profiles[item].address.zip || ''
+                document.querySelector('.profiles #province').value = profiles[item].address.province || ''
+                document.querySelector('.profiles #city').value = profiles[item].address.city || ''
+                document.querySelector('.profiles #name').value = profiles[item].creditCard.name || ''
+                document.querySelector('.profiles #number').value = profiles[item].creditCard.number || ''
+                document.querySelector('.profiles #expiry').value = profiles[item].creditCard.expiry || ''
+                document.querySelector('.profiles #cvv').value = profiles[item].creditCard.cvv || ''
             }
         }
     });
@@ -160,20 +161,20 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
         for (item in profiles) {
             if (profilesList.value === profiles[item].label) {
-                profiles[item].label = document.querySelector('#label').value,
-                profiles[item].address.firstName = document.querySelector('#first_name').value
-                profiles[item].address.lastName = document.querySelector('#last_name').value
-                profiles[item].address.email = document.querySelector('#email').value
-                profiles[item].address.phone = document.querySelector('#phone').value
-                profiles[item].address.country = document.querySelector('#country').value
-                profiles[item].address.field = document.querySelector('#field').value  
-                profiles[item].address.zip = document.querySelector('#zip').value
-                profiles[item].address.province = document.querySelector('#province').value
-                profiles[item].address.city = document.querySelector('#city').value
-                profiles[item].creditCard.name = document.querySelector('#name').value 
-                profiles[item].creditCard.number = document.querySelector('#number').value
-                profiles[item].creditCard.expiry = document.querySelector('#expiry').value
-                profiles[item].creditCard.cvv = document.querySelector('#cvv').value
+                profiles[item].label = document.querySelector('.profiles #label').value,
+                profiles[item].address.firstName = document.querySelector('.profiles #first_name').value
+                profiles[item].address.lastName = document.querySelector('.profiles #last_name').value
+                profiles[item].address.email = document.querySelector('.profiles #email').value
+                profiles[item].address.phone = document.querySelector('.profiles #phone').value
+                profiles[item].address.country = document.querySelector('.profiles #country').value
+                profiles[item].address.field = document.querySelector('.profiles #field').value  
+                profiles[item].address.zip = document.querySelector('.profiles #zip').value
+                profiles[item].address.province = document.querySelector('.profiles #province').value
+                profiles[item].address.city = document.querySelector('.profiles #city').value
+                profiles[item].creditCard.name = document.querySelector('.profiles #name').value 
+                profiles[item].creditCard.number = document.querySelector('.profiles #number').value
+                profiles[item].creditCard.expiry = document.querySelector('.profiles #expiry').value
+                profiles[item].creditCard.cvv = document.querySelector('.profiles #cvv').value
                 chrome.storage.sync.set({
                     'profiles': JSON.stringify(profiles, null, 3)
                 });
