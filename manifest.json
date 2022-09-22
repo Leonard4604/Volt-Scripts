@@ -3,7 +3,7 @@
 
     "name": "Volt Scripts",
     "description": "Volt Scripts new ui",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "icons": {
         "16": "./images/logo.png",
         "32": "./images/logo.png",
