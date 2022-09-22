@@ -110,7 +110,7 @@ async function flow(lvr, volt, listResponse) {
         }
     }
     const orderResponse = await placeOrder(JSON.stringify(orderInfo)).then(res => res.json())
-    if (!orderResponse.ErrorDescription) {
+    if (orderResponse.CreateOrderResponse.Action) {
         const paymentLink = orderResponse.CreateOrderResponse.Action.Url
         logger.update.success(`Product checked out`)
 
@@ -145,7 +145,10 @@ async function flow(lvr, volt, listResponse) {
 
         window.open(paymentLink,'_blank');
     }
-    else if (orderResponse.ErrorDescription) {
+    if (!orderResponse.CreateOrderResponse.Action) {
+        logger.update.error("Error while creating order")
+    }
+    if (orderResponse.ErrorDescription) {
         logger.update.error(orderResponse.ErrorDescription)
     }
 }
@@ -153,39 +156,42 @@ async function flow(lvr, volt, listResponse) {
 async function process(lvr, volt) {
     logger.wait('Adding to cart...')
     let product = await getProductInfo(lvr.size, lvr.min, lvr.max)
-    if (!product) {
+    if (!product || product === 'error') {
         logger.update.error('Product not available')
+        logger.wait('Monitoring product...')
         product = await restock(lvr.size, lvr.min, lvr.max, lvr.delay)
-        logger.wait('Started monitoring product...')
     }
-    const body = {
-        SeasonId: product.seasonId,
-        CollectionId: product.collectionId,
-        ItemId: product.itemId,
-        VendorColorId: product.vendorColorId,
-        SizeTypeId: product.sizeTypeId,
-        SizeId: product.sizeId,
-        Quantity: lvr.items,
-        IsMobile: false
-    }
-    const result = await addToCart(JSON.stringify(body), window.location.href)
-        .then(res => 
-            res.json()
-        )
-        .catch(err => {
-            logger.update.error(`Hit by Akamai, Please clear your cookies and try again`)
-            return false
-        })
-    if (result) {
-        if (result.ListResponse) {
-            logger.update.success(`Product added to cart`)
-            await flow(lvr, volt, result.ListResponse)
-            return true
+    if (product && product !== 'error') {
+        const body = {
+            SeasonId: product.seasonId,
+            CollectionId: product.collectionId,
+            ItemId: product.itemId,
+            VendorColorId: product.vendorColorId,
+            SizeTypeId: product.sizeTypeId,
+            SizeId: product.sizeId,
+            Quantity: lvr.items,
+            IsMobile: false
         }
-        else if (!result.ListResponse) {
-            logger.update.error(result.ErrorDescription)
-            return false
+        const result = await addToCart(JSON.stringify(body), window.location.href)
+            .then(res => 
+                res.json()
+            )
+            .catch(err => {
+                logger.update.error(`Hit by Akamai, Please clear your cookies and try again`)
+                return false
+            })
+        if (result) {
+            if (result.ListResponse) {
+                logger.update.success(`Product added to cart`)
+                await flow(lvr, volt, result.ListResponse)
+                return true
+            }
+            else if (!result.ListResponse) {
+                logger.update.error(result.ErrorDescription)
+                return false
+            }
         }
+        return false
     }
     return false
 }

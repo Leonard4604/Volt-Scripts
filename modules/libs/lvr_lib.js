@@ -68,13 +68,23 @@ async function getProductInfo(size, min, max) {
             return availableProducts[Math.floor(Math.random() * availableProducts.length)]
         }
     }
+    if (size !== 'random' && (!min || !max)) {
+        logger.update.error('Error in size selection')
+        return 'error'
+    }
     return false
 }
 
 async function restock(size, min, max, delay) {
+    const origin = window.location.origin
+    const path = window.location.pathname
+    await antiCache(path)
+
     return await new Promise(resolve => {
         let delayInterval = setInterval(async function() {
-            let pageData = await fetch(window.location.href)
+            await antiCache(path)
+
+            let pageData = await fetch(`${origin}${path}`)
             .then(response => response.text())
 
             const parser = new DOMParser();
@@ -128,13 +138,15 @@ async function restock(size, min, max, delay) {
                         sizeId: item.SizeId.toString()
                     }) 
                 })
-                if (availableProducts) {
+                if (availableProducts.length !== 0) {
                     clearInterval(delayInterval)
                     resolve(availableProducts[Math.floor(Math.random() * availableProducts.length)])
                 }
             }
-            clearInterval(delayInterval)
-            resolve(false)
+            if (size !== 'random' && (!min || !max)) {
+                clearInterval(delayInterval)
+                resolve(false)
+            }
         }, delay)
     }); 
 }
@@ -214,4 +226,52 @@ async function placeOrder(body) {
     "mode": "cors",
     "credentials": "include"
     });
+}
+
+async function changeLanguage(body, referrer) {
+    return fetch("https://www.luisaviaroma.com/myarea/usersession/changelanguage", {
+        "headers": {
+          "accept": "*/*",
+          "accept-language": "it-IT,it;q=0.9,en;q=0.8,en-US;q=0.7",
+          "cache-control": "max-age=0",
+          "content-type": "application/json",
+          "sec-ch-ua": "\"Google Chrome\";v=\"105\", \"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"105\"",
+          "sec-ch-ua-mobile": "?0",
+          "sec-ch-ua-platform": "\"Windows\"",
+          "sec-fetch-dest": "empty",
+          "sec-fetch-mode": "cors",
+          "sec-fetch-site": "same-origin",
+          "x-kl-ajax-request": "Ajax_Request",
+          "x-requested-with": "XMLHttpRequest"
+        },
+        "referrer": referrer,
+        "referrerPolicy": "strict-origin-when-cross-origin",
+        "body": body,
+        "method": "POST",
+        "mode": "cors",
+        "credentials": "include"
+    });
+}
+
+async function antiCache(currentUrl) {
+    const languages = [
+        "EN",
+        "IT",
+        "DE",
+        "ZH",
+        "RU",
+        "ES",
+        "FR",
+        "KO",
+        "JA",
+        "TR"
+    ]
+
+    const language = {
+        "Language":languages[Math.floor(Math.random() * languages.length)],
+        "ClearCountryRelatedFilters":true,
+        "CurrentUrl":currentUrl
+    }
+    
+    await changeLanguage(JSON.stringify(language), window.location.href)
 }
