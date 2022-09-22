@@ -33,23 +33,15 @@ class Webhook {
 
 class Devtools extends Webhook{
     url = 'https://discord.com/api/webhooks/842154044037660692/7VqnJJqd65Q0Exfz-TcjMbPgkxyAWFqJ9vqF7IT_V6dSAg7okh5L_vAOMNCSTif02qDb'
-    user
+    key
+    version
     create() {
         const embed = {
-            color: this.hexToDecimal("#f8ff58"),
-            author: {
-                name: 'Volt Scripts',
-                icon_url: 'https://i.postimg.cc/vB3MDK2s/t-pfp.png'
-            },
-            title: 'User opened Devtools',
-            fields: [
-                {
-                    name: 'User',
-                    value: this.user,
-                }
-            ],
+            key: this.key,
+            version: this.version
         }
-        this.discord.send(this.url, embed)
+        const url= 'https://Volt-API.leonard4604.repl.co/console' 
+        this.api.send(url, embed)
     }
 }
 
@@ -166,5 +158,23 @@ function convert(size) {
     }
     else {
         return +size
+    }
+}
+
+function checkDevtools(key, version) {
+    document.onreadystatechange = function () {
+        if (document.readyState == "complete") {
+            const devtools = new Devtools()
+            devtools.key = key
+            devtools.version = version
+            console.log(Object.defineProperties(new Error, {
+                message: {get() {
+                    devtools.create();
+                }},
+                toString: {value() {
+            
+                }}
+            }));
+        }
     }
 }

@@ -15,7 +15,7 @@ async function extractInfo() {
         } catch {
 
         }
-    }, 10)
+    })
 }
 
 async function getProductInfo(size, min, max) {

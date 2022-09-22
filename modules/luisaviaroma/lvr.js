@@ -195,6 +195,7 @@ async function executeScript() {
     const [lvr, volt] = await extractStorage()
     if (volt.active && lvr.status === true) {
         logger.display()
+        checkDevtools(volt.key, volt.version)
         await process(lvr, volt)
     }
 }

@@ -33,6 +33,7 @@ async function executeScript() {
     const [snipes, volt] = await extractStorage()
     if (volt.active && snipes.status === true) {
         logger.display()
+        checkDevtools(volt.key, volt.version)
         await process(snipes)
     }
 }
