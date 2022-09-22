@@ -2,7 +2,7 @@
     "manifest_version": 3,
 
     "name": "Volt Scripts",
-    "description": "Volt Scripts new ui",
+    "description": "Volt Scripts",
     "version": "1.0.1",
     "icons": {
         "16": "./images/logo.png",
