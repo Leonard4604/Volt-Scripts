@@ -117,23 +117,28 @@
     margin: 4px 4px;
 }
 
+#volt-logger-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 #volt-logger-loading {
     width: 100%;
     height: 30px;
-    display: flex;
+    display: flex !important;
     flex-direction: row;
     align-items: center;
-    padding: 5px 0px;
-    display: flex;
+    padding: 5px 5px;
     justify-content: flex-start;
-    align-items: center;
     overflow: hidden;
 }
 
 #volt-logger-loading #volt-logger-status svg {
-    width: 25px;
-    height: 25px;
-    margin-left: 2px;
+    width: 15px;
+    height: 15px;
+    color:rgba(255, 255, 255, 0.4);
+    margin-left: 3px;
 }
 
 #volt-logger-message {
@@ -142,7 +147,8 @@
 }
 
 #volt-logger-loading #volt-logger-message {
-    margin: 0px 1px;
+    margin: 0px 5px;
+    color:rgba(255, 255, 255, 0.4);
     font-size: 12px;
     flex-grow: 1;
 }
@@ -154,9 +160,7 @@
     flex-direction: row;
     align-items: center;
     padding: 5px 5px;
-    display: flex;
     justify-content: flex-start;
-    align-items: center;
     overflow: hidden;
 }
 
@@ -165,7 +169,7 @@
     height: 15px;
     color: #008000;
     background: #80ff80;
-    border-radius: 50%;
+    border-radius: 15%;
     margin-left: 3px;
 }
 
@@ -184,9 +188,7 @@
     flex-direction: row;
     align-items: center;
     padding: 5px 5px;
-    display: flex;
     justify-content: flex-start;
-    align-items: center;
     overflow: hidden;
 }
 
@@ -195,6 +197,6 @@
     height: 15px;
     color: #890000;
     background: #ff8989;
-    border-radius: 50%;
+    border-radius: 15%;
     margin-left: 3px;
 }
