@@ -134,6 +134,3 @@ function updateScroll(){
     var element = document.querySelector('#volt-logger-content');
     element.scrollTop = element.scrollHeight;
 }
-
-logger.display()
-logger.wait('ciao')
