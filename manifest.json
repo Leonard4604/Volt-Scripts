@@ -22,17 +22,6 @@
     "content_scripts": [
         {
             "matches": [
-                "https://www.google.it/*",
-                "https://www.google.com/*",
-                "https://github.com/*",
-                "https://www.zalando.it/*"
-            ],   
-            "js": ["./modules/libs/logger/logger.js"],
-            "css": ["./modules/libs/logger/logger.css"],
-            "all_frames": true
-        },
-        {
-            "matches": [
                 "https://www.snipes.it/*.html"
             ],   
             "js": ["./modules/libs/logger/logger.js", "./modules/libs/utilities.js", "./modules/libs/snipes_lib.js", "./modules/snipes/snipes.js"],
