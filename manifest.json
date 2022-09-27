@@ -3,7 +3,7 @@
 
     "name": "Volt Scripts",
     "description": "Volt Scripts",
-    "version": "1.0.1",
+    "version": "1.1.0",
     "icons": {
         "16": "./images/logo.png",
         "32": "./images/logo.png",
@@ -38,14 +38,21 @@
         },
         {
             "matches": [
-                "https://www.luisaviaroma.com/76I-*",
-                "https://www.luisaviaroma.com/75I-*",
-                "https://www.luisaviaroma.com/74I-*",
-                "https://www.luisaviaroma.com/73I-*",
                 "https://www.luisaviaroma.com/*/76I-*",
                 "https://www.luisaviaroma.com/*/75I-*",
                 "https://www.luisaviaroma.com/*/74I-*",
                 "https://www.luisaviaroma.com/*/73I-*"
+            ],   
+            "js": ["./modules/libs/logger/logger.js", "./modules/libs/utilities.js", "./modules/libs/lvr_lib.js", "./modules/luisaviaroma/lvr_redirect.js"],
+            "css": ["./modules/libs/logger/logger.css"],
+            "all_frames": true
+        },
+        {
+            "matches": [
+                "https://www.luisaviaroma.com/76I-*",
+                "https://www.luisaviaroma.com/75I-*",
+                "https://www.luisaviaroma.com/74I-*",
+                "https://www.luisaviaroma.com/73I-*"
             ],   
             "js": ["./modules/libs/logger/logger.js", "./modules/libs/utilities.js", "./modules/libs/lvr_lib.js", "./modules/luisaviaroma/lvr.js"],
             "css": ["./modules/libs/logger/logger.css"],
