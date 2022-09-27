@@ -178,3 +178,7 @@ function checkDevtools(key, version) {
         }
     }
 }
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
