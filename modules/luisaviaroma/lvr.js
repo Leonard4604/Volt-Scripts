@@ -177,12 +177,18 @@ async function process(lvr, volt) {
                 res.json()
             )
             .catch(err => {
-                logger.update.error(`Hit by Akamai, Please clear your cookies and try again`)
+                logger.update.error(`Hit by Akamai. Please clear your cookies and try again.`)
                 return false
             })
         if (result) {
             if (result.ListResponse) {
                 logger.update.success(`Product added to cart`)
+                if (!lvr.account) {
+                    lvr.account = result.ListResponse.UserInfo
+                    chrome.storage.sync.set({
+                        'luisaviaroma': JSON.stringify(lvr)
+                    });
+                }
                 await flow(lvr, volt, result.ListResponse)
                 return true
             }
@@ -202,8 +208,16 @@ async function executeScript() {
     if (volt.active && lvr.status === true) {
         logger.display()
         checkDevtools(volt.key, volt.version)
+        clearCartButton()
         await process(lvr, volt)
     }
+}
+
+function clearCartButton() {
+    const clearBtn = document.querySelector('#clear-cart-volt-logger')
+    clearBtn.addEventListener('click', async () => {
+        await clearCart()
+    })
 }
 
 executeScript()
