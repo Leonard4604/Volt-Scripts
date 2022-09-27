@@ -33,27 +33,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // !NAVIGAZIONE!
     // Gestione pagine settings dei singoli moduli
-    const zalandoSettings = document.querySelector('#zalando > #settings > .button > button > #button');
-    zalandoSettings.addEventListener('click', () => {
-        show('.dashboard#zalando', '.container')
-        chrome.storage.sync.set({
-            'lastVisited': 'zalando'
-        });
-    })
-
     const luisaviaromaSettings = document.querySelector('#luisaviaroma > #settings > .button > button > #button');
     luisaviaromaSettings.addEventListener('click', () => {
         show('.dashboard#luisaviaroma', '.container')
         chrome.storage.sync.set({
             'lastVisited': 'luisaviaroma'
-        });
-    })
-
-    const cisalfaSettings = document.querySelector('#cisalfa > #settings > .button > button > #button');
-    cisalfaSettings.addEventListener('click', () => {
-        show('.dashboard#cisalfa', '.container')
-        chrome.storage.sync.set({
-            'lastVisited': 'cisalfa'
         });
     })
 
@@ -70,6 +54,22 @@ document.addEventListener('DOMContentLoaded', async () => {
         show('.dashboard#solebox', '.container')
         chrome.storage.sync.set({
             'lastVisited': 'solebox'
+        });
+    })
+
+    const zalandoSettings = document.querySelector('#zalando > #settings > .button > button > #button');
+    zalandoSettings.addEventListener('click', () => {
+        show('.dashboard#zalando', '.container')
+        chrome.storage.sync.set({
+            'lastVisited': 'zalando'
+        });
+    })
+
+    const cisalfaSettings = document.querySelector('#cisalfa > #settings > .button > button > #button');
+    cisalfaSettings.addEventListener('click', () => {
+        show('.dashboard#cisalfa', '.container')
+        chrome.storage.sync.set({
+            'lastVisited': 'cisalfa'
         });
     })
 
@@ -136,20 +136,20 @@ document.addEventListener('DOMContentLoaded', async () => {
     else {
         dash.style.color = "var(--blue-color)";
         dash.style.backgroundColor = "var(--white-color)"
-        if (lastVisited === 'zalando') {
-            show('.dashboard#zalando', '.container')
-        }
-        else if (lastVisited === 'luisaviaroma') {
+        if (lastVisited === 'luisaviaroma') {
             show('.dashboard#luisaviaroma', '.container')
-        }
-        else if (lastVisited === 'cisalfa') {
-            show('.dashboard#cisalfa', '.container')
         }
         else if (lastVisited === 'snipes') {
             show('.dashboard#snipes', '.container')
         }
         else if (lastVisited === 'solebox') {
             show('.dashboard#solebox', '.container')
+        }
+        else if (lastVisited === 'zalando') {
+            show('.dashboard#zalando', '.container')
+        }
+        else if (lastVisited === 'cisalfa') {
+            show('.dashboard#cisalfa', '.container')
         }
         else if (lastVisited === 'awlab-here') {
             show('.dashboard#awlab-here', '.container')
@@ -170,20 +170,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             'lastVisited': 'home'
         });
 
-        if (getStyle('.dashboard#zalando', 'display') === 'grid') {
-            show('.home', '.dashboard#zalando')
-            dash.removeAttribute('style');
-            home.style.color = "var(--blue-color)";
-            home.style.backgroundColor = "var(--white-color)"
-        }
         if (getStyle('.dashboard#luisaviaroma', 'display') === 'grid') {
             show('.home', '.dashboard#luisaviaroma')
-            dash.removeAttribute('style');
-            home.style.color = "var(--blue-color)";
-            home.style.backgroundColor = "var(--white-color)"
-        }
-        if (getStyle('.dashboard#cisalfa', 'display') === 'grid') {
-            show('.home', '.dashboard#cisalfa')
             dash.removeAttribute('style');
             home.style.color = "var(--blue-color)";
             home.style.backgroundColor = "var(--white-color)"
@@ -196,6 +184,18 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
         if (getStyle('.dashboard#solebox', 'display') === 'grid') {
             show('.home', '.dashboard#solebox')
+            dash.removeAttribute('style');
+            home.style.color = "var(--blue-color)";
+            home.style.backgroundColor = "var(--white-color)"
+        }
+        if (getStyle('.dashboard#zalando', 'display') === 'grid') {
+            show('.home', '.dashboard#zalando')
+            dash.removeAttribute('style');
+            home.style.color = "var(--blue-color)";
+            home.style.backgroundColor = "var(--white-color)"
+        }
+        if (getStyle('.dashboard#cisalfa', 'display') === 'grid') {
+            show('.home', '.dashboard#cisalfa')
             dash.removeAttribute('style');
             home.style.color = "var(--blue-color)";
             home.style.backgroundColor = "var(--white-color)"
@@ -256,20 +256,20 @@ document.addEventListener('DOMContentLoaded', async () => {
             'lastVisited': 'dash'
         });
         
-        if (getStyle('.dashboard#zalando', 'display') === 'grid') {
-            show('.container', '.dashboard#zalando')
-        }
         if (getStyle('.dashboard#luisaviaroma', 'display') === 'grid') {
             show('.container', '.dashboard#luisaviaroma')
-        }
-        if (getStyle('.dashboard#cisalfa', 'display') === 'grid') {
-            show('.container', '.dashboard#cisalfa')
         }
         if (getStyle('.dashboard#snipes', 'display') === 'grid') {
             show('.container', '.dashboard#snipes')
         }
         if (getStyle('.dashboard#solebox', 'display') === 'grid') {
             show('.container', '.dashboard#solebox')
+        }
+        if (getStyle('.dashboard#zalando', 'display') === 'grid') {
+            show('.container', '.dashboard#zalando')
+        }
+        if (getStyle('.dashboard#cisalfa', 'display') === 'grid') {
+            show('.container', '.dashboard#cisalfa')
         }
         if (getStyle('.dashboard#awlab-here', 'display') === 'grid') {
             show('.container', '.dashboard#awlab-here')
@@ -315,20 +315,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             'lastVisited': 'profiles'
         });
 
-        if (getStyle('.dashboard#zalando', 'display') === 'grid') {
-            show('.profiles', '.dashboard#zalando')
-            dash.removeAttribute('style');
-            profiles.style.color = "var(--blue-color)";
-            profiles.style.backgroundColor = "var(--white-color)"
-        }
         if (getStyle('.dashboard#luisaviaroma', 'display') === 'grid') {
             show('.profiles', '.dashboard#luisaviaroma')
-            dash.removeAttribute('style');
-            profiles.style.color = "var(--blue-color)";
-            profiles.style.backgroundColor = "var(--white-color)"
-        }
-        if (getStyle('.dashboard#cisalfa', 'display') === 'grid') {
-            show('.profiles', '.dashboard#cisalfa')
             dash.removeAttribute('style');
             profiles.style.color = "var(--blue-color)";
             profiles.style.backgroundColor = "var(--white-color)"
@@ -341,6 +329,18 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
         if (getStyle('.dashboard#solebox', 'display') === 'grid') {
             show('.profiles', '.dashboard#solebox')
+            dash.removeAttribute('style');
+            profiles.style.color = "var(--blue-color)";
+            profiles.style.backgroundColor = "var(--white-color)"
+        }
+        if (getStyle('.dashboard#zalando', 'display') === 'grid') {
+            show('.profiles', '.dashboard#zalando')
+            dash.removeAttribute('style');
+            profiles.style.color = "var(--blue-color)";
+            profiles.style.backgroundColor = "var(--white-color)"
+        }
+        if (getStyle('.dashboard#cisalfa', 'display') === 'grid') {
+            show('.profiles', '.dashboard#cisalfa')
             dash.removeAttribute('style');
             profiles.style.color = "var(--blue-color)";
             profiles.style.backgroundColor = "var(--white-color)"
@@ -401,20 +401,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             'lastVisited': 'analytics'
         });
 
-        if (getStyle('.dashboard#zalando', 'display') === 'grid') {
-            show('.analytics', '.dashboard#zalando')
-            dash.removeAttribute('style');
-            analytics.style.color = "var(--blue-color)";
-            analytics.style.backgroundColor = "var(--white-color)"
-        }
         if (getStyle('.dashboard#luisaviaroma', 'display') === 'grid') {
             show('.analytics', '.dashboard#luisaviaroma')
-            dash.removeAttribute('style');
-            analytics.style.color = "var(--blue-color)";
-            analytics.style.backgroundColor = "var(--white-color)"
-        }
-        if (getStyle('.dashboard#cisalfa', 'display') === 'grid') {
-            show('.analytics', '.dashboard#cisalfa')
             dash.removeAttribute('style');
             analytics.style.color = "var(--blue-color)";
             analytics.style.backgroundColor = "var(--white-color)"
@@ -427,6 +415,18 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
         if (getStyle('.dashboard#solebox', 'display') === 'grid') {
             show('.analytics', '.dashboard#solebox')
+            dash.removeAttribute('style');
+            analytics.style.color = "var(--blue-color)";
+            analytics.style.backgroundColor = "var(--white-color)"
+        }
+        if (getStyle('.dashboard#zalando', 'display') === 'grid') {
+            show('.analytics', '.dashboard#zalando')
+            dash.removeAttribute('style');
+            analytics.style.color = "var(--blue-color)";
+            analytics.style.backgroundColor = "var(--white-color)"
+        }
+        if (getStyle('.dashboard#cisalfa', 'display') === 'grid') {
+            show('.analytics', '.dashboard#cisalfa')
             dash.removeAttribute('style');
             analytics.style.color = "var(--blue-color)";
             analytics.style.backgroundColor = "var(--white-color)"
@@ -487,20 +487,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             'lastVisited': 'settings'
         });
 
-        if (getStyle('.dashboard#zalando', 'display') === 'grid') {
-            show('.settings', '.dashboard#zalando')
-            dash.removeAttribute('style');
-            settings.style.color = "var(--blue-color)";
-            settings.style.backgroundColor = "var(--white-color)"
-        }
         if (getStyle('.dashboard#luisaviaroma', 'display') === 'grid') {
             show('.settings', '.dashboard#luisaviaroma')
-            dash.removeAttribute('style');
-            settings.style.color = "var(--blue-color)";
-            settings.style.backgroundColor = "var(--white-color)"
-        }
-        if (getStyle('.dashboard#cisalfa', 'display') === 'grid') {
-            show('.settings', '.dashboard#cisalfa')
             dash.removeAttribute('style');
             settings.style.color = "var(--blue-color)";
             settings.style.backgroundColor = "var(--white-color)"
@@ -513,6 +501,18 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
         if (getStyle('.dashboard#solebox', 'display') === 'grid') {
             show('.settings', '.dashboard#solebox')
+            dash.removeAttribute('style');
+            settings.style.color = "var(--blue-color)";
+            settings.style.backgroundColor = "var(--white-color)"
+        }
+        if (getStyle('.dashboard#zalando', 'display') === 'grid') {
+            show('.settings', '.dashboard#zalando')
+            dash.removeAttribute('style');
+            settings.style.color = "var(--blue-color)";
+            settings.style.backgroundColor = "var(--white-color)"
+        }
+        if (getStyle('.dashboard#cisalfa', 'display') === 'grid') {
+            show('.settings', '.dashboard#cisalfa')
             dash.removeAttribute('style');
             settings.style.color = "var(--blue-color)";
             settings.style.backgroundColor = "var(--white-color)"

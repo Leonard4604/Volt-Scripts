@@ -4,8 +4,8 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-/* =================================== ZALANDO ===================================*/
-.dashboard#zalando {
+/* =================================== LUISAVIAROMA ===================================*/
+.dashboard#luisaviaroma {
     display: none;
     grid-template-columns: 1fr;
     grid-template-rows: 65px 1fr 1fr 1fr;
@@ -20,31 +20,32 @@ input::-webkit-inner-spin-button {
       "coupon";
 }
 
-.dashboard#zalando .run#zalando {
+.dashboard#luisaviaroma .run#lvr {
     display: grid;
     grid-area: settings;
     grid-template-columns: 0.5fr 1fr;
-    grid-template-rows: 1fr;
+    grid-template-rows: 1fr 1fr;
     grid-auto-rows: 1fr;
     gap: 10px 10px;
     grid-auto-flow: row;
     align-content: center;
     grid-template-areas:
-      "settings sizing";
+      "settings sizing"
+      "reset items";
 }
 
-.dashboard#zalando .logo {
+.dashboard#luisaviaroma .logo {
     grid-area: logo;
     display: flex;
     background: var(--white-color);
     border-radius: 4px;
 }
 
-.dashboard#zalando .logo img {
+.dashboard#luisaviaroma .logo img {
     margin: auto;
 } 
 
-.dashboard#zalando #settings {
+.dashboard#luisaviaroma #settings {
     grid-area: settings;
     display: grid;
     grid-template-columns: 1fr;
@@ -60,15 +61,15 @@ input::-webkit-inner-spin-button {
     padding: 6px 6px;
 }
 
-.dashboard#zalando .mode {
+.dashboard#luisaviaroma .mode {
     grid-area: mode;
 }
 
-.dashboard#zalando .delay {
+.dashboard#luisaviaroma .delay {
     grid-area: delay;
 }
 
-.dashboard#zalando .sizing {
+.dashboard#luisaviaroma .sizing {
     grid-area: sizing;
     display: grid;
     grid-template-columns: 1fr;
@@ -84,11 +85,11 @@ input::-webkit-inner-spin-button {
     padding: 6px 6px;
 }
 
-.dashboard#zalando .single {
+.dashboard#luisaviaroma .single {
     grid-area: single;
 }
 
-.dashboard#zalando .range {
+.dashboard#luisaviaroma .range {
     grid-area: range;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -100,49 +101,23 @@ input::-webkit-inner-spin-button {
       "min max";
 }
 
-.dashboard#zalando #min_selection {
+.dashboard#luisaviaroma #min_selection {
     grid-area: min;
 }
 
-.dashboard#zalando #max_selection {
+.dashboard#luisaviaroma #max_selection {
     grid-area: max;
 }
 
-.dashboard#zalando .init#zalando {
-    grid-area: init;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 10px 10px;
-    grid-auto-flow: row;
-    align-content: center;
-    grid-template-areas:
-      "coupons dummy"
-      "coupons payment"
-      "play play";
+.dashboard#luisaviaroma .background#reset {
+    grid-area: reset;
     background: var(--white-color);
+    padding: 6px;
+    height: fit-content;
     border-radius: 4px;
-    padding: 6px 6px;
 }
 
-.dashboard#zalando .dummy {
-    grid-area: dummy;
-}
-
-.dashboard#zalando .play {
-    grid-area: play;
-}
-
-.dashboard#zalando .coupons {
-    grid-area: coupons;
-}
-
-.dashboard#zalando .payment {
-    grid-area: payment;
-}
-
-.dashboard#zalando .play {
-    grid-area: play;
+.dashboard#luisaviaroma .reset {
     cursor: pointer;
     background: var(--blue-color);
     height: 30px;
@@ -151,76 +126,35 @@ input::-webkit-inner-spin-button {
     justify-content: center;
 }
 
-.dashboard#zalando .play .option {
+.dashboard#luisaviaroma .reset .option {
     font-size: 13px;
     line-height: 18px;
     vertical-align: middle;
 }
 
-.dashboard#zalando .play span {
+.dashboard#luisaviaroma .reset span {
     padding-bottom: 0px;
     display: inline-block;
 }
 
-.dashboard#zalando .play #play {
+.dashboard#luisaviaroma .reset #reset {
     font-size: 18px;
     vertical-align: middle;
 }
 
-.dashboard#zalando .play > a {
+.dashboard#luisaviaroma .reset > a {
     color: var(--white-color);
     padding: 0px 2px;
     text-decoration: none;
     white-space: nowrap;
 }
 
-.dashboard#zalando .coupon#zalando {
-    grid-area: coupon;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 10px 10px;
-    grid-auto-flow: row;
-    align-content: center;
-    grid-template-areas:
-      "email"
-      "generate";
-    background: var(--white-color);
+.dashboard#luisaviaroma .items {
+    grid-area: items;
+    background-color: var(--white-color);
+    height: fit-content;
+    padding: 6px;
     border-radius: 4px;
-    padding: 6px 6px;
-}
-
-.dashboard#zalando .generate {
-    grid-area: generate;
-    cursor: pointer;
-    background: var(--blue-color);
-    height: 30px;
-    border-radius: 4px;
-    display: flex;
-    justify-content: center;
-}
-
-.dashboard#zalando .generate .option {
-    font-size: 13px;
-    line-height: 18px;
-    vertical-align: middle;
-}
-
-.dashboard#zalando .generate span {
-    padding-bottom: 0px;
-    display: inline-block;
-}
-
-.dashboard#zalando .generate #generate {
-    font-size: 18px;
-    vertical-align: middle;
-}
-
-.dashboard#zalando .generate > a {
-    color: var(--white-color);
-    padding: 0px 2px;
-    text-decoration: none;
-    white-space: nowrap;
 }
 
 /* =================================== SNIPES ===================================*/
@@ -472,8 +406,8 @@ input::-webkit-inner-spin-button {
     grid-area: max;
 }
 
-/* =================================== LUISAVIAROMA ===================================*/
-.dashboard#luisaviaroma {
+/* =================================== ZALANDO ===================================*/
+.dashboard#zalando {
     display: none;
     grid-template-columns: 1fr;
     grid-template-rows: 65px 1fr 1fr 1fr;
@@ -488,32 +422,31 @@ input::-webkit-inner-spin-button {
       "coupon";
 }
 
-.dashboard#luisaviaroma .run#lvr {
+.dashboard#zalando .run#zalando {
     display: grid;
     grid-area: settings;
     grid-template-columns: 0.5fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr;
     grid-auto-rows: 1fr;
     gap: 10px 10px;
     grid-auto-flow: row;
     align-content: center;
     grid-template-areas:
-      "settings sizing"
-      "reset items";
+      "settings sizing";
 }
 
-.dashboard#luisaviaroma .logo {
+.dashboard#zalando .logo {
     grid-area: logo;
     display: flex;
     background: var(--white-color);
     border-radius: 4px;
 }
 
-.dashboard#luisaviaroma .logo img {
+.dashboard#zalando .logo img {
     margin: auto;
 } 
 
-.dashboard#luisaviaroma #settings {
+.dashboard#zalando #settings {
     grid-area: settings;
     display: grid;
     grid-template-columns: 1fr;
@@ -529,15 +462,15 @@ input::-webkit-inner-spin-button {
     padding: 6px 6px;
 }
 
-.dashboard#luisaviaroma .mode {
+.dashboard#zalando .mode {
     grid-area: mode;
 }
 
-.dashboard#luisaviaroma .delay {
+.dashboard#zalando .delay {
     grid-area: delay;
 }
 
-.dashboard#luisaviaroma .sizing {
+.dashboard#zalando .sizing {
     grid-area: sizing;
     display: grid;
     grid-template-columns: 1fr;
@@ -553,11 +486,11 @@ input::-webkit-inner-spin-button {
     padding: 6px 6px;
 }
 
-.dashboard#luisaviaroma .single {
+.dashboard#zalando .single {
     grid-area: single;
 }
 
-.dashboard#luisaviaroma .range {
+.dashboard#zalando .range {
     grid-area: range;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -569,23 +502,49 @@ input::-webkit-inner-spin-button {
       "min max";
 }
 
-.dashboard#luisaviaroma #min_selection {
+.dashboard#zalando #min_selection {
     grid-area: min;
 }
 
-.dashboard#luisaviaroma #max_selection {
+.dashboard#zalando #max_selection {
     grid-area: max;
 }
 
-.dashboard#luisaviaroma .background#reset {
-    grid-area: reset;
+.dashboard#zalando .init#zalando {
+    grid-area: init;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    align-content: center;
+    grid-template-areas:
+      "coupons dummy"
+      "coupons payment"
+      "play play";
     background: var(--white-color);
-    padding: 6px;
-    height: fit-content;
     border-radius: 4px;
+    padding: 6px 6px;
 }
 
-.dashboard#luisaviaroma .reset {
+.dashboard#zalando .dummy {
+    grid-area: dummy;
+}
+
+.dashboard#zalando .play {
+    grid-area: play;
+}
+
+.dashboard#zalando .coupons {
+    grid-area: coupons;
+}
+
+.dashboard#zalando .payment {
+    grid-area: payment;
+}
+
+.dashboard#zalando .play {
+    grid-area: play;
     cursor: pointer;
     background: var(--blue-color);
     height: 30px;
@@ -594,33 +553,74 @@ input::-webkit-inner-spin-button {
     justify-content: center;
 }
 
-.dashboard#luisaviaroma .reset .option {
+.dashboard#zalando .play .option {
     font-size: 13px;
     line-height: 18px;
     vertical-align: middle;
 }
 
-.dashboard#luisaviaroma .reset span {
+.dashboard#zalando .play span {
     padding-bottom: 0px;
     display: inline-block;
 }
 
-.dashboard#luisaviaroma .reset #reset {
+.dashboard#zalando .play #play {
     font-size: 18px;
     vertical-align: middle;
 }
 
-.dashboard#luisaviaroma .reset > a {
+.dashboard#zalando .play > a {
     color: var(--white-color);
     padding: 0px 2px;
     text-decoration: none;
     white-space: nowrap;
 }
 
-.dashboard#luisaviaroma .items {
-    grid-area: items;
-    background-color: var(--white-color);
-    height: fit-content;
-    padding: 6px;
+.dashboard#zalando .coupon#zalando {
+    grid-area: coupon;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    align-content: center;
+    grid-template-areas:
+      "email"
+      "generate";
+    background: var(--white-color);
     border-radius: 4px;
+    padding: 6px 6px;
+}
+
+.dashboard#zalando .generate {
+    grid-area: generate;
+    cursor: pointer;
+    background: var(--blue-color);
+    height: 30px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+}
+
+.dashboard#zalando .generate .option {
+    font-size: 13px;
+    line-height: 18px;
+    vertical-align: middle;
+}
+
+.dashboard#zalando .generate span {
+    padding-bottom: 0px;
+    display: inline-block;
+}
+
+.dashboard#zalando .generate #generate {
+    font-size: 18px;
+    vertical-align: middle;
+}
+
+.dashboard#zalando .generate > a {
+    color: var(--white-color);
+    padding: 0px 2px;
+    text-decoration: none;
+    white-space: nowrap;
 }
