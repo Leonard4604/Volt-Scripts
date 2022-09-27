@@ -68,8 +68,6 @@
 }
 
 #close-volt-logger {
-    right: -25px;
-    top: 0px;
     width: 25px;
     height: 30px;
     border-bottom: rgba(52, 76, 183, 0.7) 1px solid;
@@ -79,8 +77,25 @@
     justify-content: center;
 }
 
+#clear-cart-volt-logger {
+    position: absolute;
+    left: 2px;
+    top: 40px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 #close-volt-logger svg {
     font-size: 25px;
+    color:#000000;
+    font-weight: 200;
+}
+
+#clear-cart-volt-logger svg {
     color:#000000;
     font-weight: 200;
 }
