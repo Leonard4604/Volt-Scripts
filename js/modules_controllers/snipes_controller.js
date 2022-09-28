@@ -115,6 +115,19 @@ document.addEventListener('DOMContentLoaded', () => {
             'snipes': JSON.stringify(snipesSettings)
         });
     })
+
+    const startPid = document.querySelector('.dashboard#snipes #pid_start')
+    startPid.addEventListener('click', () => {
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+            const todo = {
+                todo: 'startPid',
+                pid: pid.value
+            }
+            chrome.tabs.sendMessage(tabs[0].id, {snipes: JSON.stringify(todo)}, function(response) {
+                console.log(response)
+            });
+        });
+    })
 })
 
 class Snipes {

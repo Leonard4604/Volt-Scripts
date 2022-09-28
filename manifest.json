@@ -30,6 +30,14 @@
         },
         {
             "matches": [
+                "https://www.snipes.it/cart"
+            ],   
+            "js": ["./modules/libs/logger/logger.js", "./modules/libs/utilities.js", "./modules/libs/snipes_lib.js", "./modules/snipes/snipes_pid.js"],
+            "css": ["./modules/libs/logger/logger.css"],
+            "all_frames": true
+        },
+        {
+            "matches": [
                 "https://www.snipes.it/checkout*"
             ],   
             "js": ["./modules/libs/logger/logger.js", "./modules/libs/utilities.js","./modules/libs/snipes_lib.js", "./modules/snipes/snipes_checkout.js"],
