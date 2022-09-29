@@ -24,7 +24,7 @@ input::-webkit-inner-spin-button {
     display: grid;
     grid-area: settings;
     grid-template-columns: 0.5fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 0.5fr 1fr;
     grid-auto-rows: 1fr;
     gap: 10px 10px;
     grid-auto-flow: row;
