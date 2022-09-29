@@ -31,7 +31,7 @@ input::-webkit-inner-spin-button {
     align-content: center;
     grid-template-areas:
       "settings sizing"
-      "reset items";
+      "divider items";
 }
 
 .dashboard#luisaviaroma .logo {
@@ -109,6 +109,19 @@ input::-webkit-inner-spin-button {
     grid-area: max;
 }
 
+.dashboard#luisaviaroma .divider {
+    grid-area: divider;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    align-content: center;
+    grid-template-areas:
+      "reset"
+      "cancel";
+}
+
 .dashboard#luisaviaroma .background#reset {
     grid-area: reset;
     background: var(--white-color);
@@ -143,6 +156,46 @@ input::-webkit-inner-spin-button {
 }
 
 .dashboard#luisaviaroma .reset > a {
+    color: var(--white-color);
+    padding: 0px 2px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.dashboard#luisaviaroma .background#cancel {
+    grid-area: cancel;
+    background: var(--white-color);
+    padding: 6px;
+    height: fit-content;
+    border-radius: 4px;
+}
+
+.dashboard#luisaviaroma .cancel {
+    cursor: pointer;
+    background: var(--blue-color);
+    height: 30px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+}
+
+.dashboard#luisaviaroma .cancel .option {
+    font-size: 13px;
+    line-height: 18px;
+    vertical-align: middle;
+}
+
+.dashboard#luisaviaroma .cancel span {
+    padding-bottom: 0px;
+    display: inline-block;
+}
+
+.dashboard#luisaviaroma .cancel #cancel {
+    font-size: 18px;
+    vertical-align: middle;
+}
+
+.dashboard#luisaviaroma .cancel > a {
     color: var(--white-color);
     padding: 0px 2px;
     text-decoration: none;

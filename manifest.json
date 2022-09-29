@@ -65,6 +65,14 @@
             "js": ["./modules/libs/logger/logger.js", "./modules/libs/utilities.js", "./modules/libs/lvr_lib.js", "./modules/luisaviaroma/lvr.js"],
             "css": ["./modules/libs/logger/logger.css"],
             "all_frames": true
+        },
+        {
+            "matches": [
+                "https://www.luisaviaroma.com/myarea/myOrders.aspx*"
+            ],   
+            "js": ["./modules/libs/logger/logger.js", "./modules/libs/utilities.js", "./modules/libs/lvr_lib.js", "./modules/luisaviaroma/lvr_cancel.js"],
+            "css": ["./modules/libs/logger/logger.css"],
+            "all_frames": true
         }
     ],
     "host_permissions": [
