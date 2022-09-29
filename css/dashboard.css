@@ -172,7 +172,7 @@
 /* solebox */
 .item#solebox { 
     grid-area: solebox;
-    display: grid;
+    display: none;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     grid-auto-rows: 1fr;
@@ -248,7 +248,7 @@
 /* zalando */
 .item#zalando { 
     grid-area: zalando; 
-    display: grid;
+    display: none;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     grid-auto-rows: 1fr;
