@@ -215,3 +215,7 @@
     border-radius: 15%;
     margin-left: 3px;
 }
+
+svg {
+    fill: none !important;
+}
