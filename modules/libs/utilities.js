@@ -156,6 +156,9 @@ function convert(size) {
         const dec = frac.split('/').reduce((n, d, i) => n / (i ? d : 1));
         return (+int + dec)
     }
+    else if (size.includes('\r') || size.includes('\n')) {
+        return size.replaceAll('\r', '').replaceAll('\n', '')
+    }
     else {
         return +size
     }
