@@ -71,31 +71,33 @@ async function getProductInfo(size, min, max) {
         return toReturn
     }
     if (size === 'random' && min && max) {
-                let toReturn = false
-                product.forEach((item, index) => {
-                    if (item.querySelector('a span').getAttribute('class').includes('b-swatch-value--orderable') && 
-                        convert(item.querySelector('a').getAttribute('data-value')) >= min &&
-                        convert(item.querySelector('a').getAttribute('data-value')) <= max) {
-                        toReturn = {
-                            pid: item.querySelector('a').getAttribute('data-variant-id'),
-                            size: item.querySelector('a').getAttribute('data-value')
-                        }
-                    }
+        let toReturn = []
+        product.forEach((item, index) => {
+            if (item.querySelector('a span').getAttribute('class').includes('b-swatch-value--orderable') && 
+                convert(item.querySelector('a').getAttribute('data-value')) >= min &&
+                convert(item.querySelector('a').getAttribute('data-value')) <= max) {
+                    toReturn.push({
+                    pid: item.querySelector('a').getAttribute('data-variant-id'),
+                    size: item.querySelector('a').getAttribute('data-value')
                 })
-        return toReturn
+            }
+        })
+        if (toReturn) {
+            return toReturn[Math.floor(Math.random() * toReturn.length)]
+        }
     }
     if (size === 'random' && (!min || !max)) {
-                let availableProducts = []
+                let toReturn = []
                 product.forEach((item, index) => {
                     if (item.querySelector('a span').getAttribute('class').includes('b-swatch-value--orderable')) {
-                        availableProducts.push({
+                        toReturn.push({
                             pid: item.querySelector('a').getAttribute('data-variant-id'),
                             size: item.querySelector('a').getAttribute('data-value')
                         }) 
                     }
                 })
-                if (availableProducts) {
-                    return availableProducts[Math.floor(Math.random() * availableProducts.length)]
+                if (toReturn) {
+                    return toReturn[Math.floor(Math.random() * toReturn.length)]
                 }
     }
     return false

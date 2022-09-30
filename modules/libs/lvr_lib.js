@@ -37,25 +37,27 @@ async function getProductInfo(size, min, max) {
         return toReturn
     }
     if (size === 'random' && min && max) {
-        let toReturn = false
+        let toReturn = []
         product.Availability.forEach((item, index) => {
             if (+item.SizeValue >= min && +item.SizeValue <= max) {
-                toReturn = {
+                toReturn.push({
                     seasonId: product.ItemParameters.SeasonId,
                     collectionId: product.ItemParameters.CollectionId,
                     itemId: +product.ItemParameters.ItemId,
                     vendorColorId: product.ItemParameters.VendorColorId,
                     sizeTypeId: item.SizeTypeId,
                     sizeId: item.SizeId.toString()
-                }
+                })
             }
         })
-        return toReturn
+        if (toReturn) {
+            return toReturn[Math.floor(Math.random() * toReturn.length)]
+        }
     }
     if (size === 'random' && (!min || !max)) {
-        let availableProducts = []
+        let toReturn = []
         product.Availability.forEach((item, index) => {
-            availableProducts.push({
+            toReturn.push({
                 seasonId: product.ItemParameters.SeasonId,
                 collectionId: product.ItemParameters.CollectionId,
                 itemId: +product.ItemParameters.ItemId,
@@ -64,8 +66,8 @@ async function getProductInfo(size, min, max) {
                 sizeId: item.SizeId.toString()
             }) 
         })
-        if (availableProducts) {
-            return availableProducts[Math.floor(Math.random() * availableProducts.length)]
+        if (toReturn) {
+            return toReturn[Math.floor(Math.random() * toReturn.length)]
         }
     }
     if (size !== 'random' && (!min || !max)) {
@@ -80,7 +82,7 @@ async function restock(size, min, max, delay) {
     const path = window.location.pathname
     await antiCache(path)
 
-    return await new Promise(resolve => {
+    return new Promise(resolve => {
         let delayInterval = setInterval(async function() {
             await antiCache(path)
 
