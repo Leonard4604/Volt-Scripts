@@ -10,7 +10,7 @@
 
 #volt-logger-container {
     position: absolute;
-    bottom: 100px;
+    top: 600px;
     left: 100px;
     background: rgba(52, 76, 183, 0.95);
     width: 350px;
