@@ -1,28 +1,27 @@
 async function process(sns_naked, volt) {
     try {
         const did = document.querySelector('[name="did"]').value
+        const token = document.querySelector('[name="_AntiCsrfToken"]').value
         const productInfo = await getProductInfo(sns_naked.size, sns_naked.min, sns_naked.max)
         if (productInfo) {
             logger.wait('Adding to cart...')
-            let res = null
-            if (document.querySelector('.g-recaptcha') !== null) {
-                const token = await getToken().catch(err => console.log(err))
-                res = await addToCart.captcha(did, token, productInfo.pid)
+            const atcBody = {
+                _AntiCsrfToken: token,
+                did: did,
+                id: productInfo.pid,
+                partial: 'mini-cart'
             }
-            else if (document.querySelector('.g-recaptcha') === null) {
-                res = await addToCart.noCaptcha(did, productInfo.pid)
-            }
+            const res = await addToCart(encode(atcBody))
             if (res.status === 200) {
                 logger.update.success(`Product added to cart in size: ${productInfo.size}`)
-                const srcSet = document.querySelector('div[class="embed-responsive "]').querySelector('img').srcset.split(',')
 
                 const hook = new Checkout()
                 const analytic = new Analytic()
-                hook.store = analytic.store = 'Sneakersnstuff'
-                hook.product = analytic.product = document.querySelector('#description > div > div > p:nth-child(3)').textContent.replace('- ', '')
+                hook.store = analytic.store = 'Naked'
+                hook.product = analytic.product = `${document.querySelector('.product-property a').textContent} - ${document.querySelector('.product-property.product-name').textContent} - ${document.querySelector('.product-property.product-property-color').textContent}`.replaceAll('\r', '').replaceAll('\n', '')
                 hook.size = analytic.size = productInfo.size
                 hook.product_url = `[Link](${window.location.href})`
-                hook.product_image = analytic.image = `https://Volt-Image-Proxy.leonard4604.repl.co/proxy?url=https://www.sneakersnstuff.com${srcSet[srcSet.length - 1].replaceAll(' ', '')}`
+                hook.product_image = analytic.image = `https://Volt-Image-Proxy.leonard4604.repl.co/proxy?url=${document.querySelector('.image-wrapper.card-img-top.embed-responsive.embed-responsive-lazyload img').src}`
                 hook.pid = productInfo.pid
                 hook.date = getDate()
                 hook.mode = 'Normal'
@@ -30,7 +29,7 @@ async function process(sns_naked, volt) {
                 hook.version = volt.version
                 hook.paymentLink = null
                 hook.url = JSON.parse(volt.discord).url
-                analytic.price = document.querySelector('.price  ').dataset.value
+                analytic.price = +document.querySelector('[itemprop="price"]').content
                 hook.private()
                 hook.public()
 
@@ -59,7 +58,7 @@ async function process(sns_naked, volt) {
                 logger.update.error(`You've been rate limited.`)
                 return false
             }
-        }
+        }    
     }
     catch (err) {
         logger.update.error(err)

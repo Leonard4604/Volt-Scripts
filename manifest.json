@@ -82,6 +82,15 @@
             "js": ["./modules/libs/logger/logger.js", "./modules/libs/utilities.js", "./modules/libs/sns_lib.js", "./modules/sns_naked/invisible_recaptcha.js", "./modules/sns_naked/sns.js"],
             "css": ["./modules/libs/logger/logger.css"],
             "all_frames": true
+        },
+        {
+            "matches": [
+                "https://www.nakedcph.com/product/*",
+                "https://www.nakedcph.com/*/product/*"
+            ],   
+            "js": ["./modules/libs/logger/logger.js", "./modules/libs/utilities.js", "./modules/libs/naked_lib.js", "./modules/sns_naked/naked.js"],
+            "css": ["./modules/libs/logger/logger.css"],
+            "all_frames": true
         }
     ],
     "host_permissions": [
