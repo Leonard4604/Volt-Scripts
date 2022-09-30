@@ -14,10 +14,11 @@
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <script src="../js/navigation.js"></script>
     <script src="../js/home.js"></script>
-    <script src="../js/modules_controllers/zalando_controller.js"></script>
-    <script src="../js/modules_controllers/snipes_controller.js"></script>
-    <script src="../js/modules_controllers/solebox_controller.js"></script>
     <script src="../js/modules_controllers/lvr_controller.js"></script>
+    <script src="../js/modules_controllers/snipes_controller.js"></script>
+    <script src="../js/modules_controllers/sns_naked_controller.js"></script>
+    <script src="../js/modules_controllers/solebox_controller.js"></script>
+    <script src="../js/modules_controllers/zalando_controller.js"></script>
     <script src="../js/profiles.js"></script>
     <script src="../js/analytics.js"></script>
     <script src="../js/settings.js"></script>
@@ -87,7 +88,7 @@
     <!-- content -->
     <div class="home_content">
         <div class="container">
-            <div class="item" id="zalando">
+            <div class="item" id="luisaviaroma">
                 <div id="logo"></div>
                 <div id="info">
                     <p class="mode">Mode: Default</p>
@@ -96,7 +97,7 @@
                 <div id="settings">
                     <div class="switch">
                         <label class="checkbox">
-                            <input type="checkbox" id="zalandoStatus"> 
+                            <input type="checkbox" id="lvrStatus"> 
                             <div class="slider round"></div>
                         </label>
                     </div>
@@ -127,6 +128,29 @@
                     </div>
                 </div>
             </div>
+            <div class="item" id="sns_naked">
+                <div id="logo">
+                    <div id="sns"></div>
+                    <div id="naked"></div>
+                </div>
+                <div id="info">
+                    <p class="mode">Mode: Default</p>
+                    <p class="delay">Delay: Default</p>
+                </div>
+                <div id="settings">
+                    <div class="switch">
+                        <label class="checkbox">
+                            <input type="checkbox" id="sns_nakedStatus"> 
+                            <div class="slider round"></div>
+                        </label>
+                    </div>
+                    <div class="button">
+                        <button type="submit">
+                            <i class='bx bx-cog' id="button"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
             <div class="item" id="solebox">
                 <div id="logo"></div>
                 <div id="info">
@@ -147,7 +171,7 @@
                     </div>
                 </div>
             </div>
-            <div class="item" id="luisaviaroma">
+            <div class="item" id="zalando">
                 <div id="logo"></div>
                 <div id="info">
                     <p class="mode">Mode: Default</p>
@@ -156,7 +180,7 @@
                 <div id="settings">
                     <div class="switch">
                         <label class="checkbox">
-                            <input type="checkbox" id="lvrStatus"> 
+                            <input type="checkbox" id="zalandoStatus"> 
                             <div class="slider round"></div>
                         </label>
                     </div>
@@ -211,26 +235,6 @@
                     <div class="switch">
                         <label class="checkbox">
                             <input type="checkbox" id="supremeStatus"> 
-                            <div class="slider round"></div>
-                        </label>
-                    </div>
-                    <div class="button">
-                        <button type="submit">
-                            <i class='bx bx-cog' id="button"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="item" id="sns-naked">
-                <div id="logo">
-                    <div id="sns"></div>
-                    <div id="naked"></div>
-                </div>
-                <div id="info"></div>
-                <div id="settings">
-                    <div class="switch">
-                        <label class="checkbox">
-                            <input type="checkbox" id="snStatus"> 
                             <div class="slider round"></div>
                         </label>
                     </div>
@@ -571,6 +575,135 @@
                 </div>
             </div>
         </div>
+        <div class="dashboard" id="sns_naked">
+            <div class="logo">
+                <img src="../images/modules/sns.png" alt="" id="logo">
+                <img src="../images/modules/naked.png" alt="" id="logo">
+            </div>
+            <div class="run" id="sns_naked">
+                <div id="settings">
+                    <div class="mode">
+                        <select id="mode_selection" required>
+                            <option selected="selected" value="">Select Mode</option>
+                            <option value="normal">Normal</option>
+                            <option value="burst">Burst</option>
+                        </select>
+                    </div>
+                    <div class="delay">
+                        <input type="number" id="delay" placeholder="Delay" autocomplete="off">
+                    </div>
+                </div>
+                <div class="sizing">
+                    <div class="single">
+                        <select id="sizing_selection" required>
+                            <option selected="selected" value="">Select Size</option>
+                            <option value="random">Random</option>
+                            <option value="35">35</option>
+                            <option value="35.5">35.5</option>
+                            <option value="36">36</option>
+                            <option value="36.5">36.5</option>
+                            <option value="37">37</option>
+                            <option value="37.5">37.5</option>
+                            <option value="38">38</option>
+                            <option value="38.5">38.5</option>
+                            <option value="39">39</option>
+                            <option value="39.5">39.5</option>
+                            <option value="40">40</option>
+                            <option value="40.5">40.5</option>
+                            <option value="41">41</option>
+                            <option value="41.5">41.5</option>
+                            <option value="42">42</option>
+                            <option value="42.5">42.5</option>
+                            <option value="43">43</option>
+                            <option value="43.5">43.5</option>
+                            <option value="44">44</option>
+                            <option value="44.5">44.5</option>
+                            <option value="45">45</option>
+                            <option value="45.5">45.5</option>
+                            <option value="46">46</option>
+                            <option value="46.5">46.5</option>
+                            <option value="47">47</option>
+                            <option value="47.5">47.5</option>
+                            <option value="48">48</option>
+                            <option value="48.5">48.5</option>
+                            <option value="49">49</option>
+                            <option value="49.5">49.5</option>
+                            <option value="50">50</option>
+                        </select>
+                    </div>
+                    <div class="range">
+                        <select id="min_selection" required>
+                            <option selected="selected" value="">Select Min Size</option>
+                            <option value="35">35</option>
+                            <option value="35.5">35.5</option>
+                            <option value="36">36</option>
+                            <option value="36.5">36.5</option>
+                            <option value="37">37</option>
+                            <option value="37.5">37.5</option>
+                            <option value="38">38</option>
+                            <option value="38.5">38.5</option>
+                            <option value="39">39</option>
+                            <option value="39.5">39.5</option>
+                            <option value="40">40</option>
+                            <option value="40.5">40.5</option>
+                            <option value="41">41</option>
+                            <option value="41.5">41.5</option>
+                            <option value="42">42</option>
+                            <option value="42.5">42.5</option>
+                            <option value="43">43</option>
+                            <option value="43.5">43.5</option>
+                            <option value="44">44</option>
+                            <option value="44.5">44.5</option>
+                            <option value="45">45</option>
+                            <option value="45.5">45.5</option>
+                            <option value="46">46</option>
+                            <option value="46.5">46.5</option>
+                            <option value="47">47</option>
+                            <option value="47.5">47.5</option>
+                            <option value="48">48</option>
+                            <option value="48.5">48.5</option>
+                            <option value="49">49</option>
+                            <option value="49.5">49.5</option>
+                            <option value="50">50</option>
+                        </select>
+                        <select id="max_selection" required>
+                            <option selected="selected" value="">Select Max Size</option>
+                            <option value="35">35</option>
+                            <option value="35.5">35.5</option>
+                            <option value="36">36</option>
+                            <option value="36.5">36.5</option>
+                            <option value="37">37</option>
+                            <option value="37.5">37.5</option>
+                            <option value="38">38</option>
+                            <option value="38.5">38.5</option>
+                            <option value="39">39</option>
+                            <option value="39.5">39.5</option>
+                            <option value="40">40</option>
+                            <option value="40.5">40.5</option>
+                            <option value="41">41</option>
+                            <option value="41.5">41.5</option>
+                            <option value="42">42</option>
+                            <option value="42.5">42.5</option>
+                            <option value="43">43</option>
+                            <option value="43.5">43.5</option>
+                            <option value="44">44</option>
+                            <option value="44.5">44.5</option>
+                            <option value="45">45</option>
+                            <option value="45.5">45.5</option>
+                            <option value="46">46</option>
+                            <option value="46.5">46.5</option>
+                            <option value="47">47</option>
+                            <option value="47.5">47.5</option>
+                            <option value="48">48</option>
+                            <option value="48.5">48.5</option>
+                            <option value="49">49</option>
+                            <option value="49.5">49.5</option>
+                            <option value="50">50</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="dashboard" id="solebox">
             <div class="logo">
                 <img src="../images/modules/solebox.png" alt="" id="logo">
@@ -865,9 +998,6 @@
 
         </div>
         <div class="dashboard" id="supreme">
-
-        </div>
-        <div class="dashboard" id="sns-naked">
 
         </div>
         <div class="dashboard" id="kith">

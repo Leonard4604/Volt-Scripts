@@ -7,9 +7,9 @@
     gap: 10px 10px;
     grid-auto-flow: row;
     grid-template-areas:
-      "luisaviaroma snipes solebox"
+      "luisaviaroma snipes sns_naked"
       "zalando cisalfa awlab-here"
-      "supreme sns-naked kith";
+      "supreme solebox kith";
 }
   
 .item {
@@ -164,6 +164,99 @@
 }
 
 .dashboard#snipes {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+/* sns_naked */
+.item#sns_naked { 
+    grid-area: sns_naked; 
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-auto-rows: 1fr;
+    gap: 2px 2px;
+    grid-auto-flow: row;
+    align-content: center;
+    grid-template-areas:
+        "logo"
+        "info"
+        "settings";  
+    padding: 2px; 
+}
+
+.item#sns_naked > #logo { 
+    grid-area: logo; 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      "sns naked"; 
+}
+      
+.item #sns { 
+    grid-area: sns; 
+    background-image: url(../images/modules/sns.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.item #naked { 
+    grid-area: naked; 
+    background-image: url(../images/modules/naked.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.item#sns_naked > #info { 
+    grid-area: info; 
+}
+
+.item#sns_naked  .mode {
+    font-size: 12px;
+    margin: 0 6px;
+}
+
+.item#sns_naked  .delay {
+    font-size: 12px;
+    margin: 0 6px;
+}
+
+.item#sns_naked > #settings { 
+    grid-area: settings; 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      "switch button"; 
+}
+
+.item#sns_naked > #settings > .switch { 
+    grid-area: switch;
+    display: flex; 
+    align-items: center;
+    justify-content: flex-start;
+    padding: 6px 6px;
+}
+
+.item#sns_naked > #settings > .button { 
+    grid-area: button;
+    display: flex; 
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.item#sns_naked > #settings > .button > button > #button { 
+    padding: 6px 6px;
+    font-size: 22px;
+    cursor: pointer;
+    color: var(--dark-blue-color);
+}
+
+.dashboard#sns_naked {
     display: none;
     width: 100%;
     height: 100%;
@@ -530,93 +623,6 @@
 }
 
 .dashboard#supreme {
-    display: none;
-    width: 100%;
-    height: 100%;
-}
-
-/* sns-naked */
-.item#sns-naked { 
-    grid-area: sns-naked; 
-    display: none;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-auto-rows: 1fr;
-    gap: 2px 2px;
-    grid-auto-flow: row;
-    align-content: center;
-    grid-template-areas:
-        "logo"
-        "info"
-        "settings";  
-    padding: 2px; 
-}
-
-.item#sns-naked > #logo { 
-    grid-area: logo; 
-    display: grid; 
-    grid-template-columns: 1fr 1fr; 
-    grid-template-rows: 1fr; 
-    gap: 0px 0px; 
-    grid-template-areas: 
-      "sns naked"; 
-}
-      
-.item #sns { 
-    grid-area: sns; 
-    background-image: url(../images/modules/sns.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-
-.item #naked { 
-    grid-area: naked; 
-    background-image: url(../images/modules/naked.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-
-.item#sns-naked > #info { 
-    grid-area: info; 
-}
-
-.item#sns-naked > #settings { 
-    grid-area: settings; 
-}
-
-.item#sns-naked > #settings { 
-    grid-area: settings; 
-    display: grid; 
-    grid-template-columns: 1fr 1fr; 
-    grid-template-rows: 1fr; 
-    gap: 0px 0px; 
-    grid-template-areas: 
-      "switch button"; 
-}
-
-.item#sns-naked > #settings > .switch { 
-    grid-area: switch;
-    display: flex; 
-    align-items: center;
-    justify-content: flex-start;
-    padding: 6px 6px;
-}
-
-.item#sns-naked > #settings > .button { 
-    grid-area: button;
-    display: flex; 
-    align-items: center;
-    justify-content: flex-end;
-}
-
-.item#sns-naked > #settings > .button > button > #button { 
-    padding: 6px 6px;
-    font-size: 22px;
-    cursor: pointer;
-    color: var(--dark-blue-color);
-}
-
-.dashboard#sns-naked {
     display: none;
     width: 100%;
     height: 100%;

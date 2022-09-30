@@ -355,6 +355,110 @@ input::-webkit-inner-spin-button {
     cursor: pointer;
 }
 
+/* =================================== SNS-NAKED ===================================*/
+.dashboard#sns_naked {
+    display: none;
+    grid-template-columns: 1fr;
+    grid-template-rows: 65px 1fr 1fr 1fr;
+    grid-auto-rows: 1fr;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    align-content: center;
+    grid-template-areas:
+      "logo"
+      "settings"
+      "init"
+      "coupon";
+}
+
+.dashboard#sns_naked .run#sns_naked {
+    display: grid;
+    grid-area: settings;
+    grid-template-columns: 0.5fr 1fr;
+    grid-template-rows: 0.5fr;
+    grid-auto-rows: 1fr;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    align-content: top;
+    grid-template-areas:
+      "settings sizing";
+}
+
+.dashboard#sns_naked .logo {
+    grid-area: logo;
+    display: flex;
+    background: var(--white-color);
+    border-radius: 4px;
+}
+
+.dashboard#sns_naked .logo img {
+    margin: auto;
+} 
+
+.dashboard#sns_naked #settings {
+    grid-area: settings;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    align-content: center;
+    grid-template-areas:
+      "mode"
+      "delay";
+    background: var(--white-color);
+    border-radius: 4px;
+    padding: 6px 6px;
+}
+
+.dashboard#sns_naked .mode {
+    grid-area: mode;
+}
+
+.dashboard#sns_naked .delay {
+    grid-area: delay;
+}
+
+.dashboard#sns_naked .sizing {
+    grid-area: sizing;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    align-content: center;
+    grid-template-areas:
+      "single"
+      "range";
+    background: var(--white-color);
+    border-radius: 4px;
+    padding: 6px 6px;
+}
+
+.dashboard#sns_naked .single {
+    grid-area: single;
+}
+
+.dashboard#sns_naked .range {
+    grid-area: range;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    align-content: center;
+    grid-template-areas:
+      "min max";
+}
+
+.dashboard#sns_naked #min_selection {
+    grid-area: min;
+}
+
+.dashboard#sns_naked #max_selection {
+    grid-area: max;
+}
+
 /* =================================== SOLEBOX ===================================*/
 .dashboard#solebox {
     display: none;

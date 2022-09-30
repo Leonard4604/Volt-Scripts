@@ -89,11 +89,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     })
 
-    const snsNakedSettings = document.querySelector('#sns-naked > #settings > .button > button > #button');
+    const snsNakedSettings = document.querySelector('#sns_naked > #settings > .button > button > #button');
     snsNakedSettings.addEventListener('click', () => {
-        show('.dashboard#sns-naked', '.container')
+        show('.dashboard#sns_naked', '.container')
         chrome.storage.sync.set({
-            'lastVisited': 'sns-naked'
+            'lastVisited': 'sns_naked'
         });
     })
 
@@ -157,8 +157,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         else if (lastVisited === 'supreme') {
             show('.dashboard#supreme', '.container')
         }
-        else if (lastVisited === 'sns-naked') {
-            show('.dashboard#sns-naked', '.container')
+        else if (lastVisited === 'sns_naked') {
+            show('.dashboard#sns_naked', '.container')
         }
         else if (lastVisited === 'kith') {
             show('.dashboard#kith', '.container')
@@ -212,8 +212,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             home.style.color = "var(--blue-color)";
             home.style.backgroundColor = "var(--white-color)"
         }
-        if (getStyle('.dashboard#sns-naked', 'display') === 'grid') {
-            show('.home', '.dashboard#sns-naked')
+        if (getStyle('.dashboard#sns_naked', 'display') === 'grid') {
+            show('.home', '.dashboard#sns_naked')
             dash.removeAttribute('style');
             home.style.color = "var(--blue-color)";
             home.style.backgroundColor = "var(--white-color)"
@@ -277,8 +277,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (getStyle('.dashboard#supreme', 'display') === 'grid') {
             show('.container', '.dashboard#supreme')
         }
-        if (getStyle('.dashboard#sns-naked', 'display') === 'grid') {
-            show('.container', '.dashboard#sns-naked')
+        if (getStyle('.dashboard#sns_naked', 'display') === 'grid') {
+            show('.container', '.dashboard#sns_naked')
         }
         if (getStyle('.dashboard#kith', 'display') === 'grid') {
             show('.container', '.dashboard#kith')
@@ -357,8 +357,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             profiles.style.color = "var(--blue-color)";
             profiles.style.backgroundColor = "var(--white-color)"
         }
-        if (getStyle('.dashboard#sns-naked', 'display') === 'grid') {
-            show('.profiles', '.dashboard#sns-naked')
+        if (getStyle('.dashboard#sns_naked', 'display') === 'grid') {
+            show('.profiles', '.dashboard#sns_naked')
             dash.removeAttribute('style');
             profiles.style.color = "var(--blue-color)";
             profiles.style.backgroundColor = "var(--white-color)"
@@ -443,8 +443,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             analytics.style.color = "var(--blue-color)";
             analytics.style.backgroundColor = "var(--white-color)"
         }
-        if (getStyle('.dashboard#sns-naked', 'display') === 'grid') {
-            show('.analytics', '.dashboard#sns-naked')
+        if (getStyle('.dashboard#sns_naked', 'display') === 'grid') {
+            show('.analytics', '.dashboard#sns_naked')
             dash.removeAttribute('style');
             analytics.style.color = "var(--blue-color)";
             analytics.style.backgroundColor = "var(--white-color)"
@@ -529,8 +529,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             settings.style.color = "var(--blue-color)";
             settings.style.backgroundColor = "var(--white-color)"
         }
-        if (getStyle('.dashboard#sns-naked', 'display') === 'grid') {
-            show('.settings', '.dashboard#sns-naked')
+        if (getStyle('.dashboard#sns_naked', 'display') === 'grid') {
+            show('.settings', '.dashboard#sns_naked')
             dash.removeAttribute('style');
             settings.style.color = "var(--blue-color)";
             settings.style.backgroundColor = "var(--white-color)"

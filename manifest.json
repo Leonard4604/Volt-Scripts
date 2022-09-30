@@ -3,7 +3,7 @@
 
     "name": "Volt Scripts",
     "description": "Volt Scripts",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "icons": {
         "16": "./images/logo.png",
         "32": "./images/logo.png",
@@ -71,6 +71,15 @@
                 "https://www.luisaviaroma.com/myarea/myOrders.aspx*"
             ],   
             "js": ["./modules/libs/logger/logger.js", "./modules/libs/utilities.js", "./modules/libs/lvr_lib.js", "./modules/luisaviaroma/lvr_cancel.js"],
+            "css": ["./modules/libs/logger/logger.css"],
+            "all_frames": true
+        },
+        {
+            "matches": [
+                "https://www.sneakersnstuff.com/product/*",
+                "https://www.sneakersnstuff.com/*/product/*"
+            ],   
+            "js": ["./modules/libs/logger/logger.js", "./modules/libs/utilities.js", "./modules/libs/sns_lib.js", "./modules/sns_naked/invisible_recaptcha.js", "./modules/sns_naked/sns.js"],
             "css": ["./modules/libs/logger/logger.css"],
             "all_frames": true
         }
