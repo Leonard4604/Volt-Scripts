@@ -3,8 +3,14 @@ async function process(sns_naked, volt) {
     const productInfo = await getProductInfo(sns_naked.size, sns_naked.min, sns_naked.max)
     if (productInfo) {
         logger.wait('Adding to cart...')
-        const token = await getToken().catch(err => console.log(err))
-        const res = await addToCart(did, token, productInfo.pid)
+        let res = null
+        if (document.querySelector('.g-recaptcha') !== null) {
+            const token = await getToken().catch(err => console.log(err))
+            res = await addToCart.captcha(did, token, productInfo.pid)
+        }
+        else if (document.querySelector('.g-recaptcha') === null) {
+            res = await addToCart.noCaptcha(did, productInfo.pid)
+        }
         if (res.status === 200) {
             logger.update.success(`Product added to cart in size: ${productInfo.size}`)
             const srcSet = document.querySelector('div[class="embed-responsive "]').querySelector('img').srcset.split(',')

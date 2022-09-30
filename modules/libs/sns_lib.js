@@ -77,26 +77,51 @@ async function getProductInfo(size, min, max) {
     return false
 }
 
-async function addToCart(did, token, pid) {
-    return fetch("https://www.sneakersnstuff.com/en/cart/add", {
-    "headers": {
-        "accept": "*/*",
-        "accept-language": "it-IT,it;q=0.9,en;q=0.8,en-US;q=0.7",
-        "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryzQNlhVOpYHGGBSBN",
-        "sec-ch-ua": "\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"",
-        "sec-ch-ua-mobile": "?0",
-        "sec-ch-ua-platform": "\"Windows\"",
-        "sec-fetch-dest": "empty",
-        "sec-fetch-mode": "cors",
-        "sec-fetch-site": "same-origin",
-        "x-kl-ajax-request": "Ajax_Request",
-        "x-requested-with": "XMLHttpRequest"
+const addToCart = {
+    captcha: function(did, token, pid) {
+        return fetch("https://www.sneakersnstuff.com/en/cart/add", {
+            "headers": {
+                "accept": "*/*",
+                "accept-language": "it-IT,it;q=0.9,en;q=0.8,en-US;q=0.7",
+                "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryzQNlhVOpYHGGBSBN",
+                "sec-ch-ua": "\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"",
+                "sec-ch-ua-mobile": "?0",
+                "sec-ch-ua-platform": "\"Windows\"",
+                "sec-fetch-dest": "empty",
+                "sec-fetch-mode": "cors",
+                "sec-fetch-site": "same-origin",
+                "x-kl-ajax-request": "Ajax_Request",
+                "x-requested-with": "XMLHttpRequest"
+            },
+            "referrer": window.location.href,
+            "referrerPolicy": "strict-origin-when-cross-origin",
+            "body": `------WebKitFormBoundaryzQNlhVOpYHGGBSBN\r\nContent-Disposition: form-data; name=\"did\"\r\n\r\n${did}\r\n------WebKitFormBoundaryzQNlhVOpYHGGBSBN\r\nContent-Disposition: form-data; name=\"g-recaptcha-response\"\r\n\r\n${token}\r\n------WebKitFormBoundaryzQNlhVOpYHGGBSBN\r\nContent-Disposition: form-data; name=\"id\"\r\n\r\n${pid}\r\n------WebKitFormBoundaryzQNlhVOpYHGGBSBN\r\nContent-Disposition: form-data; name=\"partial\"\r\n\r\nmini-cart\r\n------WebKitFormBoundaryzQNlhVOpYHGGBSBN--\r\n`,
+            "method": "POST",
+            "mode": "cors",
+            "credentials": "include"
+        });
     },
-    "referrer": "https://www.sneakersnstuff.com/en/product/55364/nike-dunk-high-retro",
-    "referrerPolicy": "strict-origin-when-cross-origin",
-    "body": `------WebKitFormBoundaryzQNlhVOpYHGGBSBN\r\nContent-Disposition: form-data; name=\"did\"\r\n\r\n${did}\r\n------WebKitFormBoundaryzQNlhVOpYHGGBSBN\r\nContent-Disposition: form-data; name=\"g-recaptcha-response\"\r\n\r\n${token}\r\n------WebKitFormBoundaryzQNlhVOpYHGGBSBN\r\nContent-Disposition: form-data; name=\"id\"\r\n\r\n${pid}\r\n------WebKitFormBoundaryzQNlhVOpYHGGBSBN\r\nContent-Disposition: form-data; name=\"partial\"\r\n\r\nmini-cart\r\n------WebKitFormBoundaryzQNlhVOpYHGGBSBN--\r\n`,
-    "method": "POST",
-    "mode": "cors",
-    "credentials": "include"
-    });
+    noCaptcha: function(did, pid) {
+        return fetch("https://www.sneakersnstuff.com/en/cart/add", {
+            "headers": {
+              "accept": "*/*",
+              "accept-language": "it-IT,it;q=0.9,en;q=0.8,en-US;q=0.7",
+              "content-type": "multipart/form-data; boundary=----WebKitFormBoundary0n4Br44MMoaa5gSY",
+              "sec-ch-ua": "\"Chromium\";v=\"106\", \"Google Chrome\";v=\"106\", \"Not;A=Brand\";v=\"99\"",
+              "sec-ch-ua-mobile": "?0",
+              "sec-ch-ua-platform": "\"Windows\"",
+              "sec-fetch-dest": "empty",
+              "sec-fetch-mode": "cors",
+              "sec-fetch-site": "same-origin",
+              "x-kl-ajax-request": "Ajax_Request",
+              "x-requested-with": "XMLHttpRequest"
+            },
+            "referrer": window.location.href,
+            "referrerPolicy": "strict-origin-when-cross-origin",
+            "body": `------WebKitFormBoundary0n4Br44MMoaa5gSY\r\nContent-Disposition: form-data; name=\"did\"\r\n\r\n${did}\r\n------WebKitFormBoundary0n4Br44MMoaa5gSY\r\nContent-Disposition: form-data; name=\"id\"\r\n\r\n${pid}\r\n------WebKitFormBoundary0n4Br44MMoaa5gSY\r\nContent-Disposition: form-data; name=\"partial\"\r\n\r\nmini-cart\r\n------WebKitFormBoundary0n4Br44MMoaa5gSY--\r\n`,
+            "method": "POST",
+            "mode": "cors",
+            "credentials": "include"
+        });
+    }
 }
