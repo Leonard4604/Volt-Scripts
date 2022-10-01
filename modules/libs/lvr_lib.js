@@ -153,7 +153,7 @@ async function restock(size, min, max, delay) {
     }); 
 }
 
-async function addToCart(body, referrer) {
+async function addToCart(body) {
     return fetch("https://www.luisaviaroma.com/myarea/bag/add", {
     "headers": {
         "accept": "*/*",
@@ -170,7 +170,7 @@ async function addToCart(body, referrer) {
         "x-lvr-requested-with": "bag/add",
         "x-requested-with": "XMLHttpRequest"
     },
-    "referrer": referrer,
+    "referrer": window.location.href,
     "referrerPolicy": "strict-origin-when-cross-origin",
     "body": body,
     "method": "POST",
@@ -230,7 +230,7 @@ async function placeOrder(body) {
     });
 }
 
-async function changeLanguage(body, referrer) {
+async function changeLanguage(body) {
     return fetch("https://www.luisaviaroma.com/myarea/usersession/changelanguage", {
         "headers": {
           "accept": "*/*",
@@ -246,7 +246,7 @@ async function changeLanguage(body, referrer) {
           "x-kl-ajax-request": "Ajax_Request",
           "x-requested-with": "XMLHttpRequest"
         },
-        "referrer": referrer,
+        "referrer": window.location.href,
         "referrerPolicy": "strict-origin-when-cross-origin",
         "body": body,
         "method": "POST",
@@ -275,7 +275,7 @@ async function antiCache(currentUrl) {
         "CurrentUrl":currentUrl
     }
     
-    await changeLanguage(JSON.stringify(language), window.location.href)
+    await changeLanguage(JSON.stringify(language))
 }
 
 async function getCart(body) {

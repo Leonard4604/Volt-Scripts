@@ -3,7 +3,7 @@
 
     "name": "Volt Scripts",
     "description": "Volt Scripts",
-    "version": "1.2.0",
+    "version": "1.3.0",
     "icons": {
         "16": "./images/logo.png",
         "32": "./images/logo.png",
@@ -89,6 +89,22 @@
                 "https://www.nakedcph.com/*/product/*"
             ],   
             "js": ["./modules/libs/logger/logger.js", "./modules/libs/utilities.js", "./modules/libs/naked_lib.js", "./modules/sns_naked/naked.js"],
+            "css": ["./modules/libs/logger/logger.css"],
+            "all_frames": true
+        },
+        {
+            "matches": [
+                "https://www.solebox.com/*.html"
+            ],   
+            "js": ["./modules/libs/logger/logger.js", "./modules/libs/utilities.js", "./modules/libs/solebox_lib.js", "./modules/solebox/solebox.js"],
+            "css": ["./modules/libs/logger/logger.css"],
+            "all_frames": true
+        },
+        {
+            "matches": [
+                "https://www.solebox.com/*/checkout*"
+            ],   
+            "js": ["./modules/libs/logger/logger.js", "./modules/libs/utilities.js","./modules/libs/solebox_lib.js", "./modules/solebox/solebox_checkout.js"],
             "css": ["./modules/libs/logger/logger.css"],
             "all_frames": true
         }

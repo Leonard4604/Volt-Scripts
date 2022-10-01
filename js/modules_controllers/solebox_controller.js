@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const status = document.querySelector('.item#solebox #soleboxStatus')
     const mode = document.querySelector('.dashboard#solebox #mode_selection')
     const delay = document.querySelector('.dashboard#solebox #delay')
+    const stepsDelay = document.querySelector('.dashboard#solebox #steps_delay')
     const size = document.querySelector('.dashboard#solebox #sizing_selection')
     const min = document.querySelector('.dashboard#solebox #min_selection')
     const max = document.querySelector('.dashboard#solebox #max_selection')
@@ -17,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
             status.checked = soleboxSettings.status = settings.status || false
             mode.value = soleboxSettings.mode = settings.mode || ''
             delay.value = soleboxSettings.delay = settings.delay || ''
+            stepsDelay.value = soleboxSettings.stepsDelay = settings.stepsDelay || ''
             size.value = soleboxSettings.size = settings.size || ''
             min.value = soleboxSettings.min = settings.min || ''
             max.value = soleboxSettings.max = settings.max || ''
@@ -28,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
             status.checked = soleboxSettings.status || false
             mode.value = soleboxSettings.mode = ''
             delay.value = soleboxSettings.delay = ''
+            stepsDelay.value = soleboxSettings.stepsDelay = ''
             size.value = soleboxSettings.size = ''
             min.value = soleboxSettings.min = ''
             max.value = soleboxSettings.max = ''
@@ -58,6 +61,14 @@ document.addEventListener('DOMContentLoaded', () => {
             'solebox': JSON.stringify(soleboxSettings)
         });
         dashDelay.textContent = `Delay: ${+delay.value.charAt(0).toUpperCase()}${delay.value.slice(1)}`
+    })
+
+    stepsDelay.addEventListener('change', () => {
+        console.log(+stepsDelay.value)
+        soleboxSettings.stepsDelay = +stepsDelay.value
+        chrome.storage.sync.set({
+            'solebox': JSON.stringify(soleboxSettings)
+        });
     })
 
     size.addEventListener('change', () => {

@@ -172,7 +172,7 @@ async function process(lvr, volt) {
             Quantity: lvr.items,
             IsMobile: false
         }
-        const result = await addToCart(JSON.stringify(body), window.location.href)
+        const result = await addToCart(JSON.stringify(body))
             .then(res => 
                 res.json()
             )

@@ -12,7 +12,7 @@ async function process(snipes) {
             ],
             quantity: 1
         }
-        const result = await addToCart(encode(body), window.location.href)
+        const result = await addToCart(encode(body))
             .then(res => 
                 res.json()
             )
