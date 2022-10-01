@@ -12,7 +12,6 @@ input::-webkit-inner-spin-button {
     grid-auto-rows: 1fr;
     gap: 10px 10px;
     grid-auto-flow: row;
-    align-content: center;
     grid-template-areas:
       "logo"
       "settings"
@@ -28,7 +27,6 @@ input::-webkit-inner-spin-button {
     grid-auto-rows: 1fr;
     gap: 10px 10px;
     grid-auto-flow: row;
-    align-content: center;
     grid-template-areas:
       "settings sizing"
       "divider items";
@@ -52,7 +50,6 @@ input::-webkit-inner-spin-button {
     grid-template-rows: 1fr 1fr;
     gap: 10px 10px;
     grid-auto-flow: row;
-    align-content: center;
     grid-template-areas:
       "mode"
       "delay";
@@ -76,7 +73,6 @@ input::-webkit-inner-spin-button {
     grid-template-rows: 1fr 1fr;
     gap: 10px 10px;
     grid-auto-flow: row;
-    align-content: center;
     grid-template-areas:
       "single"
       "range";
@@ -96,7 +92,6 @@ input::-webkit-inner-spin-button {
     grid-template-rows: 1fr;
     gap: 10px 10px;
     grid-auto-flow: row;
-    align-content: center;
     grid-template-areas:
       "min max";
 }
@@ -116,7 +111,6 @@ input::-webkit-inner-spin-button {
     grid-template-rows: 1fr 1fr;
     gap: 10px 10px;
     grid-auto-flow: row;
-    align-content: center;
     grid-template-areas:
       "reset"
       "cancel";
@@ -218,7 +212,6 @@ input::-webkit-inner-spin-button {
     grid-auto-rows: 1fr;
     gap: 10px 10px;
     grid-auto-flow: row;
-    align-content: center;
     grid-template-areas:
       "logo logo"
       "settings settings";
@@ -232,7 +225,6 @@ input::-webkit-inner-spin-button {
     grid-auto-rows: 1fr;
     gap: 10px 10px;
     grid-auto-flow: row;
-    align-content: center;
     grid-template-areas:
       "settings sizing"
       "pid pid";
@@ -256,7 +248,6 @@ input::-webkit-inner-spin-button {
     grid-template-rows: 1fr 1fr 1fr;
     gap: 10px 10px;
     grid-auto-flow: row;
-    align-content: center;
     grid-template-areas:
       "mode"
       "delay"
@@ -286,7 +277,6 @@ input::-webkit-inner-spin-button {
     grid-template-rows: 1fr 1fr;
     gap: 10px 10px;
     grid-auto-flow: row;
-    align-content: center;
     grid-template-areas:
       "single"
       "range";
@@ -307,7 +297,6 @@ input::-webkit-inner-spin-button {
     grid-template-rows: 1fr;
     gap: 10px 10px;
     grid-auto-flow: row;
-    align-content: center;
     grid-template-areas:
       "min max";
 }
@@ -331,7 +320,6 @@ input::-webkit-inner-spin-button {
     grid-template-rows: 1fr;
     gap: 10px 10px;
     grid-auto-flow: row;
-    align-content: center;
     grid-template-areas:
       "label pid pid_start";
 }
@@ -363,7 +351,6 @@ input::-webkit-inner-spin-button {
     grid-auto-rows: 1fr;
     gap: 10px 10px;
     grid-auto-flow: row;
-    align-content: center;
     grid-template-areas:
       "logo"
       "settings"
@@ -379,7 +366,6 @@ input::-webkit-inner-spin-button {
     grid-auto-rows: 1fr;
     gap: 10px 10px;
     grid-auto-flow: row;
-    align-content: top;
     grid-template-areas:
       "settings sizing";
 }
@@ -402,7 +388,6 @@ input::-webkit-inner-spin-button {
     grid-template-rows: 1fr 1fr;
     gap: 10px 10px;
     grid-auto-flow: row;
-    align-content: center;
     grid-template-areas:
       "mode"
       "delay";
@@ -426,7 +411,6 @@ input::-webkit-inner-spin-button {
     grid-template-rows: 1fr 1fr;
     gap: 10px 10px;
     grid-auto-flow: row;
-    align-content: center;
     grid-template-areas:
       "single"
       "range";
@@ -446,7 +430,6 @@ input::-webkit-inner-spin-button {
     grid-template-rows: 1fr;
     gap: 10px 10px;
     grid-auto-flow: row;
-    align-content: center;
     grid-template-areas:
       "min max";
 }
@@ -467,7 +450,6 @@ input::-webkit-inner-spin-button {
     grid-auto-rows: 1fr;
     gap: 10px 10px;
     grid-auto-flow: row;
-    align-content: center;
     grid-template-areas:
       "logo"
       "settings"
@@ -479,11 +461,10 @@ input::-webkit-inner-spin-button {
     display: grid;
     grid-area: settings;
     grid-template-columns: 0.5fr 1fr;
-    grid-template-rows: 1fr;
+    grid-template-rows: 0.5fr;
     grid-auto-rows: 1fr;
     gap: 10px 10px;
     grid-auto-flow: row;
-    align-content: center;
     grid-template-areas:
       "settings sizing";
 }
@@ -506,7 +487,6 @@ input::-webkit-inner-spin-button {
     grid-template-rows: 1fr 1fr;
     gap: 10px 10px;
     grid-auto-flow: row;
-    align-content: center;
     grid-template-areas:
       "mode"
       "delay";
@@ -530,7 +510,6 @@ input::-webkit-inner-spin-button {
     grid-template-rows: 1fr 1fr;
     gap: 10px 10px;
     grid-auto-flow: row;
-    align-content: center;
     grid-template-areas:
       "single"
       "range";
@@ -550,7 +529,6 @@ input::-webkit-inner-spin-button {
     grid-template-rows: 1fr;
     gap: 10px 10px;
     grid-auto-flow: row;
-    align-content: center;
     grid-template-areas:
       "min max";
 }
@@ -571,7 +549,6 @@ input::-webkit-inner-spin-button {
     grid-auto-rows: 1fr;
     gap: 10px 10px;
     grid-auto-flow: row;
-    align-content: center;
     grid-template-areas:
       "logo"
       "settings"
@@ -587,7 +564,6 @@ input::-webkit-inner-spin-button {
     grid-auto-rows: 1fr;
     gap: 10px 10px;
     grid-auto-flow: row;
-    align-content: center;
     grid-template-areas:
       "settings sizing";
 }
@@ -610,7 +586,6 @@ input::-webkit-inner-spin-button {
     grid-template-rows: 1fr 1fr;
     gap: 10px 10px;
     grid-auto-flow: row;
-    align-content: center;
     grid-template-areas:
       "mode"
       "delay";
@@ -634,7 +609,6 @@ input::-webkit-inner-spin-button {
     grid-template-rows: 1fr 1fr;
     gap: 10px 10px;
     grid-auto-flow: row;
-    align-content: center;
     grid-template-areas:
       "single"
       "range";
@@ -654,7 +628,6 @@ input::-webkit-inner-spin-button {
     grid-template-rows: 1fr;
     gap: 10px 10px;
     grid-auto-flow: row;
-    align-content: center;
     grid-template-areas:
       "min max";
 }
@@ -674,7 +647,6 @@ input::-webkit-inner-spin-button {
     grid-template-rows: 1fr 1fr;
     gap: 10px 10px;
     grid-auto-flow: row;
-    align-content: center;
     grid-template-areas:
       "coupons dummy"
       "coupons payment"
@@ -740,7 +712,6 @@ input::-webkit-inner-spin-button {
     grid-template-rows: 1fr 1fr;
     gap: 10px 10px;
     grid-auto-flow: row;
-    align-content: center;
     grid-template-areas:
       "email"
       "generate";
