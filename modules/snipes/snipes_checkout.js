@@ -1,4 +1,5 @@
 async function process(snipes, volt) {
+    await sleep(snipes.stepsDelay)
     logger.wait('Generating CSRF token...')
     const csrfToken = await generateCSRFToken()
         .then(res => res.json())
