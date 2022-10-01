@@ -194,6 +194,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
         const profileToDelete = document.querySelector('select#profile_selection').value
         for (item in profiles) {
+            if (profiles[item].label.startsWith(' ')) {
+                profiles[item].label = profiles[item].label.replace(' ', '')
+            }
             if (profileToDelete === profiles[item].label) {
                 profiles.splice(item, 1);
                 chrome.storage.sync.set({
