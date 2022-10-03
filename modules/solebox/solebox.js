@@ -20,7 +20,7 @@ async function process(solebox) {
         if (!result.error) {
             logger.update.success(`Product added to cart in size: ${result.gtm.variant}`)
         }
-        window.open('https://www.solebox.com/en_IT/checkout?stage=placeOrder#placeOrder','_blank');
+        window.open(`https://www.solebox.com/${region}/checkout?stage=placeOrder#placeOrder`,'_blank');
         return true
     }
     if (!product) {

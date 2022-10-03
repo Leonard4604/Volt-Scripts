@@ -1,3 +1,5 @@
+const region = window.location.pathname.split('/')[1]
+
 async function extractStorage() {
     return new Promise(function(resolve) {
         chrome.storage.sync.get(null, function(store) {
@@ -57,7 +59,7 @@ async function getProductInfo(size, min, max) {
 }
 
 async function addToCart(body) {
-    return fetch("https://www.solebox.com/en_IT/add-product?format=ajax", {
+    return fetch(`https://www.solebox.com/${region}/add-product?format=ajax`, {
         "headers": {
             "accept": "application/json, text/javascript, */*; q=0.01",
             "accept-language": "it-IT,it;q=0.9,en;q=0.8,en-US;q=0.7",
@@ -80,7 +82,7 @@ async function addToCart(body) {
 }
 
 async function generateCSRFToken() {
-    return fetch("https://www.solebox.com/on/demandware.store/Sites-solebox-Site/en_IT/CSRF-Generate?format=ajax", {
+    return fetch(`https://www.solebox.com/on/demandware.store/Sites-solebox-Site/${region}/CSRF-Generate?format=ajax`, {
         "headers": {
           "accept": "application/json, text/javascript, */*; q=0.01",
           "accept-language": "it-IT,it;q=0.9,en;q=0.8,en-US;q=0.7",
@@ -94,7 +96,7 @@ async function generateCSRFToken() {
           "x-kl-ajax-request": "Ajax_Request",
           "x-requested-with": "XMLHttpRequest"
         },
-        "referrer": "https://www.solebox.com/en_IT/checkout?stage=shipping",
+        "referrer": `https://www.solebox.com/${region}/checkout?stage=shipping`,
         "referrerPolicy": "strict-origin-when-cross-origin",
         "body": null,
         "method": "POST",
@@ -104,7 +106,7 @@ async function generateCSRFToken() {
 }
 
 async function shippingRates(body) {
-    return fetch("https://www.solebox.com/on/demandware.store/Sites-solebox-Site/en_IT/CheckoutShippingServices-ShippingRates?format=ajax", {
+    return fetch(`https://www.solebox.com/on/demandware.store/Sites-solebox-Site/${region}/CheckoutShippingServices-ShippingRates?format=ajax`, {
         "headers": {
             "accept": "application/json, text/javascript, */*; q=0.01",
             "accept-language": "it-IT,it;q=0.9,en;q=0.8,en-US;q=0.7",
@@ -118,7 +120,7 @@ async function shippingRates(body) {
             "x-kl-ajax-request": "Ajax_Request",
             "x-requested-with": "XMLHttpRequest"
         },
-        "referrer": "https://www.solebox.com/en_IT/checkout?stage=shipping",
+        "referrer": `https://www.solebox.com/${region}/checkout?stage=shipping`,
         "referrerPolicy": "strict-origin-when-cross-origin",
         "body": body,
         "method": "POST",
@@ -128,7 +130,7 @@ async function shippingRates(body) {
 }
 
 async function submitShipping(addressId, body) {
-    return fetch(`https://www.solebox.com/on/demandware.store/Sites-solebox-Site/en_IT/CheckoutShippingServices-SubmitShipping?region=europe&country=undefined&addressId=${addressId}&format=ajax`, {
+    return fetch(`https://www.solebox.com/on/demandware.store/Sites-solebox-Site/${region}/CheckoutShippingServices-SubmitShipping?region=europe&country=undefined&addressId=${addressId}&format=ajax`, {
         "headers": {
             "accept": "application/json, text/javascript, */*; q=0.01",
             "accept-language": "it-IT,it;q=0.9,en;q=0.8,en-US;q=0.7",
@@ -142,7 +144,7 @@ async function submitShipping(addressId, body) {
             "x-kl-ajax-request": "Ajax_Request",
             "x-requested-with": "XMLHttpRequest"
         },
-        "referrer": "https://www.solebox.com/en_IT/checkout?stage=shipping",
+        "referrer": `https://www.solebox.com/${region}/checkout?stage=shipping`,
         "referrerPolicy": "strict-origin-when-cross-origin",
         "body": body,
         "method": "POST",
@@ -152,7 +154,7 @@ async function submitShipping(addressId, body) {
 }
 
 async function submitPayment(body) {
-    return fetch("https://www.solebox.com/on/demandware.store/Sites-solebox-Site/en_IT/CheckoutServices-SubmitPayment?format=ajax", {
+    return fetch(`https://www.solebox.com/on/demandware.store/Sites-solebox-Site/${region}/CheckoutServices-SubmitPayment?format=ajax`, {
         "headers": {
           "accept": "application/json, text/javascript, */*; q=0.01",
           "accept-language": "it-IT,it;q=0.9,en;q=0.8,en-US;q=0.7",
@@ -166,7 +168,7 @@ async function submitPayment(body) {
           "x-kl-ajax-request": "Ajax_Request",
           "x-requested-with": "XMLHttpRequest"
         },
-        "referrer": "https://www.solebox.com/en_IT/checkout?stage=payment",
+        "referrer": `https://www.solebox.com/${region}/checkout?stage=payment`,
         "referrerPolicy": "strict-origin-when-cross-origin",
         "body": body,
         "method": "POST",
@@ -176,7 +178,7 @@ async function submitPayment(body) {
 }
 
 async function placeOrder() {
-    return fetch("https://www.solebox.com/on/demandware.store/Sites-solebox-Site/en_IT/CheckoutServices-PlaceOrder?format=ajax", {
+    return fetch(`https://www.solebox.com/on/demandware.store/Sites-solebox-Site/${region}/CheckoutServices-PlaceOrder?format=ajax`, {
         "headers": {
             "accept": "application/json, text/javascript, */*; q=0.01",
             "accept-language": "it-IT,it;q=0.9,en;q=0.8,en-US;q=0.7",
@@ -190,7 +192,7 @@ async function placeOrder() {
             "x-kl-ajax-request": "Ajax_Request",
             "x-requested-with": "XMLHttpRequest"
         },
-        "referrer": "https://www.solebox.com/en_IT/checkout?stage=placeOrder",
+        "referrer": `https://www.solebox.com/${region}/checkout?stage=placeOrder`,
         "referrerPolicy": "strict-origin-when-cross-origin",
         "body": null,
         "method": "POST",
