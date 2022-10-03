@@ -68,6 +68,16 @@ async function process(snipes, volt) {
 
     logger.wait('Placing order...')
     const orderResponse = await placeOrder().then(res => res.json())
+    if (orderResponse.error) {
+        logger.update.error(orderResponse.errorMessage)
+
+        return false
+    }
+    if (orderResponse.action === "PX-ABR") {
+        logger.update.error(`PX-ABR shown, reload the page and solve captcha!`)
+
+        return false
+    }
     if (!orderResponse.error) {
         logger.update.success('Order placed')
         const paymentLink = orderResponse.continueUrl
@@ -102,6 +112,8 @@ async function process(snipes, volt) {
         });
 
         window.open(paymentLink,'_blank');
+
+        return true
     }
 }
 

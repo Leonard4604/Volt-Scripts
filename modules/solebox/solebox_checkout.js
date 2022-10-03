@@ -98,7 +98,7 @@ async function process(solebox, volt) {
             const orderResponse = await placeOrder().then(res => res.json())
             console.log(orderResponse)
             if (orderResponse.error) {
-                logger.update.error(paymentLink.errorMessage)
+                logger.update.error(orderResponse.errorMessage)
 
                 return false
             }
