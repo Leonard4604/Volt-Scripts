@@ -4,6 +4,7 @@ class Webhook {
     }
     discord = {
         send: function(url, embed) {
+            if (!url) return
             return fetch(url, {
                 "method": "POST",
                 "headers": {
@@ -71,7 +72,7 @@ class Checkout extends Webhook{
             key: this.key,
             version: this.version
         }
-        const url= 'https://Volt-API.leonard4604.repl.co/product' 
+        const url = 'https://Volt-API.leonard4604.repl.co/product' 
         this.api.send(url, embed)
     }
     private() {
