@@ -109,6 +109,15 @@ async function flow(lvr, volt, listResponse) {
             "SalesTaxes":listResponse.OrderInfo.SalesTaxes
         }
     }
+    const promos = lvr.discounts.split('\n')
+    promos.forEach((item, index) => {
+        orderInfo.CreateOrder.Promos.push(
+            {
+                Type: 0, 
+                Code: item
+            }
+        )
+    })
     const orderResponse = await placeOrder(JSON.stringify(orderInfo)).then(res => res.json())
     if (orderResponse.CreateOrderResponse.Action) {
         const paymentLink = orderResponse.CreateOrderResponse.Action.Url
@@ -145,12 +154,21 @@ async function flow(lvr, volt, listResponse) {
 
         window.open(paymentLink,'_blank');
     }
-    if (!orderResponse.CreateOrderResponse.Action) {
+    if (!orderResponse.CreateOrderResponse) {
+        logger.update.error("Error while creating order")
+    }
+    else if (!orderResponse.ConfirmUserResponse.ListResponse) {
+        logger.update.error("Error while creating order")
+    }
+    else if (!orderResponse.CreateOrderResponse.Action) {
         logger.update.error("Error while creating order")
     }
     if (orderResponse.ErrorDescription) {
         logger.update.error(orderResponse.ErrorDescription)
+
+        return false
     }
+    return true
 }
 
 async function process(lvr, volt) {

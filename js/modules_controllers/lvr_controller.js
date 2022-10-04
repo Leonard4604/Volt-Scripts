@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const min = document.querySelector('.dashboard#luisaviaroma #min_selection')
     const max = document.querySelector('.dashboard#luisaviaroma #max_selection')
     const items = document.querySelector('.dashboard#luisaviaroma #items_selection')
+    const discounts = document.querySelector('.dashboard#luisaviaroma #discounts')
 
     const dashMode = document.querySelector('.item#luisaviaroma .mode')
     const dashDelay = document.querySelector('.item#luisaviaroma .delay')
@@ -23,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
             max.value = luisaviaromaSettings.max = settings.max || ''
             items.value = luisaviaromaSettings.items = settings.items || 1
             luisaviaromaSettings.address = settings.address || false
+            discounts.value = luisaviaromaSettings.discounts = settings.discounts || ''
 
             dashMode.textContent = `Mode: ${settings.mode.toString().charAt(0).toUpperCase() || `Default`}${settings.mode.toString().slice(1)}`
             dashDelay.textContent = `Delay: ${settings.delay.toString().charAt(0).toUpperCase()}${settings.delay.toString().slice(1)}`
@@ -36,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
             max.value = luisaviaromaSettings.max = ''
             items.value = luisaviaromaSettings.items = 1
             luisaviaromaSettings.address = false
+            discounts.value = luisaviaromaSettings.discounts = ''
 
             dashMode.textContent = `Mode: Default`
             dashDelay.textContent = `Delay: Default`
@@ -112,6 +115,13 @@ document.addEventListener('DOMContentLoaded', () => {
             chrome.tabs.sendMessage(tabs[0].id, {luisaviaroma: 'cancelOrder'}, function(response) {
                 console.log(response)
             });
+        });
+    })
+
+    discounts.addEventListener('change', () => {
+        luisaviaromaSettings.discounts = discounts.value
+        chrome.storage.sync.set({
+            'luisaviaroma': JSON.stringify(luisaviaromaSettings)
         });
     })
 })

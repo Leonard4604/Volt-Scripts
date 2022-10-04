@@ -29,7 +29,7 @@ input::-webkit-inner-spin-button {
     grid-auto-flow: row;
     grid-template-areas:
       "settings sizing"
-      "divider items";
+      "divider utils";
 }
 
 .dashboard#luisaviaroma .logo {
@@ -116,21 +116,21 @@ input::-webkit-inner-spin-button {
       "cancel";
 }
 
-.dashboard#luisaviaroma .background#reset {
-    grid-area: reset;
+.dashboard#luisaviaroma .background {
     background: var(--white-color);
     padding: 6px;
-    height: fit-content;
     border-radius: 4px;
 }
 
 .dashboard#luisaviaroma .reset {
+    grid-area: reset;
     cursor: pointer;
     background: var(--blue-color);
-    height: 30px;
     border-radius: 4px;
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 
 .dashboard#luisaviaroma .reset .option {
@@ -156,21 +156,15 @@ input::-webkit-inner-spin-button {
     white-space: nowrap;
 }
 
-.dashboard#luisaviaroma .background#cancel {
-    grid-area: cancel;
-    background: var(--white-color);
-    padding: 6px;
-    height: fit-content;
-    border-radius: 4px;
-}
-
 .dashboard#luisaviaroma .cancel {
+    grid-area: cancel;
     cursor: pointer;
     background: var(--blue-color);
-    height: 30px;
     border-radius: 4px;
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 
 .dashboard#luisaviaroma .cancel .option {
@@ -196,10 +190,28 @@ input::-webkit-inner-spin-button {
     white-space: nowrap;
 }
 
+.dashboard#luisaviaroma .utils {
+    grid-area: utils;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.3fr 1fr;
+    gap: 10px 10px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "items"
+      "discounts";
+}
+
 .dashboard#luisaviaroma .items {
     grid-area: items;
     background-color: var(--white-color);
-    height: fit-content;
+    padding: 6px;
+    border-radius: 4px;
+}
+
+.dashboard#luisaviaroma .discounts {
+    grid-area: discounts;
+    background-color: var(--white-color);
     padding: 6px;
     border-radius: 4px;
 }
