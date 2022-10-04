@@ -58,7 +58,6 @@ const license = {
                     'Authorization': `Bearer ${API_KEY}`
                 }
             }).then(res => res.json());
-            console.log(license)
             return license;
         } catch {
             return false;
@@ -116,7 +115,6 @@ const validate = async (key) => {
     })
 
     const licenseInfo = await license.retrieve(key);
-    console.log(licenseInfo)
     // Prendo l'ultimo hwid nello storage
     const lastHwid = await extractHwid();
 

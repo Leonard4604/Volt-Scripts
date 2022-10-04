@@ -37,7 +37,6 @@ async function process(solebox, volt) {
         csrf_token: csrfToken
     }
     const ratesResponse = await shippingRates(encode(ratesBody)).then(res => res.json())
-    console.log(ratesResponse)
     if (ratesResponse.success) {
         logger.update.success('Submitted shipping rates')
 
@@ -81,7 +80,6 @@ async function process(solebox, volt) {
         shippingBody['csrf_token'] = document.querySelector('div[data-csrf-name="csrf_token"]').getAttribute('data-csrf-token')
 
         const shippingResponse = await submitShipping(checkoutInfo.profileShippingStepData.preferredAddress.ID, encode(shippingBody)).then(res => res.json())
-        console.log(shippingResponse)
         logger.update.success('Shipping submitted')
 
         logger.wait('Submitting payment...')
@@ -96,7 +94,6 @@ async function process(solebox, volt) {
 
             logger.wait('Placing order...')
             const orderResponse = await placeOrder().then(res => res.json())
-            console.log(orderResponse)
             if (orderResponse.error) {
                 logger.update.error(orderResponse.errorMessage)
 

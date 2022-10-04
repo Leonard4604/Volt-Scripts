@@ -64,7 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     stepsDelay.addEventListener('change', () => {
-        console.log(+stepsDelay.value)
         soleboxSettings.stepsDelay = +stepsDelay.value
         chrome.storage.sync.set({
             'solebox': JSON.stringify(soleboxSettings)

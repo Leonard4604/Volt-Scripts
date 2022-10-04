@@ -72,7 +72,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                     cvv: document.querySelector('.profiles #cvv').value
                 }
             }
-            console.log(toSave)
             profiles.push(toSave)
             chrome.storage.sync.set({
                 'profiles': JSON.stringify(profiles, null, 3)

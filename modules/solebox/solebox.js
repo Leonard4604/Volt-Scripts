@@ -1,7 +1,6 @@
 async function process(solebox) {
     logger.wait('Adding to cart...')
     const product = await getProductInfo(solebox.size, solebox.min, solebox.max)
-    console.log(product)
     if (product) {
         const body = {
             pid: product.pid,

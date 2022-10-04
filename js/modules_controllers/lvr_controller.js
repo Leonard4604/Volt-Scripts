@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
             max.value = luisaviaromaSettings.max = settings.max || ''
             items.value = luisaviaromaSettings.items = settings.items || 1
             luisaviaromaSettings.address = settings.address || false
-            discounts.value = luisaviaromaSettings.discounts = settings.discounts || ''
+            discounts.value = luisaviaromaSettings.discounts = settings.discounts.replaceAll(' ', '') || ''
 
             dashMode.textContent = `Mode: ${settings.mode.toString().charAt(0).toUpperCase() || `Default`}${settings.mode.toString().slice(1)}`
             dashDelay.textContent = `Delay: ${settings.delay.toString().charAt(0).toUpperCase()}${settings.delay.toString().slice(1)}`
@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     discounts.addEventListener('change', () => {
-        luisaviaromaSettings.discounts = discounts.value
+        luisaviaromaSettings.discounts = discounts.value.replaceAll(' ', '')
         chrome.storage.sync.set({
             'luisaviaroma': JSON.stringify(luisaviaromaSettings)
         });
