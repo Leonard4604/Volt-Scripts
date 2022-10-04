@@ -109,7 +109,11 @@ async function flow(lvr, volt, listResponse) {
             "SalesTaxes":listResponse.OrderInfo.SalesTaxes
         }
     }
-    const promos = lvr.discounts.split('\n')
+    const promos = lvr.discounts
+        .split('\n')
+        .map((item) => {
+            return item.replaceAll(' ', '')
+        })
     promos.forEach((item, index) => {
         orderInfo.CreateOrder.Promos.push(
             {
