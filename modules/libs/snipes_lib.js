@@ -32,14 +32,18 @@ async function addToCart(body) {
 
 async function getProductInfo(size, min, max) {
     const product = document.querySelectorAll('div[class="b-swatch-value-wrapper"]')
+    const pids = JSON.parse(document.querySelector('.b-find-in-store.js-find-in-store').dataset.storeAvailabilityInfo)
+        .filter((item) => {
+            return item.isAvailableOnline
+        })
     if (size !== 'random' &&  size) {
             let toReturn = false
             product.forEach((item, index) => {
                 if (item.querySelector('a span').getAttribute('class').includes('b-swatch-value--orderable') && 
-                    convert(item.querySelector('a').getAttribute('data-value')) === size) {
+                    convert(item.querySelector('a').dataset.value) === size) {
                     toReturn = {
-                        pid: item.querySelector('a').getAttribute('data-variant-id'),
-                        size: item.querySelector('a').getAttribute('data-value')
+                        pid: pids[index].ID,
+                        size: item.querySelector('a').dataset.value
                     }
                 }
             })
@@ -49,11 +53,11 @@ async function getProductInfo(size, min, max) {
         let toReturn = []
         product.forEach((item, index) => {
             if (item.querySelector('a span').getAttribute('class').includes('b-swatch-value--orderable') && 
-                convert(item.querySelector('a').getAttribute('data-value')) >= min &&
-                convert(item.querySelector('a').getAttribute('data-value')) <= max) {
+                convert(item.querySelector('a').dataset.value) >= min &&
+                convert(item.querySelector('a').dataset.value) <= max) {
                     toReturn.push({
-                    pid: item.querySelector('a').getAttribute('data-variant-id'),
-                    size: item.querySelector('a').getAttribute('data-value')
+                    pid: pids[index].ID,
+                    size: item.querySelector('a').dataset.value
                 })
             }
         })
@@ -66,8 +70,8 @@ async function getProductInfo(size, min, max) {
         product.forEach((item, index) => {
             if (item.querySelector('a span').getAttribute('class').includes('b-swatch-value--orderable')) {
                 toReturn.push({
-                    pid: item.querySelector('a').getAttribute('data-variant-id'),
-                    size: item.querySelector('a').getAttribute('data-value')
+                    pid: pids[index].ID,
+                    size: item.querySelector('a').dataset.value
                 }) 
             }
         })
