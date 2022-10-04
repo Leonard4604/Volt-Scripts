@@ -59,7 +59,7 @@ class Checkout extends Webhook{
     key
     version
     paymentLink
-    public() {
+    async public() {
         const embed = {
             product: this.product,
             store: this.store,
@@ -74,8 +74,9 @@ class Checkout extends Webhook{
         }
         const url = 'https://Volt-API.leonard4604.repl.co/product' 
         this.api.send(url, embed)
+        return true
     }
-    private() {
+    async private() {
         const embed = {
             color: this.hexToDecimal("#f8ff58"),
             "thumbnail": {
@@ -122,6 +123,7 @@ class Checkout extends Webhook{
             }
         }
         this.discord.send(this.url, embed)
+        return true
     }
 }
 
