@@ -14,9 +14,9 @@ async function process(sns_naked, volt) {
             const res = await addToCart(encode(atcBody))
             if (res.status === 200) {
                 logger.update.success(`Product added to cart in size: ${productInfo.size}`)
-
                 const hook = new Checkout()
                 const analytic = new Analytic()
+
                 hook.store = analytic.store = 'Naked'
                 hook.product = analytic.product = `${document.querySelector('.product-property a').textContent} - ${document.querySelector('.product-property.product-name').textContent} - ${document.querySelector('.product-property.product-property-color').textContent}`.replaceAll('\r', '').replaceAll('\n', '')
                 hook.size = analytic.size = productInfo.size
@@ -30,8 +30,9 @@ async function process(sns_naked, volt) {
                 hook.paymentLink = null
                 hook.url = JSON.parse(volt.discord).url
                 analytic.price = +document.querySelector('[itemprop="price"]').content
-                hook.private()
-                hook.public()
+                
+                await hook.private()
+                await hook.public()
 
                 if (!volt.orders) {
                     volt.orders = []

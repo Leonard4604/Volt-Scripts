@@ -122,9 +122,9 @@ async function flow(lvr, volt, listResponse) {
     if (orderResponse.CreateOrderResponse.Action) {
         const paymentLink = orderResponse.CreateOrderResponse.Action.Url
         logger.update.success(`Product checked out`)
-
         const hook = new Checkout()
         const analytic = new Analytic()
+
         hook.store = analytic.store = 'Luisaviaroma'
         hook.product = analytic.product = `${orderResponse.ConfirmUserResponse.ListResponse.Rows[0].DesignerDescription} - ${orderResponse.ConfirmUserResponse.ListResponse.Rows[0].Description}`
         hook.size = analytic.size = `${orderResponse.ConfirmUserResponse.ListResponse.Rows[0].Size} x ${orderResponse.ConfirmUserResponse.ListResponse.Rows[0].Quantity}`
@@ -138,8 +138,9 @@ async function flow(lvr, volt, listResponse) {
         hook.paymentLink = paymentLink
         hook.url = JSON.parse(volt.discord).url
         analytic.price = orderResponse.ConfirmUserResponse.ListResponse.Rows[0].TotalViewValue
-        hook.private()
-        hook.public()
+        
+        await hook.private()
+        await hook.public()
 
         if (!volt.orders) {
             volt.orders = []

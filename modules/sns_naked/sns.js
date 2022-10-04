@@ -15,9 +15,9 @@ async function process(sns_naked, volt) {
             if (res.status === 200) {
                 logger.update.success(`Product added to cart in size: ${productInfo.size}`)
                 const srcSet = document.querySelector('div[class="embed-responsive "]').querySelector('img').srcset.split(',')
-
                 const hook = new Checkout()
                 const analytic = new Analytic()
+                
                 hook.store = analytic.store = 'Sneakersnstuff'
                 hook.product = analytic.product = document.querySelector('#description > div > div > p:nth-child(3)').textContent.replace('- ', '')
                 hook.size = analytic.size = productInfo.size
@@ -31,8 +31,9 @@ async function process(sns_naked, volt) {
                 hook.paymentLink = null
                 hook.url = JSON.parse(volt.discord).url
                 analytic.price = document.querySelector('.price  ').dataset.value
-                hook.private()
-                hook.public()
+                
+                await hook.private()
+                await hook.public()
 
                 if (!volt.orders) {
                     volt.orders = []

@@ -81,13 +81,14 @@ async function process(snipes, volt) {
     if (!orderResponse.error) {
         logger.update.success('Order placed')
         const paymentLink = orderResponse.continueUrl
-
+        const pdp = shippingResponse.order.items.items[0].urls.pdp
         const hook = new Checkout()
         const analytic = new Analytic()
+
         hook.store = analytic.store = 'Snipes'
         hook.product = analytic.product = shippingResponse.order.items.items[0].gtm.name
         hook.size = analytic.size = shippingResponse.order.items.items[0].gtm.variant
-        hook.product_url = `[IT](${shippingResponse.order.items.items[0].urls.pdp})`
+        hook.product_url = `[IT](${pdp})`
         hook.product_image = analytic.image = shippingResponse.order.items.items[0].images[0].pdp.srcTRetina
         hook.pid = shippingResponse.order.items.items[0].id
         hook.date = getDate()
@@ -97,8 +98,9 @@ async function process(snipes, volt) {
         hook.paymentLink = paymentLink
         hook.url = JSON.parse(volt.discord).url
         analytic.price = shippingResponse.order.items.items[0].gtm.price
-        hook.private()
-        hook.public()
+        
+        await hook.private()
+        await hook.public()
 
         if (!volt.orders) {
             volt.orders = []
@@ -112,6 +114,7 @@ async function process(snipes, volt) {
         });
 
         window.open(paymentLink,'_blank');
+        window.open(pdp,'_blank')
 
         return true
     }

@@ -110,9 +110,9 @@ async function process(solebox, volt) {
             if (!orderResponse.error) {
                 logger.update.success('Order placed')
                 const paymentLink = orderResponse.continueUrl
-
                 const hook = new Checkout()
                 const analytic = new Analytic()
+                
                 hook.store = analytic.store = 'Solebox'
                 hook.product = analytic.product = shippingResponse.order.items.items[0].gtm.name
                 hook.size = analytic.size = shippingResponse.order.items.items[0].gtm.variant
@@ -126,8 +126,9 @@ async function process(solebox, volt) {
                 hook.paymentLink = paymentLink
                 hook.url = JSON.parse(volt.discord).url
                 analytic.price = shippingResponse.order.items.items[0].gtm.price
-                hook.private()
-                hook.public()
+                
+                await hook.private()
+                await hook.public()
 
                 if (!volt.orders) {
                     volt.orders = []
