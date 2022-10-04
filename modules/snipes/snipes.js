@@ -19,6 +19,11 @@ async function process(snipes) {
         if (!result.error) {
             logger.update.success(`Product added to cart in size: ${result.gtm.variant}`)
         }
+        else if (result.error) {
+            logger.update.error(result.message)
+            
+            return false
+        }
         window.open('https://www.snipes.it/checkout?stage=placeOrder#placeOrder','_blank');
         return true
     }
