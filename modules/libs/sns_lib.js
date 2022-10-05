@@ -7,23 +7,6 @@ async function extractStorage() {
     })
 }
 
-async function getToken() {
-    return new Promise(resolve => {
-        try {
-            let delayInterval = setInterval(function() {
-                const token = document.querySelector('[name="g-recaptcha-response"]').value
-                if (token !== '') {
-                    clearInterval(delayInterval)
-                    resolve(token)
-                }
-            }, 100)
-        }
-        catch {
-
-        }
-    })
-}
-
 async function getProductInfo(size, min, max) {
     const product = document.querySelectorAll('#product-size option')
     if (size !== 'random' &&  size) {
