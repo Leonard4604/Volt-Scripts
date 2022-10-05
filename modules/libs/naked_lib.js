@@ -8,6 +8,10 @@ async function extractStorage() {
 }
 
 async function getProductInfo(size, min, max) {
+    document.querySelectorAll('.dropdown-menu.dropdown-select a')
+        .forEach((item) => {
+            item.querySelector('.sold-out-label').remove()
+        })
     const product = document.querySelectorAll('.dropdown-menu.dropdown-select a')
     if (size !== 'random' &&  size) {
         let toReturn = false
@@ -17,7 +21,7 @@ async function getProductInfo(size, min, max) {
                     if (item.dataset.target === "#product-form-select") {
                         toReturn = {
                             pid: item.dataset.value,
-                            size: convert(item.textContent)
+                            size: item.textContent
                         }
                     }
                 }
@@ -28,13 +32,12 @@ async function getProductInfo(size, min, max) {
     if (size === 'random' && min && max) {
         let toReturn = []
         product.forEach((item, index) => {
-            console.log()
             if (convert(item.textContent) >= min && convert(item.textContent) <= max) {
                 if (item.dataset.target === "#product-form-select") {
                     if (!item.className.includes('disabled')) {
                         toReturn.push({
                             pid: item.dataset.value,
-                            size: convert(item.textContent)
+                            size: item.textContent
                         })
                     }
                 }
@@ -52,7 +55,7 @@ async function getProductInfo(size, min, max) {
                     if (!item.className.includes('disabled')) {
                         toReturn.push({
                             pid: item.dataset.value,
-                            size: convert(item.textContent)
+                            size: item.textContent
                         }) 
                     }
                 }   
@@ -69,7 +72,7 @@ async function getProductInfo(size, min, max) {
     return false
 }
 
-async function addToCart(body) {
+async function addToCart(body, token) {
     return fetch("https://www.nakedcph.com/en/cart/add", {
         "headers": {
           "accept": "*/*",
@@ -81,7 +84,7 @@ async function addToCart(body) {
           "sec-fetch-dest": "empty",
           "sec-fetch-mode": "cors",
           "sec-fetch-site": "same-origin",
-          "x-anticsrftoken": "76141d83a67e465fb90788ccd863bd82",
+          "x-anticsrftoken": token,
           "x-requested-with": "XMLHttpRequest"
         },
         "referrer": window.location.href,
