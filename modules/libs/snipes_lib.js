@@ -32,17 +32,13 @@ async function addToCart(body) {
 
 async function getProductInfo(size, min, max) {
     const product = document.querySelectorAll('div[class="b-swatch-value-wrapper"]')
-    const pids = JSON.parse(document.querySelector('.b-find-in-store.js-find-in-store').dataset.storeAvailabilityInfo)
-        .filter((item) => {
-            return item.isAvailableOnline
-        })
     if (size !== 'random' &&  size) {
             let toReturn = false
             product.forEach((item, index) => {
                 if (item.querySelector('a span').getAttribute('class').includes('b-swatch-value--orderable') && 
                     convert(item.querySelector('a').dataset.value) === size) {
                     toReturn = {
-                        pid: pids[index].ID,
+                        pid: item.querySelector('a').dataset.variantId,
                         size: item.querySelector('a').dataset.value
                     }
                 }
@@ -56,7 +52,7 @@ async function getProductInfo(size, min, max) {
                 convert(item.querySelector('a').dataset.value) >= min &&
                 convert(item.querySelector('a').dataset.value) <= max) {
                     toReturn.push({
-                    pid: pids[index].ID,
+                    pid: item.querySelector('a').dataset.variantId,
                     size: item.querySelector('a').dataset.value
                 })
             }
@@ -70,7 +66,7 @@ async function getProductInfo(size, min, max) {
         product.forEach((item, index) => {
             if (item.querySelector('a span').getAttribute('class').includes('b-swatch-value--orderable')) {
                 toReturn.push({
-                    pid: pids[index].ID,
+                    pid: item.querySelector('a').dataset.variantId,
                     size: item.querySelector('a').dataset.value
                 }) 
             }
