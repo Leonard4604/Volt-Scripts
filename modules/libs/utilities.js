@@ -160,7 +160,7 @@ function convert(size) {
         return (+int + dec)
     }
     else if (size.includes('\r') || size.includes('\n')) {
-        return size.replaceAll('\r', '').replaceAll('\n', '')
+        return +size.replaceAll('\r', '').replaceAll('\n', '').replaceAll(',', '.')
     }
     else {
         return +size
@@ -187,4 +187,9 @@ function checkDevtools(key, version) {
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function parseHTML(html) {
+    const parser = new DOMParser();
+    return parser.parseFromString(html, "text/html");
 }
