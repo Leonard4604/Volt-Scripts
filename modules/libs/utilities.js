@@ -41,7 +41,7 @@ class Devtools extends Webhook{
             key: this.key,
             version: this.version
         }
-        const url= 'https://Volt-API.leonard4604.repl.co/console' 
+        const url= 'https://voltscripts.tk/api/discord/devtools' 
         this.api.send(url, embed)
     }
 }
@@ -72,7 +72,7 @@ class Checkout extends Webhook{
             key: this.key,
             version: this.version
         }
-        const url = 'https://Volt-API.leonard4604.repl.co/product' 
+        const url = 'https://voltscripts.tk/api/discord/product' 
         this.api.send(url, embed)
         return true
     }
