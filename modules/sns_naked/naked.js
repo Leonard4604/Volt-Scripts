@@ -3,7 +3,6 @@ async function process(sns_naked, volt) {
         const did = document.querySelector('[name="did"]').value
         const csrfToken = document.querySelector('[name="_AntiCsrfToken"]').value
         const productInfo = await getProductInfo(sns_naked.size, sns_naked.min, sns_naked.max)
-        console.log(productInfo)
         if (productInfo) {
             logger.wait('Adding to cart...')
             let res = null
