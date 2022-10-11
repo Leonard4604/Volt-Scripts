@@ -8,38 +8,32 @@ async function extractStorage() {
 }
 
 async function getProductInfo(size, min, max) {
-    document.querySelectorAll('.dropdown-menu.dropdown-select a')
-        .forEach((item) => {
-            item.querySelector('.sold-out-label').remove()
-        })
     const product = document.querySelectorAll('.dropdown-menu.dropdown-select a')
     if (size !== 'random' &&  size) {
         let toReturn = false
         product.forEach(function(item, index) {
-            if (size === convert(item.textContent)) {
-                if (!item.className.includes('disabled')) {
-                    if (item.dataset.target === "#product-form-select") {
-                        toReturn = {
-                            pid: item.dataset.value,
-                            size: item.textContent
-                        }
+            if (item.dataset.target === '#product-form-select' && !item.className.includes('disabled')) {
+                if (convert(item.textContent) === size) {
+                    toReturn = {
+                        pid: item.dataset.value,
+                        size: '' + convert(item.textContent)
                     }
                 }
             }
         })
-        return toReturn
+        if (toReturn) {
+            return toReturn
+        }
     }
     if (size === 'random' && min && max) {
         let toReturn = []
-        product.forEach((item, index) => {
-            if (convert(item.textContent) >= min && convert(item.textContent) <= max) {
-                if (item.dataset.target === "#product-form-select") {
-                    if (!item.className.includes('disabled')) {
-                        toReturn.push({
-                            pid: item.dataset.value,
-                            size: item.textContent
-                        })
-                    }
+        product.forEach(function(item, index) {
+            if (item.dataset.target === '#product-form-select' && !item.className.includes('disabled')) {
+                if (convert(item.textContent) >= min && convert(item.textContent) <= max) {
+                    toReturn.push({
+                        pid: item.dataset.value,
+                        size: '' + convert(item.textContent)
+                    })
                 }
             }
         })
@@ -49,16 +43,12 @@ async function getProductInfo(size, min, max) {
     }
     if (size === 'random' && (!min || !max)) {
         let toReturn = []
-        product.forEach((item, index) => {
-            if (item.value) {
-                if (item.dataset.target === "#product-form-select") {
-                    if (!item.className.includes('disabled')) {
-                        toReturn.push({
-                            pid: item.dataset.value,
-                            size: item.textContent
-                        }) 
-                    }
-                }   
+        product.forEach(function(item, index) {
+            if (item.dataset.target === '#product-form-select' && !item.className.includes('disabled')) {
+                toReturn.push({
+                    pid: item.dataset.value,
+                    size: '' + convert(item.textContent)
+                })
             }
         })
         if (toReturn) {

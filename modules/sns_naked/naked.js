@@ -3,6 +3,7 @@ async function process(sns_naked, volt) {
         const did = document.querySelector('[name="did"]').value
         const csrfToken = document.querySelector('[name="_AntiCsrfToken"]').value
         const productInfo = await getProductInfo(sns_naked.size, sns_naked.min, sns_naked.max)
+        console.log(productInfo)
         if (productInfo) {
             logger.wait('Adding to cart...')
             let res = null
@@ -63,7 +64,7 @@ async function process(sns_naked, volt) {
             const analytic = new Analytic()
 
             hook.store = analytic.store = 'Naked'
-            hook.product = analytic.product = product.display_product_name.replace('-', '').trim()
+            hook.product = analytic.product = `${product.brand} - ${product.family_name} - ${product.color}`
             hook.size = analytic.size = productInfo.size
             hook.product_url = `[Link](${product.display_product_url})`
             hook.product_image = analytic.image = `https://Volt-Image-Proxy.leonard4604.repl.co/proxy?url=${document.querySelector('.image-wrapper.card-img-top.embed-responsive.embed-responsive-lazyload img').src}`
