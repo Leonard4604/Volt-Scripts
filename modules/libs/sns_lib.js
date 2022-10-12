@@ -55,7 +55,11 @@ async function getProductInfo(size, min, max) {
     }
     if (size !== 'random' && (!min || !max)) {
         logger.update.error('Error in size selection')
-        return 'error'
+        return false
+    }
+    if (size !== 'random' && (min || max)) {
+        logger.update.error('Error in size selection')
+        return false
     }
     return false
 }

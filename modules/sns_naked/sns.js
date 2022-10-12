@@ -1,5 +1,10 @@
 async function process(sns_naked, volt) {
     try {
+        if (!document.querySelector('[name="did"]')) {
+            logger.update.error('Product not available')
+
+            return false
+        }
         const did = document.querySelector('[name="did"]').value
         const productInfo = await getProductInfo(sns_naked.size, sns_naked.min, sns_naked.max)
         if (productInfo) {

@@ -75,6 +75,14 @@ async function getProductInfo(size, min, max) {
             return toReturn[Math.floor(Math.random() * toReturn.length)]
         }
     }
+    if (size !== 'random' && (!min || !max)) {
+        logger.update.error('Error in size selection')
+        return false
+    }
+    if (size !== 'random' && (min || max)) {
+        logger.update.error('Error in size selection')
+        return false
+    }
     return false
 }
 

@@ -184,7 +184,7 @@ async function process(lvr, volt) {
         logger.wait('Monitoring product...')
         product = await restock(lvr.size, lvr.min, lvr.max, lvr.delay)
     }
-    if (product && product !== 'error') {
+    if (product) {
         const body = {
             SeasonId: product.seasonId,
             CollectionId: product.collectionId,
