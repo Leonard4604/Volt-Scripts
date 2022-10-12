@@ -205,3 +205,53 @@ async function placeOrder() {
         "credentials": "include"
     });
 }
+
+async function checkATC(body, delay) {
+    const resATC = await addToCart(body)
+        .then(res => {
+            if (!res.ok) {
+                throw(res)
+            }
+            return res
+        })
+        .then(res => {
+            return res.json()
+        })
+        .catch(err => {
+            return err
+        })
+        
+    if (resATC.status === 429) {
+        return false
+    }
+    if (!resATC.error) {
+        return resATC
+    }
+
+    logger.update.error('Product not released or OOS')
+    logger.wait('Monitoring...')
+    await sleep(delay)
+    while(true) {
+        const resATC = await addToCart(body)
+            .then(res => {
+                if (!res.ok) {
+                    throw(res)
+                }
+                return res
+            })
+            .then(res => {
+                return res.json()
+            })
+            .catch(err => {
+                return err
+            })
+            
+        if (resATC.status === 429) {
+            return false
+        }
+        if (!resATC.error) {
+            return resATC
+        }
+        await sleep(delay)
+    }
+}
