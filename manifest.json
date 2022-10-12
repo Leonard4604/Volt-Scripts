@@ -3,7 +3,7 @@
 
     "name": "Volt Scripts",
     "description": "Volt Scripts",
-    "version": "1.4.3",
+    "version": "1.5.0",
     "icons": {
         "16": "./images/logo.png",
         "32": "./images/logo.png",
