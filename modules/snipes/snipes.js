@@ -12,20 +12,24 @@ async function process(snipes) {
             ],
             quantity: 1
         }
-        const result = await addToCart(encode(body))
-            .then(res => 
-                res.json()
-            )
-        if (!result.error) {
-            logger.update.success(`Product added to cart in size: ${result.gtm.variant}`)
-        }
-        else if (result.error) {
-            logger.update.error(result.message)
+        const result = await checkATC(encode(body), snipes.delay)
+        if (!result) {
+            logger.update.error('Too much requests')
             
             return false
         }
-        window.open('https://www.snipes.it/checkout?stage=placeOrder#placeOrder','_blank');
-        return true
+        if (result) {
+            if (!result.error) {
+                logger.update.success(`Product added to cart in size: ${result.gtm.variant}`)
+            }
+            else if (result.error) {
+                logger.update.error(result.message)
+                
+                return false
+            }
+            window.open('https://www.snipes.it/checkout?stage=placeOrder#placeOrder','_blank');
+            return true
+        }
     }
     if (!product) {
         logger.update.error('Product not available')
