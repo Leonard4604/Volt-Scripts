@@ -1,8 +1,13 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     let key = document.querySelector('#key')
     chrome.storage.sync.get(null, function (store) {
         key.value = store.key || ''
     })
+
+    const license = await extractLicense()
+    if (license) {
+        await validate(license)
+    }
 
     document.querySelector('#bind').addEventListener('click', async () => {
         const key = document.querySelector('#key').value.replaceAll(' ', '')
@@ -120,6 +125,7 @@ const validate = async (key) => {
 
     if ((!licenseInfo) || (licenseInfo.status === "canceled")) {
         alert('License not found')
+        chrome.storage.sync.set({ 'active': false });
         return false
     }
     if (licenseInfo) {
@@ -159,5 +165,13 @@ const version = () => {
         }
         sendResponse({status: 'received'})
         return true;
+    })
+}
+
+const extractLicense = async () => {
+    return new Promise((resolve) => {
+        chrome.storage.sync.get(null, function(store) {
+            resolve(store.key || false)
+        })
     })
 }

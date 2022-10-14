@@ -3,7 +3,7 @@
 
     "name": "Volt Scripts",
     "description": "Volt Scripts",
-    "version": "1.5.0",
+    "version": "1.5.1",
     "icons": {
         "16": "./images/logo.png",
         "32": "./images/logo.png",
@@ -79,7 +79,7 @@
                 "https://www.sneakersnstuff.com/product/*",
                 "https://www.sneakersnstuff.com/*/product/*"
             ],   
-            "js": ["./modules/libs/logger/logger.js", "./modules/libs/utilities.js", "./modules/libs/sns_lib.js", "./modules/sns_naked/invisible_recaptcha.js", "./modules/sns_naked/sns.js"],
+            "js": ["./modules/libs/logger/logger.js", "./modules/libs/utilities.js", "./modules/libs/sns_lib.js", "./modules/libs/captcha/invisible_recaptcha.js", "./modules/sns_naked/sns.js"],
             "css": ["./modules/libs/logger/logger.css"],
             "all_frames": true
         },
@@ -88,7 +88,7 @@
                 "https://www.nakedcph.com/product/*",
                 "https://www.nakedcph.com/*/product/*"
             ],   
-            "js": ["./modules/libs/logger/logger.js", "./modules/libs/utilities.js", "./modules/libs/naked_lib.js", "./modules/sns_naked/invisible_recaptcha.js", "./modules/sns_naked/naked.js"],
+            "js": ["./modules/libs/logger/logger.js", "./modules/libs/utilities.js", "./modules/libs/naked_lib.js", "./modules/libs/captcha/invisible_recaptcha.js", "./modules/sns_naked/naked.js"],
             "css": ["./modules/libs/logger/logger.css"],
             "all_frames": true
         },
