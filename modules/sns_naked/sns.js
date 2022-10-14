@@ -11,6 +11,7 @@ async function process(sns_naked, volt) {
             logger.wait('Adding to cart...')
             let res = null
             if (document.querySelector('.g-recaptcha') !== null) {
+                await triggerCaptcha()
                 const token = await getToken().catch(err => console.log(err))
                 res = await addToCart.captcha(did, token, productInfo.pid)
                 .then(res => res.text())

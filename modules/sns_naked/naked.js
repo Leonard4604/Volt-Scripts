@@ -12,6 +12,7 @@ async function process(sns_naked, volt) {
             logger.wait('Adding to cart...')
             let res = null
             if (document.querySelector('.g-recaptcha') !== null) {
+                await triggerCaptcha()
                 const recaptchaToken = await getToken().catch(err => console.log(err))
 
                 const atcBody = {
