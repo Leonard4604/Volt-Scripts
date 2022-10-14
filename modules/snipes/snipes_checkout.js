@@ -114,6 +114,7 @@ async function process(snipes, volt) {
         });
 
         window.open(paymentLink,'_blank');
+        window.open(pdp,'_blank')
 
         return true
     }
