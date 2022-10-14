@@ -129,6 +129,7 @@ async function deleteOrder(e){
                     }
                 })
                 object.remove()
+                window.location.reload();
             }
         })
     }
