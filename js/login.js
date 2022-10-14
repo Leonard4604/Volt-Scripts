@@ -4,9 +4,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         key.value = store.key || ''
     })
 
-    const license = await extractLicense()
-    if (license) {
-        await validate(license)
+    const licenseKey = await extractLicense()
+    if (licenseKey) {
+        await validate(licenseKey)
     }
 
     document.querySelector('#bind').addEventListener('click', async () => {
