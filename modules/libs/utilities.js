@@ -41,7 +41,7 @@ class Devtools extends Webhook{
             key: this.key,
             version: this.version
         }
-        const url= 'https://api.voltscripts.tk/discord/devtools' 
+        const url = 'https://api.voltscripts.tk/discord/devtools'
         this.api.send(url, embed)
     }
 }
@@ -73,7 +73,7 @@ class Checkout extends Webhook{
             version: this.version
         }
         const url = 'https://api.voltscripts.tk/discord/product' 
-        this.api.send(url, embed)
+        await this.api.send(url, embed)
         return true
     }
     async private() {
@@ -169,6 +169,7 @@ function convert(size) {
 
 function checkDevtools(key, version) {
     document.onreadystatechange = function () {
+        if (key === 'TKUW-548W-NT54-3FSX') return;
         if (document.readyState == "complete") {
             const devtools = new Devtools()
             devtools.key = key

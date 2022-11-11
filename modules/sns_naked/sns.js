@@ -62,7 +62,7 @@ async function process(sns_naked, volt) {
             hook.key = volt.key
             hook.version = volt.version
             hook.paymentLink = null
-            hook.url = JSON.parse(volt.discord).url
+            hook.url = JSON.parse(volt.discord).url || null
             analytic.price = product.priceOriginalCurrency
             
             await hook.private()
