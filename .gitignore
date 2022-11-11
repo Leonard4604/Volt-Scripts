@@ -765,3 +765,7 @@ cython_debug/
 # https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij
 
 # End of https://www.toptal.com/developers/gitignore/api/jetbrains,webstorm,pycharm,goland,intellij,node,go,python,java
+/.idea/.gitignore
+/.idea/modules.xml
+/.idea/Projects.iml
+/.idea/vcs.xml
