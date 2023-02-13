@@ -111,8 +111,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 async function deleteOrder(e){
     e = e || window.event;
+    if (!e.path) return false;
     const buttonClass = e.path[1].className;
     const cardId = e.path[2].id;
+    console.log(e.path) // To be tested
 
     if (buttonClass === 'delete')
     {
