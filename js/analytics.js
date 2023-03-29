@@ -111,12 +111,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 async function deleteOrder(e){
     e = e || window.event;
-    if (!e.path) return false;
-    const buttonClass = e.path[1].className;
-    const cardId = e.path[2].id;
+    if (!e.target.id) return false;
+    const buttonId = e.target.attributes[1].value;
+    const cardId = e.target.parentNode.parentElement.attributes[1].nodeValue;
     console.log(e.path) // To be tested
 
-    if (buttonClass === 'delete')
+    if (buttonId === 'delete')
     {
         const cards = document.querySelectorAll('.analytics .orders .card')
         let checkouts = await extractStorage()
