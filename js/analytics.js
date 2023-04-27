@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 async function deleteOrder(e){
     e = e || window.event;
     if (!e.target.id) return false;
-    const buttonId = e.target.attributes[1].value;
+    const buttonId = e.target.id;
     const cardId = e.target.parentNode.parentElement.attributes[1].nodeValue;
     console.log(e.path) // To be tested
 
