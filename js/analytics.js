@@ -113,11 +113,10 @@ async function deleteOrder(e){
     e = e || window.event;
     if (!e.target.id) return false;
     const buttonId = e.target.id;
-    const cardId = e.target.parentNode.parentElement.attributes[1].nodeValue;
-    console.log(e.path) // To be tested
 
     if (buttonId === 'delete')
     {
+        const cardId = e.target.parentNode.parentElement.attributes[1].nodeValue;
         const cards = document.querySelectorAll('.analytics .orders .card')
         let checkouts = await extractStorage()
         cards.forEach((object) => {
